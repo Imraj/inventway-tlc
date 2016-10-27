@@ -21,4 +21,4 @@ CarSchema.pre("save",function(next){
 
 });
 
-module.exports = mongoose.model("Car",CarSchema);
+mongoose.model("Car",CarSchema);
