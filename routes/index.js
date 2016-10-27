@@ -116,7 +116,7 @@ router.post('/register',function(req,res,next){
       if(err)return next(err);
 
       //return res.status('200').json({success:true});
-      return res.redirect('/').json({success:true,isAuthenticated:true,token:user.generateJWT()});
+      return res.redirect('/').json({token:user.generateJWT()});
   });
 
 });

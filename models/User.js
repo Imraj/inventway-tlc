@@ -48,7 +48,6 @@ UserSchema.methods.generateJWT = function(){
     first_name:this.first_name,
     last_name:this.last_name,
     email:this.email,
-    accountType:this.accountType,
     exp:parseInt(exp.getTime()/1000)
   },'SECRET');
 
