@@ -11,6 +11,8 @@ var users = require('./routes/users');
 var passport = require('passport');
 
 require('./models/User');
+require('./models/Car');
+require('./models/Partner');
 require('./config/passport');
 
 var app = express();

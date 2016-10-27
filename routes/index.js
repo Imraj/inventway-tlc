@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var User = mongoose.model("User");
+var Car = mongoose.model("Car");
+var Partner = mongoose.model("Partner");
 
 var passport = require('passport');
 
@@ -114,5 +116,10 @@ router.post('/register',function(req,res,next){
   });
 
 });
+
+router.get('/profile',function(req,res,next){
+    res.render('profile',{title:"My Profile"})
+});
+
 
 module.exports = router;
