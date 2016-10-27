@@ -4,12 +4,19 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var passport = require('passport');
+
+require('./models/User');
+require('./config/passport');
 
 var app = express();
 
+mongoose.connect("mongodb://mhadiab:mhadiab85@app-tlc-318.mongo.dbs.appsdeck.eu:30245/app-tlc-318");
+//mongodb://<user>:<password>@app-tlc-318.mongo.dbs.appsdeck.eu:30245/app-tlc-318
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -20,6 +27,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
