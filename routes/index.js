@@ -115,7 +115,8 @@ router.post('/register',function(req,res,next){
   user.save(function(err,user){
       if(err)return next(err);
 
-      return res.status('200').json({success:true});
+      //return res.status('200').json({success:true});
+      return res.redirect('/').json({success:true,isAuthenticated:true,token:user.generateJWT()});
   });
 
 });

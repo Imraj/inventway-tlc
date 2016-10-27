@@ -17,8 +17,13 @@
               <li><a href="need_partner">Need a Partner</a></li>
             </ul>
           </li>
-          <li><a href="register">Register</a></li>
-          <li><a href="login">Login</a></li>
+          <% if(isAuthenticated != true) {
+            <li><a href="register">Register</a></li>
+            <li><a href="login">Login</a></li>
+          <% } %>
+          <% if(isAuthenticated == true) {
+            <li><a href="">email address</a></li>
+          <% } %>
           <li><a href="about">About</a></li>
           <li><a href="contact">Contact</a></li>
           <li><a href="blog">Blog</a></li>
