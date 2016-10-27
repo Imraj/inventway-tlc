@@ -21,4 +21,4 @@ PartnerSchema.pre("save",function(next){
 
 });
 
-module.exports = mongoose.model("Partner",PartnerSchema);
+mongoose.model("Partner",PartnerSchema);
