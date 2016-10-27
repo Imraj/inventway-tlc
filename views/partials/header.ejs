@@ -17,13 +17,14 @@
               <li><a href="need_partner">Need a Partner</a></li>
             </ul>
           </li>
-          <% if(!locals.isAuthenticated) { %>
-            <li><a href="register">Register</a></li>
-            <li><a href="login">Login</a></li>
+
+          <li><a href="register">Register</a></li>
+          <li><a href="login">Login</a></li>
+
+          <% if(locals.token) { %>
+            <%- JSON.stringify(token) %>
           <% } %>
-          <% if(locals.isAuthenticated) { %>
-            <li><a href="">email address</a></li>
-          <% } %>
+
           <li><a href="about">About</a></li>
           <li><a href="contact">Contact</a></li>
           <li><a href="blog">Blog</a></li>
