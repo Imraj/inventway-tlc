@@ -13,7 +13,7 @@ var CarSchema = mongoose.Schema({
 
 CarSchema.pre("save",function(next){
 
-  now = Date.now;
+  now = new Date();
   if(!this.createdAt){
     this.createdAt = now;
   }
@@ -21,4 +21,4 @@ CarSchema.pre("save",function(next){
 
 });
 
-mongoose.model("Car",CarSchema);
+module.exports = mongoose.model("Car",CarSchema);

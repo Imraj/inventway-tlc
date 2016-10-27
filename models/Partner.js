@@ -13,7 +13,7 @@ var PartnerSchema = mongoose.Schema({
 
 PartnerSchema.pre("save",function(next){
 
-  now = Date.now;
+  now = new Date();
   if(!this.createdAt){
     this.createdAt = now;
   }
@@ -21,4 +21,4 @@ PartnerSchema.pre("save",function(next){
 
 });
 
-mongoose.model("Partner",PartnerSchema);
+module.exports = mongoose.model("Partner",PartnerSchema);
