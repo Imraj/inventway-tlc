@@ -14,8 +14,55 @@ router.get('/need_car',function(req,res,next){
   res.render('need_car',{title:"Need a car"})
 });
 
+router.post('/car',function(req,res,next){
+
+    var shift = req.body.shift;
+    var location = req.body.location;
+    var zip_code = req.body.zip_code;
+    var experience = req.body.experience;
+    var createdBy = req.body.createdBy;
+
+    var car = new Car({
+      shift:shift,
+      location:location,
+      zip_code:zip_code,
+      experience:experience,
+      createdBy:createdBy
+    });
+
+    car.save(function(err,car){
+        if(err)return next(err);
+
+        return res.status('200').json({success:true});
+    });
+
+});
+
 router.get('/need_partner',function(req,res,next){
   res.render('need_partner',{title:"Need a partner"})
+});
+
+router.post('/partner',function(req,res,next){
+
+  var shift = req.body.shift;
+  var location = req.body.location;
+  var zip_code = req.body.zip_code;
+  var experience = req.body.experience;
+  var createdBy = req.body.createdBy;
+
+  var partner = new Partner({
+    shift:shift,
+    location:location,
+    zip_code:zip_code,
+    experience:experience,
+    createdBy:createdBy
+  });
+
+  partner.save(function(err,car){
+      if(err)return next(err);
+      return res.status('200').json({success:true});
+  });
+
 });
 
 router.get('/contact',function(req,res,next){
