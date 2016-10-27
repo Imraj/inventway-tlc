@@ -17,11 +17,11 @@
               <li><a href="need_partner">Need a Partner</a></li>
             </ul>
           </li>
-          <% if(!isAuthenticated) { %>
+          <% if(!locals.isAuthenticated) { %>
             <li><a href="register">Register</a></li>
             <li><a href="login">Login</a></li>
           <% } %>
-          <% if(isAuthenticated) { %>
+          <% if(locals.isAuthenticated) { %>
             <li><a href="">email address</a></li>
           <% } %>
           <li><a href="about">About</a></li>
