@@ -64,9 +64,17 @@
 
 		<div id="fh5co-about-section">
 			<div class="container">
+
+        <div class="row">
+          <div class="col-md-12">
+              <div class="col-md-8 col-md-offset-2">
+                  Added by
+              </div>
+          </div>
+        </div>
+
 				<div class="row">
 					<div class="col-md-12">
-              
               <div class="col-md-8 col-md-offset-2">
                   <div class="col-md-2">
                       <img src="<%= car.image? car.image : '' %>" />
@@ -74,7 +82,7 @@
                   <div class="col-md-6">
                       <h2> Model :  <%= car.model %>  </h2>
                       <h3> Year :  <%= car.year %>  </h3>
-                      <h3> Shift :  <%= car.year %>  </h3>
+                      <h3> Shift :  <%= car.shift %>  </h3>
                       <div class="col-md-12">
                           <h3 class="col-md-6">ZipCode : <%= car.zip_code %> </h3>
                           <h3 class="col-md-6">Location : <%= car.location %> </h3>
