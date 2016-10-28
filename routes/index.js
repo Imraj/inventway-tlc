@@ -188,31 +188,58 @@ router.get('/inbox',function(req,res,next){
 
 router.get("/cars",function(req,res,next){
 
-  Car.find({},function(err,cars){
-      if(err)return next(err);
+  if(req.session.valid)
+  {
+    Car.find({},function(err,cars){
+        if(err)return next(err);
 
-      res.render('cars',{title:'All cars',cars : cars });
-  });
+        res.render('cars',{title:'All cars',cars : cars,session:req.session });
+    });
+  }
+  else
+  {
+    res.redirect('login');
+  }
+
+
 
 });
 
 router.get("/partners",function(req,res,next){
 
-  Partner.find({},function(err,partner){
-    if(err)return next(err);
+  if(req.session.valid)
+  {
+    Partner.find({},function(err,partner){
+      if(err)return next(err);
 
-    res.render('cars',{title:'All partners',partners : partners });
-  })
+      res.render('cars',{title:'All partners',partners : partners });
+    });
+  }
+  else{
+      res.redirect('login');
+  }
 
 });
 
 router.get('/inbox',function(req,res,next){
-    res.render('inbox',{title:'Inbox'});
+  if(req.session.valid){
+      res.render('inbox',{title:'Inbox',session:req.session});
+  }
+  else{
+      res.redirect('login');
+  }
+
 });
 
 router.get('inbox/:userid',function(req,res,next){
 
   var userId = req.body.userId;
+  if(req.session.valid)
+  {
+
+  }
+
+
 
 
 });
