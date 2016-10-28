@@ -23,7 +23,7 @@
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<meta name="twitter:partnerd" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -70,16 +70,17 @@
 
 		          <% partners.forEach(function(partner){ %>
 
-							<div class="col-md-4 text-center">
-								<div class="about-wrap">
-									<div class="desc">
-										<h3>Eloisa Doe</h3>
-										<p class="pos">CEO, Developer</p>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
-
+								<div class="col-md-4 text-center">
+									<div class="about-wrap">
+										<div class="desc">
+											<h3><%= partner.location%></h3>
+											<h3><%= partner.zip_code%></h3>
+											<p class="pos"><%= partner.shift %></p>
+											<a href="/partners/<%= partner._id %>">View Details</a>
+											<a href="/partners/<%= partner._id %>/<%= partner.createdBy %>">Contact</a>
+										</div>
 									</div>
 								</div>
-							</div>
 
 		          <% }) %>
 
