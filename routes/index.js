@@ -40,12 +40,16 @@ router.post('/car',function(req,res,next){
     var zip_code = req.body.zip_code;
     var experience = req.body.experience;
     var createdBy = req.session.user_id;
+    var model = req.body.car_model;
+    var year =  req.body.car_year;
 
     var car = new Car({
       shift:shift,
       location:location,
       zip_code:zip_code,
       experience:experience,
+      model:model,
+      year:year,
       createdBy:createdBy
     });
 
@@ -75,12 +79,16 @@ router.post('/partner',function(req,res,next){
   var zip_code = req.body.zip_code;
   var experience = req.body.experience;
   var createdBy = req.session.user_id;
+  var model = req.body.car_model;
+  var year = req.body.car_year;
 
   var partner = new Partner({
     shift:shift,
     location:location,
     zip_code:zip_code,
     experience:experience,
+    model:model,
+    year:year,
     createdBy:createdBy
   });
 
@@ -127,7 +135,7 @@ router.post('/login',function(req,res,next){
 
 });
 
-router.post("/login",function(req,res,next){
+router.post("/logout",function(req,res,next){
 
   req.session.destroy();
   res.redirect('index');
