@@ -18,11 +18,11 @@
             </ul>
           </li>
 
-          <%= JSON.stringify(locals) %>
 
-          <% if(locals.user){ %>
+
+          <% if(session.valid){ %>
              <li>
-               <a href="#"><%= user.email %></a>
+               <a href="#"><%= session.email %></a>
                <ul class="fh5co-sub-menu">
                 <li><a href="profile">Profile</a></li>
                 <li><a href="contact">Help</a></li>
@@ -31,7 +31,7 @@
              </li>
           <% } %>
 
-          <% if(!locals.user){ %>
+          <% if(!session.valid){ %>
             <li><a href="register">Register</a></li>
             <li><a href="login">Login</a></li>
             <li><a href="about">About</a></li>
