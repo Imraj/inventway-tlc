@@ -240,12 +240,13 @@ router.get("/cars",function(req,res,next){
 
 router.get("/cars/:car",function(req,res,next){
 
-  var carId = req.param(car);
+  var carId = req.body.car;
+  console.log("my carId is : " + carId);
   var query = Car.findById(carId);
 
   query.exec(function(err,car){
       if(err)return next(err);
-
+      console.log("car is : " + car);
       res.render('car',{car:car,title:"Car",session:req.session});
   });
 
