@@ -252,6 +252,10 @@ router.get("/cars/:car",function(req,res,next){
 
 });
 
+router.get("/inbox/:car/:user",function(req,res,next){
+
+});
+
 router.get("/partners",function(req,res,next){
 
   if(req.session.valid)
@@ -277,6 +281,10 @@ router.get("/partner/:partner",function(req,res,next){
 
       res.render('partner',{partner:partner,title:"Partner",session:req.session});
   });
+
+});
+
+router.get("/inbox/:partner/:user",function(req,res,next){
 
 });
 
