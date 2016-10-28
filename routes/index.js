@@ -206,7 +206,7 @@ router.get("/partners",function(req,res,next){
 
   if(req.session.valid)
   {
-    Partner.find({},function(err,partner){
+    Partner.find({},function(err,partners){
       if(err)return next(err);
       res.render('partners',{title:'All partners',partners : partners,session:req.session });
     });
