@@ -39,7 +39,7 @@ router.post('/car',function(req,res,next){
     var location = req.body.location;
     var zip_code = req.body.zip_code;
     var experience = req.body.experience;
-    var createdBy = req.body.createdBy;
+    var createdBy = req.session.user_id;
 
     var car = new Car({
       shift:shift,
@@ -74,7 +74,7 @@ router.post('/partner',function(req,res,next){
   var location = req.body.location;
   var zip_code = req.body.zip_code;
   var experience = req.body.experience;
-  var createdBy = req.body.createdBy;
+  var createdBy = req.session.user_id;
 
   var partner = new Partner({
     shift:shift,
