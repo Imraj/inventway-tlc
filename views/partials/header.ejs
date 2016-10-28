@@ -1,3 +1,5 @@
+<script src="js/angular.min.js"></script>
+
 <header id="fh5co-header-section">
   <div class="container">
     <div class="nav-header">
@@ -21,11 +23,13 @@
 
 
           <% if(locals.session.valid){ %>
+             <li><a href="/inbox">Inbox</a></li>
              <li>
                <a href="#"><%= session.email %></a>
                <ul class="fh5co-sub-menu">
                 <li><a href="profile">Profile</a></li>
                 <li><a href="contact">Help</a></li>
+                <li><a href="blog">Blog</a></li>
                 <li><a href="logout">Logout</a></li>
               </ul>
              </li>
@@ -37,7 +41,7 @@
             <li><a href="about">About</a></li>
             <li><a href="contact">Contact</a></li>
           <% } %>
-          <li><a href="blog">Blog</a></li>
+
 
         </ul>
       </nav>

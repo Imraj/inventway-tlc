@@ -157,8 +157,21 @@ router.post('/register',function(req,res,next){
 });
 
 router.get('/profile',function(req,res,next){
-    res.render('profile',{title:"My Profile"})
+    if(req.session.valid)
+    {
+        res.render('profile',{title:"My Profile",session:req.session});
+    }
+    else{
+       req.session.renderTo = 'profile';
+       res.render('login',{title:'Login',session:req.session});
+    }
+
 });
 
+router.get('/inbox',function(req,res,next){
+
+  
+
+});
 
 module.exports = router;
