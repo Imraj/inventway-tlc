@@ -27,7 +27,7 @@
           <% if(locals.session.valid){ %>
              <li><a href="inbox">Inbox</a></li>
              <li>
-               <a href="#"><%= session.email %></a>
+               <a href="#"><%= locals.session.email %></a>
                <ul class="fh5co-sub-menu">
                 <li><a href="profile">Profile</a></li>
                 <li><a href="contact">Help</a></li>
