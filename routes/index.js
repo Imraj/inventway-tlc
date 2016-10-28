@@ -192,7 +192,6 @@ router.get("/cars",function(req,res,next){
   {
     Car.find({},function(err,cars){
         if(err)return next(err);
-
         res.render('cars',{title:'All cars',cars : cars,session:req.session });
     });
   }
