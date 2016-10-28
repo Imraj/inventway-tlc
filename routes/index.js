@@ -97,18 +97,10 @@ router.post('/login',function(req,res,next){
     if(err)return next(err);
 
     if(user){
-
       req.logIn(user,function(err){
         if(err)return next(err);
         res.redirect('/');
       });
-
-
-
-    else{
-      return res.status(401).json(info);
-    }
-
   })(req,res,next);
 
 });
