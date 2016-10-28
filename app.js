@@ -14,6 +14,7 @@ var flash = require('connect-flash');
 require('./models/User');
 require('./models/Car');
 require('./models/Partner');
+require('./models/Inbox');
 require('./config/passport');
 
 var routes = require('./routes/index');
