@@ -62,44 +62,43 @@
 		</div>
 		<!-- end:fh5co-header -->
 
-		<div id="fh5co-about-section">
-			<div class="container">
+    <div id="fh5co-about-section">
+      <div class="container">
 
-				<div class="row">
-					<% if(locals.partners.length > 0) { %>
+        <div class="row">
+          <div class="col-md-12">
+              <div class="col-md-8 col-md-offset-2">
+                  Added by
+              </div>
+          </div>
+        </div>
 
-		          <% partners.forEach(function(partner){ %>
-
-							<div class="col-md-4 text-center">
-								<div class="about-wrap">
-									<div class="desc">
-										<h3>Eloisa Doe</h3>
-										<p class="pos">CEO, Developer</p>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
-
-									</div>
-								</div>
-							</div>
-
-		          <% }) %>
-
-					<% }else{ %>
-
-						<div class="col-md-12 text-center">
-							<div class="about-wrap">
-								<div class="desc text-center">
-									<h3>Oops! Sorry</h3>
-									<p class="pos">Nothing here at the moment. Check back later</p>
-
-
-								</div>
-							</div>
-						</div>
-
-					<% } %>
-				</div>
-			</div>
-		</div>
+        <div class="row">
+          <div class="col-md-12">
+              <div class="col-md-8 col-md-offset-2">
+                  <div class="col-md-2">
+                      <img src="<%= partner.image? partner.image : '' %>" />
+                  </div>
+                  <div class="col-md-6">
+                      <h2> Model :  <%= partner.model %>  </h2>
+                      <h3> Year :  <%= partner.year %>  </h3>
+                      <h3> Shift :  <%= partner.shift %>  </h3>
+                      <div class="col-md-12">
+                          <h3 class="col-md-6">ZipCode : <%= partner.zip_code %> </h3>
+                          <h3 class="col-md-6">Location : <%= partner.location %> </h3>
+                      </div>
+                      <div>
+                          <h3>Experience</h3>
+                          <p>
+                            <%= partner.experience %>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 		<% include partials/footer %>
 
