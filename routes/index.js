@@ -172,7 +172,7 @@ router.get('/profile',function(req,res,next){
 router.get('/edit_profile',function(req,res,next){
     if(req.session.valid)
     {
-        res.render('profile',{title:"My Profile",session:req.session});
+        res.render('edit_profile',{title:"My Profile",session:req.session});
     }
     else{
        req.session.renderTo = 'profile';
@@ -234,9 +234,6 @@ router.get('inbox/:userid',function(req,res,next){
   {
 
   }
-
-
-
 
 });
 

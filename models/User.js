@@ -8,6 +8,7 @@ var UserSchema = mongoose.Schema({
   first_name:String,
   last_name:String,
   email:String,
+  phone:String,
   hash:String,
   salt:String,
   createdAt:{type:Date,default:Date.now},
