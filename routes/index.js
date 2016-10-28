@@ -21,7 +21,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/need_car',function(req,res,next){
-  res.render('need_car',{title:"Need a car"})
+
+  if(req.session.valid)
+  {
+    res.render('need_car',{title:"Need a car"});
+  }
+  else{
+    req.session.renderTo = 'need_car';
+    res.render("login",{session:req.session});
+  }
+
 });
 
 router.post('/car',function(req,res,next){
@@ -49,7 +58,14 @@ router.post('/car',function(req,res,next){
 });
 
 router.get('/need_partner',function(req,res,next){
-  res.render('need_partner',{title:"Need a partner"})
+  if(req.session.valid){
+      res.render('need_partner',{title:"Need a partner"});
+  }
+  else{
+    req.session.renderTo = 'need_partner';
+    res.render('login',{session:req.session});
+  }
+
 });
 
 router.post('/partner',function(req,res,next){
