@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model("User");
 var Car = mongoose.model("Car");
 var Partner = mongoose.model("Partner");
+var Inbox = mongoose.model("Inbox");
 
 var passport = require('passport');
 
