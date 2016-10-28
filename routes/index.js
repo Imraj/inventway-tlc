@@ -172,7 +172,6 @@ router.get('/profile',function(req,res,next){
 router.get('/inbox',function(req,res,next){
 
 
-
 });
 
 router.get("/cars",function(req,res,next){
@@ -194,5 +193,19 @@ router.get("/partners",function(req,res,next){
   })
 
 });
+
+router.get('/inbox',function(req,res,next){
+    res.render('inbox',{title:'Inbox'});
+});
+
+router.get('inbox/:userid',function(req,res,next){
+
+  var userId = req.body.userId;
+
+  
+
+});
+
+
 
 module.exports = router;
