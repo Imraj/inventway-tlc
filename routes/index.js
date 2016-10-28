@@ -51,8 +51,8 @@ router.post('/car',function(req,res,next){
 
     car.save(function(err,car){
         if(err)return next(err);
-
-        return res.status('200').json({success:true});
+        res.redirect('/cars');
+        //return res.status('200').json({success:true});
     });
 
 });
@@ -86,7 +86,8 @@ router.post('/partner',function(req,res,next){
 
   partner.save(function(err,car){
       if(err)return next(err);
-      return res.status('200').json({success:true});
+      //return res.status('200').json({success:true});
+      res.redirect('/partners');
   });
 
 });
@@ -170,7 +171,27 @@ router.get('/profile',function(req,res,next){
 
 router.get('/inbox',function(req,res,next){
 
-  
+
+
+});
+
+router.get("/cars",function(req,res,next){
+
+  Car.find({},function(err,cars){
+      if(err)return next(err);
+
+      res.render('cars',{title:'All cars',cars : cars });
+  });
+
+});
+
+router.get("/partners",function(req,res,next){
+
+  Partner.find({},function(err,partner){
+    if(err)return next(err);
+
+    res.render('cars',{title:'All partners',partners : partners });
+  })
 
 });
 
