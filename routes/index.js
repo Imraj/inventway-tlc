@@ -196,11 +196,12 @@ router.post('/update_profile',function(req,res,next){
 
   var query = User.findById(user_id);
 
-  query.email = email;
-  query.phone = phone;
-
-  query.save(function(err,user){
+  query.exec(function(err,user){
     if(err)return next(err);
+    if(user){
+      user.email = email;
+      user.phone = phone;
+    }
 
     res.redirect("login");
   });
@@ -228,6 +229,19 @@ router.get("/cars",function(req,res,next){
 
 });
 
+router.get("/cars/:car",function(req,res,next){
+
+  var carId = req.param(car);
+  var query = Car.findById(carId);
+
+  query.exec(funtion(err,car){
+      if(err)return next(err);
+
+      res.render('car',{car:car,title:"Car",session:req.session});
+  });
+
+});
+
 router.get("/partners",function(req,res,next){
 
   if(req.session.valid)
@@ -240,6 +254,19 @@ router.get("/partners",function(req,res,next){
   else{
       res.redirect('login');
   }
+
+});
+
+router.get("/partner/:partner",function(req,res,next){
+
+  var partnerId = req.param(partner);
+  var query = Partner.findById(partnerId);
+
+  query.exec(funtion(err,partner){
+      if(err)return next(err);
+
+      res.render('partner',{partner:partner,title:"Partner",session:req.session});
+  });
 
 });
 
@@ -262,7 +289,5 @@ router.get('inbox/:userid',function(req,res,next){
   }
 
 });
-
-
 
 module.exports = router;
