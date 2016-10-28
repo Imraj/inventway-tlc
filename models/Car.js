@@ -2,6 +2,8 @@ var mongoose =require('mongoose');
 
 var CarSchema = mongoose.Schema({
 
+  model:String,
+  year:String,
   shift:String,
   location:String,
   zip_code:String,
