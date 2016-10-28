@@ -12,7 +12,12 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home' });
+
+  if(req.session.valid){
+      res.render('index', { title: 'Home',session:req.session });
+  }
+
+  res.render('index', { title: 'Home'});
 });
 
 router.get('/need_car',function(req,res,next){
@@ -89,12 +94,18 @@ router.post('/login',function(req,res,next){
     if(err)return next(err);
 
     if(user){
-      req.session.first_name = user.first_name;
+      /*req.session.first_name = user.first_name;
       req.session.last_name = user.last_name;
       req.session.user_id = user._id;
       req.session.email = user.email;
       req.session.valid = true;
-      return res.redirect('/').json({success:true,session:req.session});
+      */
+      req.logIn(user,function(err){
+        if(err)return next(err);
+        res.redirect('/');
+      });
+
+
       //return res.redirect('/').json({});
     }
     else{
@@ -120,13 +131,17 @@ router.post('/register',function(req,res,next){
 
   user.save(function(err,user){
       if(err)return next(err);
-      req.session.first_name = user.first_name;
+      /*req.session.first_name = user.first_name;
       req.session.last_name = user.last_name;
       req.session.user_id = user._id;
       req.session.email = user.email;
-      req.session.valid = true;
-      return res.redirect('/').json({success:true,session:req.session});
-
+      req.session.valid = true;*/
+      req.logIn(user,function(err){
+        if(err){
+          return next(err);
+        }
+        res.redirect('/');
+      });
   });
 
 });
