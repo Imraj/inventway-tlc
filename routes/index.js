@@ -94,7 +94,7 @@ router.post('/login',function(req,res,next){
       req.session.user_id = user._id;
       req.session.email = user.email;
       req.session.valid = true;
-      return res.status('200').json({success:true,session:req.session});
+      return res.redirect('/').json({success:true,session:req.session});
       //return res.redirect('/').json({});
     }
     else{
@@ -125,7 +125,7 @@ router.post('/register',function(req,res,next){
       req.session.user_id = user._id;
       req.session.email = user.email;
       req.session.valid = true;
-      return res.status('200').json({success:true,session:req.session});
+      return res.redirect('/').json({success:true,session:req.session});
 
   });
 
