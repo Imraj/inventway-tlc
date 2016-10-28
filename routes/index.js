@@ -254,6 +254,16 @@ router.get("/cars/:car",function(req,res,next){
 
 router.get("/inbox/:car/:user",function(req,res,next){
 
+  var car = req.param('car');
+  var user = req.param('user');
+
+  if(req.session.valid){
+      res.render('inbox',{car:car,createdBy:user,session:req.session});
+  }
+  res.redirect('/login');
+
+
+
 });
 
 router.get("/partners",function(req,res,next){
@@ -285,6 +295,14 @@ router.get("/partner/:partner",function(req,res,next){
 });
 
 router.get("/inbox/:partner/:user",function(req,res,next){
+
+  var partner = req.param('partner');
+  var user = req.param('user');
+
+  if(req.session.valid){
+      res.render('inbox',{partner:partner,createdBy:user,session:req.session});
+  }
+  res.redirect('/login');
 
 });
 
