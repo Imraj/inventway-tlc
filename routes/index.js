@@ -105,7 +105,7 @@ router.post('/login',function(req,res,next){
         res.redirect('/');
       })
   })(req,res,next);
-};
+});
 
 router.get('/register',function(req,res,next){
   if(req.user){
