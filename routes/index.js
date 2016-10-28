@@ -181,6 +181,25 @@ router.get('/edit_profile',function(req,res,next){
 
 });
 
+router.post('/update_profile',function(req,res,next){
+
+  var phone = req.body.phone;
+  var email = req.body.email;
+  var userId = req.session.user_id;
+
+  var query = User.findById(user_id);
+
+  query.email = email;
+  query.phone = phone;
+
+  query.save(function(err,user){
+    if(err)return next(err);
+
+    res.redirect("login");
+  });
+
+});
+
 router.get('/inbox',function(req,res,next){
 
 

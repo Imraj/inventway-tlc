@@ -72,13 +72,13 @@
 
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" value="" name="phone" placeholder="Phone Number">
+									<input type="text" class="form-control" value="<%= session.phone ? session.phone : '' %>" name="phone" placeholder="Phone Number">
 								</div>
 							</div>
 
 								<div class="col-md-12">
                   <div class="form-group">
-                    <input type="text" class="form-control" value="<%= session.email %>" name="email" placeholder="Email address">
+                    <input type="text" class="form-control" value="<%= session.email ? session.email : '' %>" name="email" placeholder="Email address">
                   </div>
 								</div>
 
