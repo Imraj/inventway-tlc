@@ -234,7 +234,7 @@ router.get("/cars/:car",function(req,res,next){
   var carId = req.param(car);
   var query = Car.findById(carId);
 
-  query.exec(funtion(err,car){
+  query.exec(function(err,car){
       if(err)return next(err);
 
       res.render('car',{car:car,title:"Car",session:req.session});
@@ -262,7 +262,7 @@ router.get("/partner/:partner",function(req,res,next){
   var partnerId = req.param(partner);
   var query = Partner.findById(partnerId);
 
-  query.exec(funtion(err,partner){
+  query.exec(function(err,partner){
       if(err)return next(err);
 
       res.render('partner',{partner:partner,title:"Partner",session:req.session});
