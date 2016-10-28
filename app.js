@@ -14,7 +14,7 @@ require('./config/passport');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var passport = require('passport');
-
+var MongoStore = require('connect-mongo')(express);
 
 
 var app = express();
@@ -33,6 +33,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.cookieParser());
+app.use(express.session({store:new MongoStore({mongooseConnection : mongoose.connection}),secret:"abcdefgh1234qwerty"}));
+
 
 app.use('/', routes);
 app.use('/users', users);

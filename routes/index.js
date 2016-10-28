@@ -89,8 +89,13 @@ router.post('/login',function(req,res,next){
     if(err)return next(err);
 
     if(user){
-      return res.status('200').json({success:true,isAuthenticated:true,token:user.generateJWT()});
-      //return res.json({token:user.generateJWT()});
+      req.session.first_name = user.first_name;
+      req.session.last_name = user.last_name;
+      req.session.user_id = user._id;
+      req.session.email = user.email;
+      req.session.valid = true;
+      return res.status('200').json({success:true,session:req.session});
+      //return res.redirect('/').json({});
     }
     else{
       return res.status(401).json(info);
@@ -115,9 +120,13 @@ router.post('/register',function(req,res,next){
 
   user.save(function(err,user){
       if(err)return next(err);
+      req.session.first_name = user.first_name;
+      req.session.last_name = user.last_name;
+      req.session.user_id = user._id;
+      req.session.email = user.email;
+      req.session.valid = true;
+      return res.status('200').json({success:true,session:req.session});
 
-      return res.status('200').json({success:true,isAuthenticated:true,token:user.generateJWT()});
-      //return res.redirect('/').json({token:user.generateJWT()});
   });
 
 });
