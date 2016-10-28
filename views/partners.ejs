@@ -66,21 +66,37 @@
 			<div class="container">
 
 				<div class="row">
-          <% partners.forEach(function(partner){ %>
+					<% if(locals.partners.length > 0) { %>
 
-					<div class="col-md-4 text-center">
-						<div class="about-wrap">
-							<div class="desc">
-								<h3>Eloisa Doe</h3>
-								<p class="pos">CEO, Developer</p>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+		          <% partners.forEach(function(partner){ %>
 
+							<div class="col-md-4 text-center">
+								<div class="about-wrap">
+									<div class="desc">
+										<h3>Eloisa Doe</h3>
+										<p class="pos">CEO, Developer</p>
+										<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+
+									</div>
+								</div>
+							</div>
+
+		          <% }) %>
+
+					<% }else{ %>
+
+						<div class="col-md-4 text-center">
+							<div class="about-wrap">
+								<div class="desc text-center">
+									<h3>Oops! Sorry</h3>
+									<p class="pos">Nothing here at the moment. Check back later</p>
+
+
+								</div>
 							</div>
 						</div>
-					</div>
 
-          <% }) %>
-
+					<% } %>
 				</div>
 			</div>
 		</div>
