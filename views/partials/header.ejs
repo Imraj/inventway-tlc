@@ -24,7 +24,7 @@
 
 
 
-          <% if(locals.session.valid){ %>
+          <% if(locals.session && locals.session.valid){ %>
              <li><a href="inbox">Inbox</a></li>
              <li>
                <a href="#"><%= locals.session.email %></a>
@@ -37,7 +37,7 @@
              </li>
           <% } %>
 
-          <% if(!locals.session.valid){ %>
+          <% else{ %>
             <li><a href="register">Register</a></li>
             <li><a href="login">Login</a></li>
             <li><a href="about">About</a></li>
