@@ -18,7 +18,8 @@ InboxSchema.pre("save",function(next){
 
 });
 
-InboxSchema.methods.sendMessage(imessage){
+InboxSchema.methods.sendMessage = function(imessage)
+{
   this.message.append(imessage);
 }
 
