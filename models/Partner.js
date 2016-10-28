@@ -11,6 +11,16 @@ var PartnerSchema = mongoose.Schema({
 
 });
 
+PartnerSchema.methods.getUserDetails = function(userId){
+
+  User.find({_id:userId},function(err,user){
+    if(err) throw(err);
+
+    return user;
+  });
+
+};
+
 PartnerSchema.pre("save",function(next){
 
   now = new Date();

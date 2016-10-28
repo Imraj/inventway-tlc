@@ -1,4 +1,5 @@
 var mongoose =require('mongoose');
+var User = mongoose.model("User");
 
 var CarSchema = mongoose.Schema({
 
@@ -12,6 +13,16 @@ var CarSchema = mongoose.Schema({
   createdBy:String
 
 });
+
+CarSchema.methods.getUserDetails = function(userId){
+
+  User.find({_id:userId},function(err,user){
+    if(err) throw(err);
+
+    return user;
+  });
+
+};
 
 CarSchema.pre("save",function(next){
 
