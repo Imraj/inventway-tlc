@@ -24,7 +24,7 @@ router.get('/need_car',function(req,res,next){
 
   if(req.session.valid)
   {
-    res.render('need_car',{title:"Need a car"});
+    res.render('need_car',{title:"Need a car",session:req.session});
   }
   else{
     req.session.renderTo = 'need_car';
@@ -59,7 +59,7 @@ router.post('/car',function(req,res,next){
 
 router.get('/need_partner',function(req,res,next){
   if(req.session.valid){
-      res.render('need_partner',{title:"Need a partner"});
+      res.render('need_partner',{title:"Need a partner",session:req.session});
   }
   else{
     req.session.renderTo = 'need_partner';
@@ -115,7 +115,7 @@ router.post('/login',function(req,res,next){
       req.session.user_id = user._id;
       req.session.email = user.email;
       req.session.valid = true;
-      //return res.redirect('/').json({success:true,session:req.session});
+
       return res.render('index',{session:req.session});
     }
     else{

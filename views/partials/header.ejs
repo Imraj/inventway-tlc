@@ -20,7 +20,7 @@
 
 
 
-          <% if(session.valid){ %>
+          <% if(locals.session.valid){ %>
              <li>
                <a href="#"><%= session.email %></a>
                <ul class="fh5co-sub-menu">
@@ -31,7 +31,7 @@
              </li>
           <% } %>
 
-          <% if(!session.valid){ %>
+          <% if(!locals.session.valid){ %>
             <li><a href="register">Register</a></li>
             <li><a href="login">Login</a></li>
             <li><a href="about">About</a></li>
