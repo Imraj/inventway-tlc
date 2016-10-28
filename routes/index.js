@@ -100,7 +100,7 @@ router.post('/login',function(req,res,next){
       req.session.email = user.email;
       req.session.valid = true;
       //return res.redirect('/').json({success:true,session:req.session});
-      return res.render('/',{session:req.session});
+      return res.render('index',{session:req.session});
     }
     else{
       return res.status(401).json(info);
@@ -134,7 +134,7 @@ router.post('/register',function(req,res,next){
         if(err){
           return next(err);
         }
-        return res.render('/',{session:req.session});
+        return res.render('index',{session:req.session});
       });
   });
 
