@@ -18,9 +18,9 @@
             </ul>
           </li>
 
-          <% if(user){ %>
+          <% if(locals.user){ %>
              <li>
-               <a href="#"><%= user.local.email %></a>
+               <a href="#"><%= user.email %></a>
                <ul class="fh5co-sub-menu">
                 <li><a href="profile">Profile</a></li>
                 <li><a href="contact">Help</a></li>
@@ -29,7 +29,7 @@
              </li>
           <% } %>
 
-          <% if(!user){ %>
+          <% if(!locals.user){ %>
             <li><a href="register">Register</a></li>
             <li><a href="login">Login</a></li>
             <li><a href="about">About</a></li>
