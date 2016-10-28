@@ -169,6 +169,18 @@ router.get('/profile',function(req,res,next){
 
 });
 
+router.get('/edit_profile',function(req,res,next){
+    if(req.session.valid)
+    {
+        res.render('profile',{title:"My Profile",session:req.session});
+    }
+    else{
+       req.session.renderTo = 'profile';
+       res.render('login',{title:'Login',session:req.session});
+    }
+
+});
+
 router.get('/inbox',function(req,res,next){
 
 
