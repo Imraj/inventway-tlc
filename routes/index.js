@@ -127,6 +127,13 @@ router.post('/login',function(req,res,next){
 
 });
 
+router.post("/login",function(req,res,next){
+
+  req.session.destroy();
+  res.redirect('index');
+
+});
+
 router.get('/register',function(req,res,next){
   res.render('register',{title:"Register"})
 });
