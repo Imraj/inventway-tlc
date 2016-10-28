@@ -212,7 +212,7 @@ router.get("/partners",function(req,res,next){
     Partner.find({},function(err,partner){
       if(err)return next(err);
 
-      res.render('cars',{title:'All partners',partners : partners });
+      res.render('cars',{title:'All partners',partners : partners,session:req.session });
     });
   }
   else{
