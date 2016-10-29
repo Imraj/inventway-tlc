@@ -240,7 +240,7 @@ router.get("/cars",function(req,res,next){
 
 router.get("/cars/:tmcar",function(req,res,next){
 
-  var carId = req.body.tmcar;
+  var carId = req.param('tmcar');
   console.log("my carId is : " + carId);
   var query = Car.findById(carId);
 
