@@ -299,7 +299,7 @@ router.get("/inbox/:buser",function(req,res,next){
 
       });
 
-      res.render('inbox',{car:car,createdBy:user,session:req.session});
+      res.render('inbox',{inbox:inbox,createdBy:user,session:req.session});
   }
   res.redirect('/login');
 
