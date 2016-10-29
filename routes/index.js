@@ -272,7 +272,7 @@ router.get("/partner/:partner",function(req,res,next){
 
 router.get('/inbox',function(req,res,next){
   if(req.session.valid){
-      res.render('inbox',{title:'Inbox',session:req.session});
+      res.render('all_contacts',{title:'Inbox',session:req.session});
   }
   else{
       res.redirect('login');
