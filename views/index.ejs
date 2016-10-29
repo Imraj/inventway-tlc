@@ -1,350 +1,459 @@
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TLC</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Temptation | Just another InkHive Demos site</title>
+<link rel="profile" href="http://gmpg.org/xfn/11"><style type="text/css">
+:root #content > #right > .dose > .dosesingle,
+:root #content > #center > .dose > .dosesingle
+{ display: none !important; }</style>
+<link rel="pingback" href="http://demo.inkhive.com/temptation/xmlrpc.php">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="Temptation » Feed" href="http://demo.inkhive.com/temptation/feed/">
+<link rel="alternate" type="application/rss+xml" title="Temptation » Comments Feed" href="http://demo.inkhive.com/temptation/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/demo.inkhive.com\/temptation\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.4"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="assets/wp-emoji-release.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet"  href="assets/settings.css" type="text/css" media="all">
+<link rel="stylesheet"  href="assets/dynamic-captions.css" type="text/css" media="all">
+<link rel="stylesheet"  href="assets/static-captions.css" type="text/css" media="all">
+<link rel="stylesheet"  href="assets/css.css" type="text/css" media="all">
+<link rel="stylesheet"  href="assets/style.css" type="text/css" media="all">
+<link rel="stylesheet"  href="assets/sidebar-content.css" type="text/css" media="all">
+<link rel="stylesheet"  href="assets/jquery.css" type="text/css" media="all">
+<link rel="stylesheet"  href="assets/bootstrap.css" type="text/css" media="all">
+<link rel="stylesheet"  href="assets/main.css" type="text/css" media="all">
+<script type="text/javascript" src="assets/jquery_002.js"></script>
+<script type="text/javascript" src="assets/jquery-migrate.js"></script>
+<script type="text/javascript" src="assets/jquery.js"></script>
+<script type="text/javascript" src="assets/jquery_003.js"></script>
+<script type="text/javascript" src="assets/bootstrap.js"></script>
+<script type="text/javascript" src="assets/bxslider.js"></script>
+<script type="text/javascript" src="assets/hoverIntent.js"></script>
+<script type="text/javascript" src="assets/custom.js"></script>
 
+<script>
+ jQuery(document).ready(function(){
+			jQuery('#slider').bxSlider( {
+			mode: 'horizontal',
+			captions: true,
+			minSlides: 1,
+			maxSlides: 1,
+			auto: true,
+			preloadImages: 'all',
+			adaptiveHeight: true,
+			pause: 3300,
+			speed: 800,
+			autoHover: true } );
+			});
+	</script>
+		<script>
+		jQuery(document).ready(function() {
+	//Set up the carousel
+			jQuery('.bxslider').bxSlider( {
+				mode: 'horizontal',
+				minSlides: 1,
+				maxSlides: 3,
+				adaptiveHeight: true,
+				slideWidth: 390,
+				captions: true,
+				autoHover: true,
+				slideMargin: 2,
+				infiniteLoop: false,
+				pager: true,
+				controls: false,
+				moveSlides: 2 } );
+				});
+	</script>
+	<style>
+		#parallax-bg {
+			background: url('http://demo.inkhive.com/temptation/wp-content/themes/temptation/images/headerbg.jpg')
+			center top repeat-x;
+		}
+	</style>
+	<style id="temptation-custom-style">
 
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+    </style>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+  </head>
 
-	<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"> -->
+<body class="home blog">
+<div id="parallax-bg" style="top: -248.8px;"></div>
 
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Simple Line Icons -->
-	<link rel="stylesheet" href="css/simple-line-icons.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Superfish -->
-	<link rel="stylesheet" href="css/superfish.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
-
-	<link rel="stylesheet" href="css/style.css">
-
-
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-
-	</head>
-	<body>
-		<div id="fh5co-wrapper">
-		<div id="fh5co-page">
-		<div id="fh5co-header">
+<div id="page" class="hfeed site">
 		  <% include partials/header %>
-		</div>
-		<!-- end:fh5co-header -->
-		<aside id="fh5co-hero" class="js-fullheight">
-			<div class="flexslider js-fullheight">
-				<ul class="slides">
-			   	<li style="background-image: url(images/slide_1.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container">
-			   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
-			   				<div class="slider-text-inner">
-			   					<h2>Do you need a car?</h2>
-			   					<p><a href="#" class="btn btn-primary btn-lg">Get started</a></p>
-			   				</div>
-			   			</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(images/slide_2.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container">
-			   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
-			   				<div class="slider-text-inner">
-			   					<h2>Do you need a partner?</h2>
-			   					<p><a href="#" class="btn btn-primary btn-lg">Get started</a></p>
-			   				</div>
-			   			</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(images/slide_3.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container">
-			   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
-			   				<div class="slider-text-inner">
-			   					<h2>Find a car of your choice</h2>
-			   					<p><a href="#" class="btn btn-primary btn-lg">Get started</a></p>
-			   				</div>
-			   			</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(images/slide_4.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container">
-			   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
-			   				<div class="slider-text-inner">
-			   					<h2>Find a partner of your choice</h2>
-			   					<p><a href="#" class="btn btn-primary btn-lg">Get started</a></p>
-			   				</div>
-			   			</div>
-			   		</div>
-			   	</li>
-			  	</ul>
-		  	</div>
-		</aside>
-		<div id="fh5co-section">
-			<div class="col-half col-half-color">
-				<div class="row-half">
-					<div class="col-half-inner col-half-inner-bg">
-						<div class="desc">
-							<h3>About Us</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<p><a href="#" class="btn btn-primary btn-outline with-arrow">Read More <i class="icon-arrow-right22"></i></a></p>
-						</div>
-					</div>
-					<a href="#" class="col-half-inner grid-item" style="background-image: url(images/project-1.jpg);">
-						<div class="desc2">
-							<h3>Bag</h3>
-							<span>Travel</span>
-						</div>
-					</a>
-				</div>
-				<div class="row-half">
-					<a href="#" class="col-half-inner grid-item" style="background-image: url(images/project-2.jpg);">
-						<div class="desc2">
-							<h3>Shoes</h3>
-							<span>Travel</span>
-						</div>
-					</a>
-					<div class="col-half-inner col-half-inner-bg2">
-						<div class="desc">
-							<h3>Client Says <i class="icon-quotes-right"></i> </h3>
-							<blockquote>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								<span><a class="client" href="#">&mdash; John Doe</a></span>
-							</blockquote>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-half col-half-2">
-				<h2>TLC Services</h2>
-				<div class="featured-inner">
-					<i class="sl-icon-chart"></i>
-					<div class="desc">
-						<h3>WordPress Theme</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="featured-inner">
-					<i class="sl-icon-screen-tablet"></i>
-					<div class="desc">
-						<h3>Responsive Layout</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="featured-inner">
-					<i class="sl-icon-layers"></i>
-					<div class="desc">
-						<h3>Layered PSD Template</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-			</div>
-		</div>
+			<div class="slider-wrapper">
+						<div class="bx-wrapper" style="max-width: 100%;">
+							<div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 482px;">
+								<ul id="slider" style="width: 515%; position: relative; transition-duration: 0.8s; transform: translate3d(-2526px, 0px, 0px);">
 
-		<div id="fh5co-pricing-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-center" style="margin-top:1.5em;">
+									<li style="float: left; list-style: outside none none; position: relative; width: 1263px;" class="bx-clone">
+										<a href="" title="Responsive Wordpress Theme"><img src="assets/dorka-00221.jpg"></a>
+										<div class="slider-caption">
+											<div class="slider-title">Responsive Wordpress Theme</div>
+											<div class="slider-desc">
+												Auctor enim purus, lacus? Tristique tristique? Porttitor, ac, cras nunc.
+											</div>
+										</div>
+									</li>
 
-						<h2>Latest</h2>
+									<li style="float: left; list-style: outside none none; position: relative; width: 1263px;">
+										<a href="" title="Responsive Wordpress Theme"><img src="assets/bridge.jpg"></a>
+											<div class="slider-caption">
+												<div class="slider-title">Responsive Wordpress Theme</div>
+												<div class="slider-desc">
+													Auctor enim purus, lacus? Tristique tristique? Porttitor, ac, cras nunc.
+												</div>
+											</div>
+									</li>
 
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 col-sm-6">
-						<div class="price-box to-animate">
-							<h2 class="pricing-plan">Driver wanted</h2>
-							<div class="price"></div>
-							<p>Basic customer support for small business</p>
-							<hr>
+									<li style="float: left; list-style: outside none none; position: relative; width: 1263px;">
+										<a href="" title="Responsive Wordpress Theme"><img src="assets/kamera.jpg"></a>
+											<div class="slider-caption">
+												<div class="slider-title">Responsive Wordpress Theme</div>
+												<div class="slider-desc">Auctor enim purus, lacus? Tristique tristique? Porttitor, ac, cras nunc.</div>
+											</div>
+									</li>
 
-							<p><a href="#" class="btn btn-primary">Read More</a></p>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="price-box to-animate">
-							<h2 class="pricing-plan">Partner wanted</h2>
+									<li style="float: left; list-style: outside none none; position: relative; width: 1263px;">
+										<a href="" title="Responsive Wordpress Theme"><img src="assets/dorka-00221.jpg"></a>
+										<div class="slider-caption">
+											<div class="slider-title">Responsive Wordpress Theme</div>
+											<div class="slider-desc">Auctor enim purus, lacus? Tristique tristique? Porttitor, ac, cras nunc.</div>
+										</div>
+									</li>
 
-							<p>Basic customer support for small business</p>
-							<hr>
-
-							<p><a href="#" class="btn btn-primary">Read More</a></p>
-						</div>
-					</div>
-					<div class="clearfix visible-sm-block"></div>
-					<div class="col-md-3 col-sm-6">
-						<div class="price-box to-animate">
-							<h2 class="pricing-plan">Partner wanted</h2>
-
-							<p>Basic customer support for small business</p>
-							<hr>
-
-							<p><a href="#" class="btn btn-primary">Read More</a></p>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="price-box to-animate">
-							<h2 class="pricing-plan">Partner wanted</h2>
-
-							<p>Basic customer support for small business</p>
-							<hr>
-
-							<p><a href="#" class="btn btn-primary">Read More</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 col-sm-6">
-						<div class="price-box to-animate">
-							<h2 class="pricing-plan">Driver wanted</h2>
-							<div class="price"></div>
-							<p>Basic customer support for small business</p>
-							<hr>
-
-							<p><a href="#" class="btn btn-primary">Read More</a></p>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="price-box to-animate">
-							<h2 class="pricing-plan">Partner wanted</h2>
-
-							<p>Basic customer support for small business</p>
-							<hr>
-
-							<p><a href="#" class="btn btn-primary">Read More</a></p>
-						</div>
-					</div>
-					<div class="clearfix visible-sm-block"></div>
-					<div class="col-md-3 col-sm-6">
-						<div class="price-box to-animate">
-							<h2 class="pricing-plan">Partner wanted</h2>
-
-							<p>Basic customer support for small business</p>
-							<hr>
-
-							<p><a href="#" class="btn btn-primary">Read More</a></p>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="price-box to-animate">
-							<h2 class="pricing-plan">Partner wanted</h2>
-
-							<p>Basic customer support for small business</p>
-							<hr>
-
-							<p><a href="#" class="btn btn-primary">Read More</a></p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<div class="fh5co-parallax fh5co-parallax2" style="background-image: url(images/hero.jpg);" data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
-						<div class="fh5co-intro animate-box">
-							<div class="row">
-								<div class="col-md-6 text-center">
-									<div class="testimony">
-										<span class="quote"><i class="icon-quotes-right"></i></span>
-										<blockquote>
-											<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-											<span>Athan Smith, via <a href="#" class="icon-twitter3 twitter-color"></a></span>
-										</blockquote>
+								   <li style="float: left; list-style: outside none none; position: relative; width: 1263px;" class="bx-clone">
+										<a href="" title="Responsive Wordpress Theme"><img src="assets/bridge.jpg"></a>
+										<div class="slider-caption">
+											<div class="slider-title">Responsive Wordpress Theme</div>
+											<div class="slider-desc">Auctor enim purus, lacus? Tristique tristique? Porttitor, ac, cras nunc.</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="bx-controls bx-has-pager bx-has-controls-direction">
+								<div class="bx-pager bx-default-pager">
+									<div class="bx-pager-item">
+										<a href="" data-slide-index="0" class="bx-pager-link">1</a>
+									</div>
+									<div class="bx-pager-item">
+										<a href="" data-slide-index="1" class="bx-pager-link active">2</a>
+									</div>
+									<div class="bx-pager-item">
+										<a href="" data-slide-index="2" class="bx-pager-link">3</a>
 									</div>
 								</div>
-								<div class="col-md-6 text-center">
-									<div class="testimony">
-										<span class="quote"><i class="icon-quotes-right"></i></span>
-										<blockquote>
-											<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-											<span>Athan Smith, via <a href="#" class="icon-google-plus googleplus-color"></a></span>
-										</blockquote>
+								<div class="bx-controls-direction">
+									<a class="bx-prev" href="">
+										<span class="fa-stack">
+											<i class="fa fa-circle fa-stack-2x c-nav-bg"></i>
+											<i class="fa fa-chevron-circle-left fa-stack-1x"></i>
+										</span>
+									</a>
+									<a class="bx-next" href="">
+										<span class="fa-stack">
+											<i class="fa fa-circle fa-stack-2x c-nav-bg"></i>
+											<i class="fa fa-chevron-circle-right fa-stack-1x"></i>
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+				</div>
+
+
+				<div id="content" class="site-content row">
+
+				    <div id="carousel-wrapper" class="col-md-12 container clearfix">
+
+			    <div id="carousel-title">Recommended</div>
+
+					<div class="bx-wrapper" style="max-width: 1174px;">
+						<div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 240px;">
+							<ul class="bxslider" style="width: 815%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+								<li style="float: left; list-style: outside none none; position: relative; width: 390px; margin-right: 2px;">
+									<a title="Stormy Conditions in the Valley" href="">
+										<img class="carousel-image" src="assets/1-390x240.jpg" title="Stormy Conditions in the Valley">
+									</a>
+									<div class="bx-caption">
+										<span>Stormy Conditions in the Valley</span>
 									</div>
+								</li>
+
+								<li style="float: left; list-style: outside none none; position: relative; width: 390px; margin-right: 2px;">
+									<a title="Mountain Hiking is one of the best hobbies to have" href="">
+										<img class="carousel-image" src="assets/unsplash_528b276e41166_11-390x240.jpg" title="Mountain Hiking">
+									</a>
+									<div class="bx-caption">
+										<span>Mountain Hiking is one of the best hobbies to have</span>
+									</div>
+								</li>
+
+								<li style="float: left; list-style: outside none none; position: relative; width: 390px; margin-right: 2px;">
+									<a title="A beautiful garden scene" href="">
+										<img class="carousel-image" src="assets/P1140240-390x240.jpg" title="A beautiful garden scene">
+									</a>
+									<div class="bx-caption" style="margin-bottom: -80px;">
+										<span>A beautiful garden scene</span>
+									</div>
+								</li>
+
+								<li style="float: left; list-style: outside none none; position: relative; width: 390px; margin-right: 2px;">
+									<a title="Beautiful girl playing guitar" href="">
+										<img class="carousel-image" src="assets/dorka-002-390x240.jpg" title="Beautiful girl playing guitar">
+									</a>
+									<div class="bx-caption">
+										<span>Beautiful girl playing guitar</span>
+									</div>
+								</li>
+
+								<li style="float: left; list-style: outside none none; position: relative; width: 390px; margin-right: 2px;">
+									<a title="Spring is considered as the most beautiful season" href="">
+										<img class="carousel-image" src="assets/flowers-276014-390x240.jpg" title="Spring is considered as the most beautiful season">
+									</a>
+									<div class="bx-caption">
+										<span>Spring is considered as the most beautiful season</span>
+									</div>
+								</li>
+
+								<li style="float: left; list-style: outside none none; position: relative; width: 390px; margin-right: 2px;">
+									<a title="Box office to hit all-time high in 2013" href="">
+										<img class="carousel-image" src="assets/Robert-Downey-Jr-in-a-still-from-Iron-Man-3-1-390x240.jpg" title="Box office ">
+									</a>
+									<div class="bx-caption">
+										<span>Box office to hit all-time high in 2013</span>
+									</div>
+								</li>
+
+							</ul>
+						</div>
+						<div class="bx-controls bx-has-pager">
+							<div class="bx-pager bx-default-pager">
+								<div class="bx-pager-item">
+									<a href="" data-slide-index="0" class="bx-pager-link active">1</a>
+								</div>
+								<div class="bx-pager-item">
+									<a href="" data-slide-index="1" class="bx-pager-link">2</a>
+								</div>
+								<div class="bx-pager-item">
+									<a href="" data-slide-index="2" class="bx-pager-link">3</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div id="fh5co-blog-section" class="grey-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-						<i class="sl-icon-note"></i>
-						<h2>Recent Blog</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="feature-full-1col">
-						<div class="image" style="background-image: url(images/project-1.jpg);">
-						</div>
-						<div class="desc">
-							<h3>New iPhone 7</h3>
-							<p>Pellentesque habitant morbi tristique senectus et netus ett mauada fames ac turpis egestas. Etiam euismod tempor leo, in suscipit urna condimentum sed. Vivamus augue enim, consectetur ac interdum a, pulvinar ac massa. Nullam malesuada congue </p>
-							<p><a href="#" class="btn btn-primary btn-luxe-primary">Learn More</a></p>
-						</div>
-					</div>
 
-				<div class="feature-full-2col">
-					<div class="blog-inner">
-						<div class="image" style="background-image: url(images/project-2.jpg);">
-						</div>
-						<div class="desc">
-							<h3>New iPhone 7</h3>
-							<p>Pellentesque habitant morbi tristique senectus et netus ett mauada fames ac turpis egestas. Etiam euismod tempor leo,
-							in suscipit urna condimentum sed. </p>
-							<p><a href="#" class="btn btn-primary btn-luxe-primary">Learn More</a></p>
-						</div>
-					</div>
-					<div class="blog-inner">
-						<div class="image" style="background-image: url(images/project-3.jpg);">
-						</div>
-						<div class="desc">
-							<h3>Games Apps 2016</h3>
-							<p>Pellentesque habitant morbi tristique senectus et netus ett mauada fames ac turpis egestas. Etiam euismod tempor leo, in suscipit urna condimentum sed. </p>
-							<p><a href="#" class="btn btn-primary btn-luxe-primary">Learn More</a></p>
-						</div>
-					</div>
-				</div>
-				</div>
-			</div>
-		</div>
+				<div class="container col-md-12">
 
+					<div id="showcase" class="row">
+						<div class="showcase showcase-1 col-md-12 col-sm-12">
+							<div class="sc-heading col-md-3 col-sm-12">Latest Movies</div>
+							<ul class="sc">
+
+						        <li class="sc-item col-md-3 col-sm-4">
+									<div class="sc-thumb">
+										<a href="">
+											<img src="assets/Having-a-rest-195x125.jpg" class="attachment-showcase-thumb size-showcase-thumb wp-post-image" alt="Having-a-rest" width="195" height="125">
+										</a>
+									</div>
+									<div class="sc-title"><a href="">Having a Rest</a></div>
+						         </li>
+
+						         <li class="sc-item col-md-3 col-sm-4">
+									<div class="sc-thumb">
+										<a href="">
+											<img src="assets/bird-195x125.jpg" class="attachment-showcase-thumb size-showcase-thumb wp-post-image" alt="bird" width="195" height="125">
+										</a>
+									</div>
+									<div class="sc-title"><a href="">This Christmas is going to be very heavy on your pockets</a></div>
+						         </li>
+
+							</ul>
+						</div>
+
+						<div class="showcase showcase-2 col-md-12 col-sm-12">
+							<div class="sc-heading col-md-3 col-sm-12">Popular Shows</div>
+							<ul class="sc">
+
+						        <li class="sc-item col-md-3 col-sm-4">
+									<div class="sc-thumb">
+										<a href="">
+											<img src="assets/Having-a-rest-195x125.jpg" class="attachment-showcase-thumb size-showcase-thumb wp-post-image" alt="Having-a-rest" width="195" height="125">
+										</a>
+									</div>
+									<div class="sc-title"><a href="">Having a Rest</a></div>
+						         </li>
+
+						         <li class="sc-item col-md-3 col-sm-4">
+									<div class="sc-thumb">
+										<a href="">
+											<img src="assets/bird-195x125.jpg" class="attachment-showcase-thumb size-showcase-thumb wp-post-image" alt="bird" width="195" height="125">
+										</a>
+									</div>
+									<div class="sc-title"><a href="">This Christmas is going to be very heavy on your pockets</a></div>
+						         </li>
+
+							</ul>
+						</div>
+
+					</div><!--#showcase-->
+
+					<div id="primary-home" class="content-area col-md-9">
+
+					<div id="primary-title">Recent Articles</div>
+						<main id="masonry" class="site-main col-md-12" role="main">
+							<article  class="row archive col-md-6 col-sm-6 homepage-article gridt post-1978 post type-post status-publish format-standard has-post-thumbnail hentry category-movies">
+								<div class="featured-thumb col-md-12 col-xs-12">
+									<div class="gridt-meta">
+										<div class="gridt-date" style="background-color:yellow;color:black;">Dec 31, 2013</div>
+										<div class="meta-title"><a href="/" rel="bookmark">Stormy Conditions in the Valley</a></div>
+									</div>
+									<a href="">
+										<img src="assets/1-769x472.jpg" class="attachment-gridt-thumb size-gridt-thumb wp-post-image" alt="1" srcset="http://demo.inkhive.com/temptation/wp-content/uploads/sites/17/2013/12/1-769x472.jpg 769w, http://demo.inkhive.com/temptation/wp-content/uploads/sites/17/2013/12/1-390x240.jpg 390w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="246">
+									</a>
+								</div>
+							</article><!-- #post-## -->
+
+
+							<article  class="row archive col-md-6 col-sm-6 homepage-article gridt post-1973 post type-post status-publish format-standard has-post-thumbnail hentry category-movies">
+								<div class="featured-thumb col-md-12 col-xs-12">
+									<div class="gridt-meta">
+										<div class="gridt-date" style="background-color:yellow;color:black;">Dec 31, 2013</div>
+										<div class="meta-title"><a href="" rel="bookmark">Mountain Hiking is one of the best hobbies to have</a></div>
+									</div>
+									<a href="">
+										<img src="assets/unsplash_528b276e41166_11-769x472.jpg" class="attachment-gridt-thumb size-gridt-thumb wp-post-image" alt="unsplash_528b276e41166_1" srcset="http://demo.inkhive.com/temptation/wp-content/uploads/sites/17/2013/12/unsplash_528b276e41166_11-769x472.jpg 769w, http://demo.inkhive.com/temptation/wp-content/uploads/sites/17/2013/12/unsplash_528b276e41166_11-390x240.jpg 390w" sizes="(max-width: 400px) 100vw, 400px" width="400" height="246">
+									</a>
+								</div>
+							</article><!-- #post-## -->
+
+
+
+
+
+						</main><!-- #main -->
+
+						<div class="pagination">
+							<div>
+								<ul>
+									<li><span>1 of 2</span></li>
+									<li><span class="page-numbers current" style="background-color:yellow;color:black;">1</span></li>
+									<li><a class="page-numbers" href="">2</a></li>
+									<li><a class="next page-numbers" href="http://demo.inkhive.com/temptation/page/2/">Next »</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div><!-- #primary -->
+
+					<div id="secondary-home" class="widget-area col-md-3" role="complementary">
+
+						<aside id="temptation_fp_cat-2" class="widget widget_temptation_fp_cat">
+							<h1 class="widget-title">Featured Articles</h1>
+							<ul class="rp">
+
+								 <li class="fp-item">
+									<div class="fp-thumb">
+										<a href="">
+											<img src="assets/1-390x240.jpg" class="attachment-carousel-thumb size-carousel-thumb wp-post-image" alt="1" srcset="http://demo.inkhive.com/temptation/wp-content/uploads/sites/17/2013/12/1-390x240.jpg 390w, http://demo.inkhive.com/temptation/wp-content/uploads/sites/17/2013/12/1-769x472.jpg 769w" sizes="(max-width: 390px) 100vw, 390px" width="390" height="240">
+										</a>
+									</div>
+
+									<div class="fp-title">
+										<a href="">Stormy Conditions in the Valley</a>
+									</div>
+									<div class="fp-date">
+										Dec 31, 2013
+									</div>
+								 </li>
+
+								 <li class="fp-item">
+									<div class="fp-thumb">
+										<a href="">
+											<img src="assets/1-390x240.jpg" class="attachment-carousel-thumb size-carousel-thumb wp-post-image" alt="1" srcset="http://demo.inkhive.com/temptation/wp-content/uploads/sites/17/2013/12/1-390x240.jpg 390w, http://demo.inkhive.com/temptation/wp-content/uploads/sites/17/2013/12/1-769x472.jpg 769w" sizes="(max-width: 390px) 100vw, 390px" width="390" height="240">
+										</a>
+									</div>
+
+									<div class="fp-title">
+										<a href="">Stormy Conditions in the Valley</a>
+									</div>
+									<div class="fp-date">
+										Dec 31, 2013
+									</div>
+								 </li>
+
+							</ul>
+
+						</aside>
+
+						<aside id="temptation_rp-2" class="widget widget_temptation_rp">
+							<h1 class="widget-title">Latest Articles</h1>
+							<ul class="rp">
+								 <li class="rp-item">
+									<div class="rp-thumb">
+										<a href="">
+											<img src="assets/1-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="1" width="150" height="150">
+										</a>
+									</div>
+
+									<div class="rp-title">
+										<a href="">Stormy Conditions in the Valley</a>
+									</div>
+									<div class="rp-date">Dec 31, 2013</div>
+								 </li>
+
+								 <li class="rp-item">
+									<div class="rp-thumb">
+										<a href="">
+											<img src="assets/1-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="1" width="150" height="150">
+										</a>
+									</div>
+
+									<div class="rp-title">
+										<a href="">Stormy Conditions in the Valley</a>
+									</div>
+									<div class="rp-date">Dec 31, 2013</div>
+								 </li>
+
+								</ul>
+						</aside>
+						<aside  class="widget widget_recent_entries">
+							<h1 class="widget-title">Recent Posts</h1>
+							<ul>
+								<li>
+									<a href="">Stormy Conditions in the Valley</a>
+								</li>
+								<li>
+									<a href="">Stormy Conditions in the Valley</a>
+								</li>
+
+							</ul>
+						</aside>
+
+					</div><!-- #secondary -->
+					<div class="clear" ></div>
+					<div id="gototop">
+						<a href="#page" title="Go to Top"><img src="assets/top.png"></a>
+					</div>
+				</div><!--.container-->
 
 		  <% include partials/footer %>
 

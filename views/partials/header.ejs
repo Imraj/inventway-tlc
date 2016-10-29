@@ -1,50 +1,90 @@
-<script src="js/angular.min.js"></script>
+<div id="top-bar">
+		<div class="container">
+				<header id="masthead" class="site-header col-md-4 col-sm-12 col-xs-12 row container" role="banner">
+					<div class="site-branding">
+						<h1 class="site-title"><a href="" title="Temptation" rel="home">TLC</a></h1>
 
-<header id="fh5co-header-section">
-  <div class="container">
-    <div class="nav-header">
-      <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-      <h1 id="fh5co-logo"><a href="index.html">TLC</a></h1>
-      <!-- START #fh5co-menu-wrap -->
-      <nav id="fh5co-menu-wrap" role="navigation">
-        <ul class="sf-menu" id="fh5co-primary-menu">
-        <!-- 	<li>
-            <a class="active" href="index.html">Home</a>
-          </li> -->
-          <li><a href="index">Home</a></li>
-          <li>
-            <a href="#" class="fh5co-sub-ddown">Transport</a>
-             <ul class="fh5co-sub-menu">
-              <li><a href="need_car">Need a Car</a></li>
-              <li><a href="need_partner">Need a Partner</a></li>
-              <li><a href="cars">All cars</a></li>
-              <li><a href="partners">All partners</a></li>
-            </ul>
-          </li>
+					</div>
+				</header><!-- #masthead -->
 
 
+			  <div id="primary-nav-wrapper" class="col-md-8 col-xs-12 container">
+					<nav id="primary-navigation" class="primary-navigation" role="navigation">
 
-          <% if(locals.session && locals.session.valid){ %>
-             <li><a href="inbox">Inbox</a></li>
-             <li>
-               <a href="#"><%= locals.session.email %></a>
-               <ul class="fh5co-sub-menu">
-                <li><a href="profile">Profile</a></li>
-                <li><a href="contact">Help</a></li>
-                <li><a href="blog">Blog</a></li>
-                <li><a href="logout">Logout</a></li>
-              </ul>
-             </li>
-          <% }else{ %>
-            <li><a href="register">Register</a></li>
-            <li><a href="login">Login</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="contact">Contact</a></li>
-          <% } %>
+							<h1 class="menu-toggle">Menu</h1>
+							<div class="screen-reader-text skip-link"><a href="#content">Skip to content</a></div>
 
+							<div class="menu-main-menu-container">
+								<ul id="menu-main-menu" class="menu nav-menu">
+                  <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                    <a href="">Home</a>
+                  </li>
+                  <li  class="menu-item menu-item-type-custom menu-item-object-custom">
+										<a href="">Transport</a>
+											<ul class="sub-menu">
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+													<a href="need_car">Need a Car</a>
+												</li>
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category ">
+													<a href="need_partner">Need a Partner</a>
+												</li>
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category ">
+													<a href="cars">All Cars</a>
+												</li>
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category ">
+													<a href="partners">All Partners</a>
+												</li>
+											</ul>
+									</li>
+                  <% if(locals.session && locals.session.valid){ %>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                      <a href="inbox">Inbox</a>
+                    </li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                      <a href="#"><%= locals.session.email %></a>
+                      <ul class="sub-menu">
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                          <a href="profile">Profile</a>
+                        </li>
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                          <a href="contact">Help</a>
+                        </li>
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                          <a href="blog">Blog</a>
+                        </li>
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                          <a href="logout">Logout</a>
+                        </li>
+                      </ul>
+                    </li>
+                  <% }else{ %>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                      <a href="register">Register</a>
+                    </li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                      <a href="login">Login</a>
+                    </li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                      <a href="about">About</a>
+                    </li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                      <a href="contact">Contact</a>
+                    </li>
+                  <% } %>
 
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+								</ul>
+							</div>
+					</nav><!-- #site-navigation -->
+			</div>
+			<div id="fixed-search">
+				<form role="search" method="get" class="row search-form" action="http://demo.inkhive.com/temptation/">
+					<label>
+						<span class="screen-reader-text">Search for:</span>
+
+						<input class="search-field" placeholder="Search..." name="s" type="text">
+					</label>
+					<span class="show-fake"><i class="fa fa-search"> </i></span>
+				</form>
+			</div>
+		</div>
+	</div><!--#top-bar-->
