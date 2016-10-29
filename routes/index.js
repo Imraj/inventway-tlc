@@ -224,17 +224,11 @@ router.get('/inbox',function(req,res,next){
 
 router.get("/cars",function(req,res,next){
 
-  if(req.session.valid)
-  {
+
     Car.find({},function(err,cars){
         if(err)return next(err);
         res.render('cars',{title:'All cars',cars : cars,session:req.session });
     });
-  }
-  else
-  {
-    res.redirect('login');
-  }
 
 });
 
@@ -268,16 +262,12 @@ router.get("/inbox/:bcar/:buser",function(req,res,next){
 
 router.get("/partners",function(req,res,next){
 
-  if(req.session.valid)
-  {
+
     Partner.find({},function(err,partners){
       if(err)return next(err);
       res.render('partners',{title:'All partners',partners : partners,session:req.session });
     });
-  }
-  else{
-      res.redirect('login');
-  }
+  
 
 });
 
