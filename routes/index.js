@@ -246,20 +246,6 @@ router.get("/cars/:tmcar",function(req,res,next){
 
 });
 
-router.get("/inbox/:bcar/:buser",function(req,res,next){
-
-  var car = req.param('bcar');
-  var user = req.param('buser');
-
-  if(req.session.valid){
-      res.render('inbox',{car:car,createdBy:user,session:req.session});
-  }
-  res.redirect('/login');
-
-
-
-});
-
 router.get("/partners",function(req,res,next){
 
     Partner.find({},function(err,partners){
@@ -283,17 +269,6 @@ router.get("/partner/:partner",function(req,res,next){
 
 });
 
-router.get("/inbox/:partner/:user",function(req,res,next){
-
-  var partner = req.param('partner');
-  var user = req.param('user');
-
-  if(req.session.valid){
-      res.render('inbox',{partner:partner,createdBy:user,session:req.session});
-  }
-  res.redirect('/login');
-
-});
 
 router.get('/inbox',function(req,res,next){
   if(req.session.valid){
@@ -305,14 +280,32 @@ router.get('/inbox',function(req,res,next){
 
 });
 
-router.get('inbox/:userid',function(req,res,next){
+router.get("/inbox/:buser",function(req,res,next){
 
-  var userId = req.body.userId;
-  if(req.session.valid)
-  {
+  var user = req.param('buser');
+  var me_user = req.session.user_id;
 
+  if(req.session.valid){
+
+      Inbox.find({userA : user,userB:me_user},function(err,inbox){
+        if(err)return next(err);
+
+        if(inbox)
+        {
+          Inbox.find({userA:me_user,userB:user},function(err,inbox_again){
+
+          });
+        }
+
+      });
+
+      res.render('inbox',{car:car,createdBy:user,session:req.session});
   }
+  res.redirect('/login');
+
 
 });
+
+
 
 module.exports = router;
