@@ -252,10 +252,10 @@ router.get("/cars/:tmcar",function(req,res,next){
 
 });
 
-router.get("/inbox/:car/:user",function(req,res,next){
+router.get("/inbox/:bcar/:buser",function(req,res,next){
 
-  var car = req.body.car;
-  var user = req.body.user;
+  var car = req.body.bcar;
+  var user = req.body.buser;
 
   if(req.session.valid){
       res.render('inbox',{car:car,createdBy:user,session:req.session});
