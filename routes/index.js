@@ -254,8 +254,8 @@ router.get("/cars/:tmcar",function(req,res,next){
 
 router.get("/inbox/:bcar/:buser",function(req,res,next){
 
-  var car = req.body.bcar;
-  var user = req.body.buser;
+  var car = req.param('bcar');
+  var user = req.param('buser');
 
   if(req.session.valid){
       res.render('inbox',{car:car,createdBy:user,session:req.session});
