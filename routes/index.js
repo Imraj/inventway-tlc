@@ -262,12 +262,11 @@ router.get("/inbox/:bcar/:buser",function(req,res,next){
 
 router.get("/partners",function(req,res,next){
 
-
     Partner.find({},function(err,partners){
       if(err)return next(err);
       res.render('partners',{title:'All partners',partners : partners,session:req.session });
     });
-  
+
 
 });
 
