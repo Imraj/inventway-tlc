@@ -285,21 +285,15 @@ router.get("/inbox/:buser",function(req,res,next){
   var user = req.param('buser');
   var me_user = req.session.user_id;
 
-  if(req.session.valid){
+  if(req.session.valid)
+  {
+      Inbox.findOne({$or:[{userA:user,userB:me_user},{userA:me_user,userB:user}]},function(err,inbox){
 
-      Inbox.find({userA : user,userB:me_user},function(err,inbox){
-        if(err)return next(err);
+          if(err)return next(err);
 
-        if(inbox)
-        {
-          Inbox.find({userA:me_user,userB:user},function(err,inbox_again){
-
-          });
-        }
+          res.render('inbox',{inbox:inbox,createdBy:user,session:req.session});
 
       });
-
-      res.render('inbox',{inbox:inbox,createdBy:user,session:req.session});
   }
   res.redirect('/login');
 
