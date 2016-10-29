@@ -31,7 +31,7 @@
 	<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"> -->
 
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/animate.css" />
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Simple Line Icons -->
@@ -74,8 +74,8 @@
 								<h3><%= car.location%></h3>
 								<h3><%= car.zip_code%></h3>
 								<p class="pos"><%= car.shift %></p>
-								<a href="https://app-tlc.scalingo.io/cars/<%= car._id %>/">View Details</a>
-								<a href="https://app-tlc.scalingo.io/inbox/<%= car._id %>/<%= car.createdBy %>/">Contact</a>
+								<a href="/cars/<%= car._id %>/">View Details</a>
+								<a href="/inbox/<%= car._id %>/<%= car.createdBy %>/">Contact</a>
 							</div>
 						</div>
 					</div>
