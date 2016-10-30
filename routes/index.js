@@ -232,9 +232,9 @@ router.get("/cars",function(req,res,next){
 
 });
 
-router.get("/cars/:tmcar",function(req,res,next){
+router.get("/cars/:car",function(req,res,next){
 
-  var carId = req.param('tmcar');
+  var carId = req.param('car');
   console.log("my carId is : " + carId);
   var query = Car.findById(carId);
 
@@ -280,9 +280,9 @@ router.get('/mail',function(req,res,next){
 
 });
 
-router.get("/inbox/:buser",function(req,res,next){
+router.get("/inbox/:user",function(req,res,next){
 
-  var user = req.param('buser');
+  var user = req.param('user');
   var me_user = req.session.user_id;
 
   if(req.session.valid)

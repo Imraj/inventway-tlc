@@ -4,18 +4,20 @@
 			<div class="container">
 
 				<div class="row">
+
 					<div class="col-md-12 text-center">
-						<div class="about-wrap">
-
-
-						</div>
+							<% message.forEach(function(msg){ %>
+										<div class="about-wrap">
+											 <p>
+												 <%= msg.message %>
+											 </p>
+											 <h4 class="pull-right">
+												 <%= msg.createdAt %>
+											 </h4>
+										</div>
+							<% }) %>
 					</div>
-					<div class="col-md-12 text-center">
-						<div class="about-wrap">
 
-
-						</div>
-					</div>
 					<div class="col-md-12 text-center">
 						<div class="about-wrap">
 							<div class="desc">
@@ -40,7 +42,7 @@
 	<!-- END fh5co-page -->
 
 	</div>
-	
+
 
 	</body>
 </html>
