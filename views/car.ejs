@@ -23,11 +23,16 @@
 
 										<div class="col-md-12">
                       <h3 class="col-md-6">ZipCode : <%= locals.car.zip_code %> </h3>
-                      <h3 class="col-md-6">Location : <%= locals.car.location %> </h3>
+
+										</div>
+
+										<div class="col-md-12">
+
+											<h3 class="col-md-6">Location : <%= locals.car.location %> </h3>
 										</div>
 
                     <div class="col-md-12">
-                        <%= locals.car.experience %>
+                        <p><%= locals.car.experience %></p>
                     </div>
                     <div class="col-md-12">
                         <a href="/inbox/<%= car.createdBy %>" class="col-md-12 btn btn-primary" >Contact</a>
