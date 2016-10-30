@@ -6,13 +6,14 @@ var InboxSchema = mongoose.Schema({
   userB : String,
   messages:[{from:"",to:"",createdAt:"",message:""}],
 
+
 });
 
 InboxSchema.pre("save",function(next){
 
   now = new Date();
-  if(!this.createdAt){
-    this.createdAt = now;
+  if(!this.messages.createdAt){
+    this.messages.createdAt = now;
   }
   return next();
 
