@@ -150,16 +150,12 @@ router.get('/register',function(req,res,next){
 router.post('/register',function(req,res,next){
 
   var user = new User({
-    first_name : req.body.first_name,
-    last_name : req.body.last_name,
     email : req.body.email
   });
   user.setPassword(req.body.password);
 
   user.save(function(err,user){
       if(err)return next(err);
-      req.session.first_name = user.first_name;
-      req.session.last_name = user.last_name;
       req.session.user_id = user._id;
       req.session.email = user.email;
       req.session.valid = true;
