@@ -7,7 +7,7 @@
 					</div>
 				</header><!-- #masthead -->
 				<style>
-					 #menu-main-menu li{
+					 #menu-main-menu li a{
 						 	color:yellow;
 					 }
 			 </style>
@@ -39,6 +39,29 @@
 												</li>
 											</ul>
 									</li>
+									<li  class="menu-item menu-item-type-custom menu-item-object-custom">
+										<a href="">Driver</a>
+											<ul class="sub-menu">
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+													<a href="need_car">New Driver</a>
+												</li>
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category ">
+													<a href="need_partner">Already Driver</a>
+												</li>
+											</ul>
+									</li>
+									<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+										<a href="/">Medallion Owners</a>
+									</li>
+									<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+										<a href="/">The Union</a>
+									</li>
+									<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+										<a href="about">Future</a>
+									</li>
+									<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+										<a href="">Invest</a>
+									</li>
                   <% if(locals.session && locals.session.valid){ %>
                     <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
                       <a href="mail">Inbox</a>
@@ -67,12 +90,7 @@
                     <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
                       <a href="login">Login</a>
                     </li>
-                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
-                      <a href="about">About</a>
-                    </li>
-                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
-                      <a href="contact">Contact</a>
-                    </li>
+
                   <% } %>
 
 								</ul>
