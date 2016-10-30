@@ -291,7 +291,7 @@ router.get("/inbox/:user",function(req,res,next){
 
           if(err)return next(err);
 
-          res.render('inbox',{inbox:inbox,createdBy:user,session:req.session});
+          res.render('inbox',{messages:inbox.messages,createdBy:user,session:req.session});
 
       });
   }

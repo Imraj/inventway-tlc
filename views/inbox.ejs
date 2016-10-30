@@ -5,18 +5,20 @@
 
 				<div class="row">
 
-					<div class="col-md-12 text-center">
-							<% inbox.messages.forEach(function(msg){ %>
-										<div class="about-wrap">
-											 <p>
-												 <%= msg.message %>
-											 </p>
-											 <h4 class="pull-right">
-												 <%= msg.createdAt %>
-											 </h4>
-										</div>
-							<% }) %>
-					</div>
+					<% if(locals.messages.length > 0) { %>
+						<div class="col-md-12 text-center">
+								<% locals.messages.forEach(function(msg){ %>
+											<div class="about-wrap">
+												 <p>
+													 <%= msg.message %>
+												 </p>
+												 <h4 class="pull-right">
+													 <%= msg.createdAt %>
+												 </h4>
+											</div>
+								<% }) %>
+						</div>
+					<% } %>
 
 					<div class="col-md-12 text-center">
 						<div class="about-wrap">
