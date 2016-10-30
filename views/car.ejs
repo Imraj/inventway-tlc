@@ -7,11 +7,19 @@
 
 				<div class="row">
 					<div class="col-md-12">
-              <div class="col-md-10 col-md-offset-2">
+              <div class="col-md-8 col-md-offset-2">
 
-                    <h2 class="col-md-12"> Model :  <%= locals.car.model %>  </h2>
-                    <h3 class="col-md-12"> Year :  <%= locals.car.year %>  </h3>
-                    <h3 class="col-md-12"> Shift :  <%= locals.car.shift %>  </h3>
+                    <div class="col-md-12">
+												<h2>Model :  <%= locals.car.model %></h2>
+										</div>
+
+                    <div class="col-md-12">
+												<h3>Year :  <%= locals.car.year %> </h3>
+										</div>
+
+                    <div class="col-md-12">
+											<h3>Shift :  <%= locals.car.shift %>  </h3>
+										</div>
 
 										<div class="col-md-12">
                       <h3 class="col-md-6">ZipCode : <%= locals.car.zip_code %> </h3>
@@ -19,10 +27,7 @@
 										</div>
 
                     <div class="col-md-12">
-                        
-                        <p class="col-md-12">
-                            <%= locals.car.experience %>
-                        </p>
+                        <%= locals.car.experience %>
                     </div>
                     <div class="col-md-12">
                         <a href="/inbox/<%= car.createdBy %>" class="col-md-12 btn btn-primary" >Contact</a>
