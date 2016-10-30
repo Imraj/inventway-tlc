@@ -290,8 +290,13 @@ router.get("/inbox/:user",function(req,res,next){
       Inbox.findOne({$or:[{userA:user,userB:me_user},{userA:me_user,userB:user}]},function(err,inbox){
 
           if(err)return next(err);
+          if(inbox){
+              res.render('inbox',{messages:inbox.messages,createdBy:user,session:req.session});
+          }
+          else{
+              res.render('inbox',{createdBy:user,session:req.session});
+          }
 
-          res.render('inbox',{messages:inbox.messages,createdBy:user,session:req.session});
 
       });
   }
