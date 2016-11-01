@@ -349,30 +349,32 @@ router.get('/already_driver',function(req,res,next){
 
 router.get('/union_general',function(req,res,next){
 
+  res.render('union/union_general',{title:" Union - General "});
+
 });
 
 router.get('/union_ranking_system',function(req,res,next){
-
+  res.render('union/union_ranking_system',{title:" Union - Ranking System "});
 });
 
 router.get('/union_dash_app',function(req,res,next){
-
+  res.render('union/union_dash_app',{title:" Union - Dash App "});
 });
 
 router.get('/union_elections',function(req,res,next){
-
+  res.render('union/union_elections',{title:" Union - Elections "});
 });
 
 router.get('/union_board',function(req,res,next){
-
+  res.render('union/union_board',{title:" Union - Board "});
 });
 
 router.get('/union_groups',function(req,res,next){
-
+  res.render('union/union_groups',{title:" Union - Groups "});
 });
 
 router.get('/union_events',function(req,res,next){
-
+  res.render('union/union_events',{title:" Union - Events "});
 });
 
 
