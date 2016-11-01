@@ -339,7 +339,7 @@ router.post("/inbox/send/:user",function(req,res,next){
 });
 
 router.get('/new_driver',function(req,res,next){
-
+  res.render('new_driver',{title:" New Driver "});
 });
 
 router.get('/already_driver',function(req,res,next){
