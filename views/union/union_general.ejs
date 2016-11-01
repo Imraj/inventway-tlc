@@ -6,6 +6,19 @@
   .row{
     margin-top:3em;
   }
+  #package-title{
+    font-size:1.3em;
+    font-weight: bold;
+    color:white;
+  }
+  #package-description{
+    color:white;
+  }
+  #package-price{
+    font-size:1.3em;
+    font-weight: bold;
+    color:yellow;
+  }
 </style>
 
 <div class="container">
@@ -13,14 +26,14 @@
   <div class="row">
 
       <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-          <img src="union/new_driver.png" width="450" height="450" />
-          <div>Introduction to driving in NYC</div>
+          <img src="assets/union/new_driver.png" width="450" height="250" />
+          <div class="text-center" id="description">Introduction to driving in NYC</div>
           <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Get Started</a>
       </div>
 
       <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-        <img src="union/tlc.png" width="450" height="450" />
-        <div>What's TLC? and What service do they offer?</div>
+        <img src="assets/union/tlc.png" width="450" height="250" />
+        <div class="text-center" id="description">What's TLC? and What service do they offer?</div>
         <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Get Started</a>
       </div>
 
@@ -28,105 +41,106 @@
 
   <div class="row">
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-        <img src="union/garages.jpg" width="450" height="450"  />
-        <div>Need a garage?</div>
+        <img src="assets/union/garages.jpg" width="450" height="250"  />
+        <div class="text-center" id="description">Need a garage?</div>
         <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">View available garages</a>
     </div>
 
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-      <img src="union/tlc.png" width="450" height="450" />
-      <div>What's TLC? and What service do they offer?</div>
+      <img src="assets/union/tlc.png" width="450" height="250" />
+      <div class="text-center" id="description">What's TLC? and What service do they offer?</div>
       <button class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Get Started</button>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-        <img src="union/driving.jpg" width="450" height="450" />
-        <div>Want to Experience Virtual Driving?</div>
+        <img src="assets/union/driving.jpg" width="450" height="250" />
+        <div class="text-center" id="description">Want to Experience Virtual Driving?</div>
         <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Get started.</a>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-        <img src="union/garages.jpg" width="450" height="450"  />
-        <div class="text-center">City Packages</div>
-        <div>Educational content about the whole city map & driving tricks</div>
-        <div class="text-center">$39.99</div>
+        <img src="assets/union/garages.jpg" width="450" height="450"  />
+        <div class="text-center" id="package-title">City Packages</div>
+        <div class="text-center" id="package-description">Educational content about the whole city map & driving tricks</div>
+        <div class="text-center" id="package-price">$39.99</div>
         <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Unlock Now</a>
     </div>
 
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-      <img src="union/tlc.png" width="450" height="450" />
-      <div class="text-center">Downtown Packages</div>
-      <div>Educational content about the whole city map & driving tricks</div>
-      <div class="text-center">$39.99</div>
+      <img src="assets/union/tlc.png" width="450" height="450" />
+      <div class="text-center" id="package-title">Downtown Packages</div>
+      <div class="text-center" id="package-description">Educational content about the whole city map & driving tricks</div>
+      <div class="text-center" id="package-price">$39.99</div>
       <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Unlock Now</a>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-        <img src="union/garages.jpg" width="450" height="450"  />
-        <div class="text-center">Regulations Package</div>
-        <div>Educational content about the TLC Regulations to pass the TLC Test to get licensed</div>
-        <div class="text-center">$9.99</div>
+        <img src="assets/union/garages.jpg" width="450" height="450"  />
+        <div class="text-center" id="package-title">Regulations Package</div>
+        <div class="text-center" id="package-description">Educational content about the TLC Regulations to pass the TLC Test to get licensed</div>
+        <div class="text-center" id="package-price">$9.99</div>
         <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Unlock Now</a>
     </div>
 
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-      <img src="union/tlc.png" width="450" height="450" />
-      <div class="text-center">Money Spots</div>
-      <div>
+      <img src="assets/union/tlc.png" width="450" height="450" />
+      <div class="text-center" id="package-title">Money Spots</div>
+      <div class="text-center" id="package-description">
         Educational content about where to find customers in the city, money places and what time sould u look for customers there</div>
-      <div class="text-center">$79.99</div>
+      <div class="text-center" id="package-price">$79.99</div>
       <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Unlock Now</a>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-        <img src="union/garages.jpg" width="450" height="450"  />
-        <div class="text-center">Rest Spots </div>
-        <div>Discover places where drivers can get a break, can find bathrooms and un-paid parking for the taxi cabs</div>
-        <div class="text-center">$1.99</div>
+        <img src="assets/union/garages.jpg" width="450" height="450"  />
+        <div class="text-center" id="package-title">Rest Spots </div>
+        <div class="text-center" id="package-description">Discover places where drivers can get a break, can find bathrooms and un-paid parking for the taxi cabs</div>
+        <div class="text-center" id="package-price">$1.99</div>
         <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Unlock Now</a>
     </div>
 
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-      <img src="union/tlc.png" width="450" height="450" />
-      <div class="text-center">Camera list package</div>
-      <div>Discover where speed and red light cameras</div>
-      <div class="text-center">FREE</div>
+      <img src="assets/union/tlc.png" width="450" height="450" />
+      <div class="text-center" id="package-title">Camera list package</div>
+      <div class="text-center" id="package-description">Discover where speed and red light cameras</div>
+      <div class="text-center" id="package-price">FREE</div>
       <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">View Now</a>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-        <img src="union/garages.jpg" width="450" height="450"  />
-        <div class="text-center">Turn Tricks </div>
-        <div>Discover places to make u-turns, and where turns are allowed and what time are allowed</div>
-        <div class="text-center">$0.99</div>
+        <img src="assets/union/garages.jpg" width="450" height="450"  />
+        <div class="text-center" id="package-title">Turn Tricks </div>
+        <div class="text-center" id="package-description">
+          Discover places to make u-turns, and where turns are allowed and what time are allowed</div>
+        <div class="text-center" id="package-price">$0.99</div>
         <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Unlock Now</a>
     </div>
 
     <div class="col-md-6 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-      <img src="union/tlc.png" width="450" height="450" />
-      <div class="text-center">Camera list package</div>
-      <div>Discover where speed and red light cameras</div>
-      <div class="text-center">FREE</div>
+      <img src="assets/union/tlc.png" width="450" height="450" />
+      <div class="text-center" id="package-title">Camera list package</div>
+      <div class="text-center" id="package-description">Discover where speed and red light cameras</div>
+      <div class="text-center" id="package-price">FREE</div>
       <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">View Now</a>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12" style="min-height:8em;height:100%">
-        <img src="union/garages.jpg" width="450" height="450"  />
-        <div class="text-center">Get all packages</div>
-        <div>The Ultimate All in One Package</div>
-        <div class="text-center">$99.99</div>
+        <img src="assets/union/garages.jpg" width="450" height="450"  />
+        <div class="text-center" id="package-title">Get all packages</div>
+        <div class="text-center" id="package-description">The Ultimate All in One Package</div>
+        <div class="text-center" id="package-price">$99.99</div>
         <a class="btn btn-primary col-md-4 col-md-offset-4 col-xs-12 col-sm-12">Unlock Now</a>
     </div>
 
