@@ -68,7 +68,7 @@ router.get('/need_partner',function(req,res,next){
   }
   else{
     req.session.renderTo = 'need_partner';
-    res.render('login',{session:req.session});
+    res.render('login',{session:req.session,title:'Need Partner'});
   }
 
 });
@@ -287,10 +287,10 @@ router.get("/inbox/:user",function(req,res,next){
 
           if(err)return next(err);
           if(inbox){
-              res.render('inbox',{messages:inbox.messages,createdBy:user,session:req.session});
+              res.render('inbox',{messages:inbox.messages,createdBy:user,session:req.session,title:"Inbox"});
           }
           else{
-              res.render('inbox',{createdBy:user,session:req.session});
+              res.render('inbox',{createdBy:user,session:req.session,title:"Inbox"});
           }
 
 
