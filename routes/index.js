@@ -213,6 +213,41 @@ router.post('/update_profile',function(req,res,next){
 
 });
 
+router.get('/complete_profile',function(req,res,next){
+  if(req.session.valid)
+  {
+      res.render('/complete_registration',{title:"Complete Profile",session:req.session});
+  }
+  else
+  {
+       res.redirect("login");
+  }
+
+});
+
+router.post('/complete_profile',function(req,res,next){
+
+  var user = req.session.user_id;
+  var phone = req.body.phone;
+  var neighbourhood = req.body.neighbourhood;
+  var account_type = req.body.account_type;
+  var car_type = req.body.car_type;
+
+  User.find({_id:user},function(err,user){
+      if(err)return next(err);
+
+      if(user){
+        user.phone = phone;
+        user.neighbourhood = neighbourhood;
+        user.account_type = account_type;
+        user.car_type = car_type;
+
+        res.redirect("/");
+      }
+  });
+
+});
+
 router.get('/inbox',function(req,res,next){
 
 
