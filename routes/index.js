@@ -408,6 +408,10 @@ router.get('/union_groups',function(req,res,next){
   res.render('union/union_groups',{title:" Union - Groups "});
 });
 
+router.get('/new_group',function(req,res,next){
+  res.render('union/new_group',{title:"Union - New Group"});
+});
+
 router.get('/union_events',function(req,res,next){
   res.render('union/union_events',{title:" Union - Events "});
 });
