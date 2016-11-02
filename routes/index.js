@@ -412,6 +412,10 @@ router.get('/union_events',function(req,res,next){
   res.render('union/union_events',{title:" Union - Events "});
 });
 
+router.get('/new_event',function(req,res,next){
+  res.render('union/new_event',{title:"Union - New Event"});
+});
+
 
 
 
