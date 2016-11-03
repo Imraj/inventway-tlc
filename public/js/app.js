@@ -1,10 +1,10 @@
-var app = angular.module("flapper",["ui.router"]);
+var apptlc = angular.module("flapper",["ui.router"]);
 
-app.controller("HomeCtrl",["$scope","$state",function($scope,$state){
+apptlc.controller("HomeCtrl",["$scope","$state",function($scope,$state){
 
 }]);
 
-app.config({ "$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+apptlc.config({ "$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
 
 }
 });
