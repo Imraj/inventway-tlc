@@ -9,7 +9,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
 
     $stateProvider
       .state("home",{
-        templateUrl:"partials/home.html",
+        templateUrl:"templates/home.html",
         url:"/home",
         controller:"HomeCtrl"
       })
