@@ -39,14 +39,26 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       })
 
       .state("blog",{
-        templateUrl:"/blog.html",
+        templateUrl:"templates/blog/blog.html",
         url:"/blog",
         controller:"HomeCtrl"
       })
 
       .state("about",{
-        templateUrl:"/about.html",
+        templateUrl:"templates/about.html",
         url:"/about",
+        controller:"HomeCtrl"
+      })
+
+      .state("investor",{
+        templateUrl:"templates/investor.html",
+        url:"/investor",
+        controller:"HomeCtrl"
+      })
+
+      .state("contact",{
+        templateUrl:"templates/contact.html",
+        url:"/contact",
         controller:"HomeCtrl"
       });
 
