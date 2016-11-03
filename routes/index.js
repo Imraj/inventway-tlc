@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home'});
 });
 
+
 router.get('/need_car',function(req,res,next){
 
   if(req.session.valid)
@@ -179,7 +180,7 @@ router.get('/complete_registration',function(req,res,next){
 
 router.post('/complete_registration',function(req,res,next){
 
-  
+
 
 });
 
