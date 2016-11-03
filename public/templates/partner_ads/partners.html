@@ -1,0 +1,53 @@
+<% include partials/head %>
+<% include partials/header %>
+		<div id="fh5co-about-section" style="margin-top:3em;margin-bottom:5em;">
+			<div class="container">
+
+				<div class="row">
+					<% if(locals.partners.length > 0) { %>
+
+		          <% partners.forEach(function(partner){ %>
+
+								<div class="col-md-4 text-center">
+									<div class="about-wrap">
+										<div class="desc">
+											<h3><%= partner.location%></h3>
+											<h3><%= partner.zip_code%></h3>
+											<p class="pos"><%= partner.shift %></p>
+											<a href="/partners/<%= partner._id %>">View Details</a>
+											<a href="/inbox/<%= partner._id %>/<%= partner.createdBy %>">Contact</a>
+										</div>
+									</div>
+								</div>
+
+		          <% }) %>
+
+					<% }else{ %>
+
+						<div class="col-md-12 text-center">
+							<div class="about-wrap">
+								<div class="desc text-center">
+									<h3>Oops! Sorry</h3>
+									<p class="pos">Nothing here at the moment. Check back later</p>
+
+
+								</div>
+							</div>
+						</div>
+
+					<% } %>
+				</div>
+			</div>
+		</div>
+
+		<% include partials/footer %>
+
+
+
+	</div>
+	<!-- END fh5co-page -->
+
+	</div>
+
+	</body>
+</html>
