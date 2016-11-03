@@ -8,8 +8,20 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
   function($stateProvider,$urlRouterProvider){
 
     $stateProvider
-      .state("home",{
+      .state("/",{
         templateUrl:"templates/home.html",
+        url:"/home",
+        controller:"HomeCtrl"
+      })
+
+      .state("/new_driver",{
+        templateUrl:"templates/driver/new_driver.html",
+        url:"/home",
+        controller:"HomeCtrl"
+      })
+
+      .state("/already_driver",{
+        templateUrl:"templates/driver/already_driver.html",
         url:"/home",
         controller:"HomeCtrl"
       })
@@ -26,6 +38,6 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         controller:"HomeCtrl"
       });
 
-    $urlRouterProvider.otherwise("home");
+    $urlRouterProvider.otherwise("/");
 
 }]);
