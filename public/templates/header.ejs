@@ -1,0 +1,117 @@
+<div id="top-bar">
+		<div class="container">
+				<header id="masthead" class="site-header col-md-4 col-sm-12 col-xs-12 row container" role="banner">
+					<div class="site-branding">
+						<h1 class="site-title"><a href="" title="Temptation" rel="home">TLC</a></h1>
+
+					</div>
+				</header><!-- #masthead -->
+				<style>
+					 #menu-main-menu li a{
+						 	color:yellow;
+					 }
+			 </style>
+			  <div id="primary-nav-wrapper" class="col-md-8 col-xs-12 container">
+					<nav id="primary-navigation" class="primary-navigation" role="navigation">
+
+							<h1 class="menu-toggle">Menu</h1>
+							<div class="screen-reader-text skip-link"><a href="#content">Skip to content</a></div>
+
+							<div class="menu-main-menu-container">
+								<ul id="menu-main-menu" class="menu nav-menu">
+                  <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                    <a href="/">Home</a>
+                  </li>
+
+									<li  class="menu-item menu-item-type-custom menu-item-object-custom">
+										<a href="">Driver</a>
+											<ul class="sub-menu">
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+													<a href="new_driver">New Driver</a>
+												</li>
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category ">
+													<a href="already_driver">Already Driver</a>
+												</li>
+											</ul>
+									</li>
+									<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+										<a href="/">Medallion Owners</a>
+									</li>
+									<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+										<a href="#">The Union</a>
+										<ul class="sub-menu">
+											<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+												<a href="/union_general">General</a>
+											</li>
+											<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+												<a href="union_ranking_system">Ranking System</a>
+											</li>
+											<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+												<a href="union_dash_app">Dash App</a>
+											</li>
+											<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+												<a href="union_elections">Elections</a>
+											</li>
+											<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+												<a href="union_board">Board</a>
+											</li>
+											<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+												<a href="union_groups">Groups</a>
+											</li>
+											<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+												<a href="union_events">Events</a>
+											</li>
+
+										</ul>
+									</li>
+									<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+										<a href="about">Future</a>
+									</li>
+									<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+										<a href="">Invest</a>
+									</li>
+                  <% if(locals.session && locals.session.valid){ %>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                      <a href="mail">Inbox</a>
+                    </li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                      <a href="#"><%= locals.session.email %></a>
+                      <ul class="sub-menu">
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                          <a href="profile">Profile</a>
+                        </li>
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                          <a href="contact">Help</a>
+                        </li>
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                          <a href="blog">Blog</a>
+                        </li>
+                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                          <a href="logout">Logout</a>
+                        </li>
+                      </ul>
+                    </li>
+                  <% }else{ %>
+
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                      <a href="login">Login</a>
+                    </li>
+
+                  <% } %>
+
+								</ul>
+							</div>
+					</nav><!-- #site-navigation -->
+			</div>
+			<div id="fixed-search">
+				<form role="search" method="get" class="row search-form" action="http://demo.inkhive.com/temptation/">
+					<label>
+						<span class="screen-reader-text">Search for:</span>
+
+						<input class="search-field" placeholder="Search..." name="s" type="text">
+					</label>
+					<span class="show-fake"><i class="fa fa-search"> </i></span>
+				</form>
+			</div>
+		</div>
+	</div><!--#top-bar-->
