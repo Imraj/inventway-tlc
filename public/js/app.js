@@ -4,6 +4,6 @@ app.controller("HomeCtrl",["$scope","$state",function($scope,$state){
 
 }]);
 
-app.config({
-  
+app.config({ "$stateProvider","$urlRouterProvider"
+
 });
