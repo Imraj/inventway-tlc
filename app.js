@@ -43,9 +43,17 @@ app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-//app.use('/partials/:view',routes);
 
 app.use('/users', users);
+
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/public/templates/index.html')); //load the angular index page.
+});
+
+app.get('*', function (req, res, next) {
+    next();
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
