@@ -4,7 +4,8 @@ apptlc.controller("HomeCtrl",["$scope","$state",function($scope,$state){
 
 }]);
 
-apptlc.config({ "$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+apptlc.config([ "$stateProvider","$urlRouterProvider",
+  function($stateProvider,$urlRouterProvider){
 
 }
-});
+]);
