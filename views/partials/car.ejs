@@ -1,0 +1,54 @@
+<% include partials/head %>
+<% include partials/header %>
+
+
+		<div id="fh5co-about-section" style="margin-top:3em;margin-bottom:5em;">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-12">
+              <div class="col-md-8 col-md-offset-2">
+
+                    <div class="col-md-12">
+												<h2>Model :  <%= locals.car.model %></h2>
+										</div>
+
+                    <div class="col-md-12">
+												<h3>Year :  <%= locals.car.year %> </h3>
+										</div>
+
+                    <div class="col-md-12">
+											<h3>Shift :  <%= locals.car.shift %>  </h3>
+										</div>
+
+										<div class="col-md-12">
+                      <h3 >ZipCode : <%= locals.car.zip_code %> </h3>
+										</div>
+
+										<div class="col-md-12">
+											<h3>Location : <%= locals.car.location %> </h3>
+										</div>
+
+                    <div class="col-md-12">
+                        <p><%= locals.car.experience %></p>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="/inbox/<%= car.createdBy %>" class="col-md-12 btn btn-primary" >Contact</a>
+                    </div>
+                  </div>
+              </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<% include partials/footer %>
+
+	</div>
+	<!-- END fh5co-page -->
+
+	</div>
+
+
+	</body>
+</html>
