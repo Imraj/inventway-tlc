@@ -14,9 +14,9 @@ var passport = require('passport');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  if(req.session.valid){
+  /*if(req.session.valid){
       res.render('index', { title: 'Home',session:req.session });
-  }
+  }*/
 
   res.render('index', { title: 'Home'});
 });
