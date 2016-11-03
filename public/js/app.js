@@ -9,8 +9,14 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
 
     $stateProvider
       .state("home",{
-        templateUrl:"/home.html",
+        templateUrl:"home.html",
         url:"/home",
+        controller:"HomeCtrl"
+      })
+
+      .state("blog",{
+        templateUrl:"/blog.html",
+        url:"/blog",
         controller:"HomeCtrl"
       })
 
@@ -20,6 +26,6 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         controller:"HomeCtrl"
       });
 
-    $urlRouterProvider.otherwise("home");  
+    $urlRouterProvider.otherwise("home");
 
 }]);
