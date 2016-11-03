@@ -26,6 +26,18 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         controller:"HomeCtrl"
       })
 
+      .state("login",{
+        templateUrl:"templates/user/login.html",
+        url:"/login",
+        controller:"AuthCtrl"
+      })
+
+      .state("register",{
+        templateUrl:"templates/user/register.html",
+        url:"/register",
+        controller:"AuthCtrl"
+      })
+
       .state("blog",{
         templateUrl:"/blog.html",
         url:"/blog",
