@@ -8,21 +8,21 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
   function($stateProvider,$urlRouterProvider){
 
     $stateProvider
-      .state("/",{
+      .state("index",{
         templateUrl:"templates/home.html",
-        url:"/home",
+        url:"/",
         controller:"HomeCtrl"
       })
 
-      .state("/new_driver",{
+      .state("new_driver",{
         templateUrl:"templates/driver/new_driver.html",
-        url:"/home",
+        url:"/new_driver",
         controller:"HomeCtrl"
       })
 
-      .state("/already_driver",{
+      .state("already_driver",{
         templateUrl:"templates/driver/already_driver.html",
-        url:"/home",
+        url:"/already_driver",
         controller:"HomeCtrl"
       })
 
