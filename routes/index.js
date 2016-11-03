@@ -159,13 +159,27 @@ router.post('/register',function(req,res,next){
       req.session.user_id = user._id;
       req.session.email = user.email;
       req.session.valid = true;
-      req.logIn(user,function(err){
-        if(err){
-          return next(err);
-        }
-        return res.render('index',{session:req.session});
-      });
+
+      res.render('/complete_profile');
   });
+
+});
+
+router.get('/complete_registration',function(req,res,next){
+  if(req.session.valid)
+  {
+      res.render('/complete_profile',{title:"Complete Registration",session:req.session});
+  }
+  else
+  {
+       res.redirect("login");
+  }
+
+});
+
+router.post('/complete_registration',function(req,res,next){
+
+  
 
 });
 
@@ -216,7 +230,7 @@ router.post('/update_profile',function(req,res,next){
 router.get('/complete_profile',function(req,res,next){
   if(req.session.valid)
   {
-      res.render('/complete_registration',{title:"Complete Profile",session:req.session});
+      res.render('/complete_profile',{title:"Complete Profile",session:req.session});
   }
   else
   {

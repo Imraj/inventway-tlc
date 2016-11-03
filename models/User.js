@@ -9,6 +9,7 @@ var UserSchema = mongoose.Schema({
   phone:String,
   hash:String,
   salt:String,
+  profileComplete:{type:Boolean,default:false},
   createdAt:{type:Date,default:Date.now},
   accountType:{type:String,default:"user"},
   image:{type:String,default:"profile.png"}

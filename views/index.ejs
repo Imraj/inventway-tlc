@@ -1,370 +1,465 @@
 
-			<% include partials/head %>
-		  <% include partials/header %>
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TLC</title>
+<link rel="profile" href="http://gmpg.org/xfn/11"><style type="text/css">
+:root #content > #right > .dose > .dosesingle,
+:root #content > #center > .dose > .dosesingle
+{ display: none !important; }</style>
+<link rel="pingback" href="http://demo.inkhive.com/temptation/xmlrpc.php">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="Temptation » Feed" href="http://demo.inkhive.com/temptation/feed/">
+<link rel="alternate" type="application/rss+xml" title="Temptation » Comments Feed" href="http://demo.inkhive.com/temptation/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/demo.inkhive.com\/temptation\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.4"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://app-tlc.scalingo.io/assets/wp-emoji-release.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet"  href="https://app-tlc.scalingo.io/assets/settings.css" type="text/css" media="all">
+<link rel="stylesheet"  href="https://app-tlc.scalingo.io/assets/dynamic-captions.css" type="text/css" media="all">
+<link rel="stylesheet"  href="https://app-tlc.scalingo.io/assets/static-captions.css" type="text/css" media="all">
+<link rel="stylesheet"  href="https://app-tlc.scalingo.io/assets/css.css" type="text/css" media="all">
+<link rel="stylesheet"  href="https://app-tlc.scalingo.io/assets/style.css" type="text/css" media="all">
+<link rel="stylesheet"  href="https://app-tlc.scalingo.io/assets/sidebar-content.css" type="text/css" media="all">
+<link rel="stylesheet"  href="https://app-tlc.scalingo.io/assets/jquery.css" type="text/css" media="all">
+<link rel="stylesheet"  href="https://app-tlc.scalingo.io/assets/bootstrap.css" type="text/css" media="all">
+<link rel="stylesheet"  href="https://app-tlc.scalingo.io/assets/main.css" type="text/css" media="all">
+<script type="text/javascript" src="https://app-tlc.scalingo.io/assets/jquery_002.js"></script>
+<script type="text/javascript" src="https://app-tlc.scalingo.io/assets/jquery-migrate.js"></script>
+<script type="text/javascript" src="https://app-tlc.scalingo.io/assets/jquery.js"></script>
+<script type="text/javascript" src="https://app-tlc.scalingo.io/assets/jquery_003.js"></script>
+<script type="text/javascript" src="https://app-tlc.scalingo.io/assets/bootstrap.js"></script>
+<script type="text/javascript" src="https://app-tlc.scalingo.io/assets/bxslider.js"></script>
+<script type="text/javascript" src="https://app-tlc.scalingo.io/assets/hoverIntent.js"></script>
+<script type="text/javascript" src="https://app-tlc.scalingo.io/assets/custom.js"></script>
 
-			<style>
-				#header-image-section a{
-					color:inherit;
-					margin-top:7em;
-				}
+<script type="text/javascript" src="https://app-tlc.scalingo.io/js/angular.js"></script>
+<script type="text/javascript" src="https://app-tlc.scalingo.io/js/app.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
 
-				#ads-subsection li a{
-					font-size:1.3em;
-					color:yellow;
-					margin-top: 0.5em;
-				}
+<script>
+ jQuery(document).ready(function(){
+			jQuery('#slider').bxSlider( {
+			mode: 'horizontal',
+			captions: true,
+			minSlides: 1,
+			maxSlides: 1,
+			auto: true,
+			preloadImages: 'all',
+			adaptiveHeight: true,
+			pause: 3300,
+			speed: 800,
+			autoHover: true } );
+			});
+	</script>
+		<script>
+		jQuery(document).ready(function() {
+	//Set up the carousel
+			jQuery('.bxslider').bxSlider( {
+				mode: 'horizontal',
+				minSlides: 1,
+				maxSlides: 3,
+				adaptiveHeight: true,
+				slideWidth: 390,
+				captions: true,
+				autoHover: true,
+				slideMargin: 2,
+				infiniteLoop: false,
+				pager: true,
+				controls: false,
+				moveSlides: 2 } );
+				});
+	</script>
+	<style>
+		#parallax-bg {
+			background: url('http://demo.inkhive.com/temptation/wp-content/themes/temptation/images/headerbg.jpg');
+			center top repeat-x;
+      height:5em;
+		}
+	</style>
+	<style id="temptation-custom-style">
 
-				#ads-title{
-					font-size:1.3em;
-					background-color:rgba(255,255,0,0.3);
-					font-weight: bold;
-					color:black;
+    </style>
 
-				}
-				#header-subtext1 span{
-					color:black;
-					font-size:1.5em;
-					font-weight: bold;
-					margin-top:2em;
-					background-color: yellow;
-					width:100%;
-				}
+  </head>
 
-				#header-subtext2{
-					color:white;
-					margin-top:2em;
-				}
+<body class="home blog" ng-app="apptlc">
+		<div id="parallax-bg" style="top: -248.8px;"></div>
 
-				#info-subsection a{
-					font-size:1.3em;
-					color:white;
-					margin-top: 0.5em;
-				}
+		<div id="page" class="hfeed site">
 
-				#info-subsection{
-					min-height:14em;
-					height: 100%;
-				}
+			<div id="top-bar">
+					<div class="container">
+							<header id="masthead" class="site-header col-md-4 col-sm-12 col-xs-12 row container" role="banner">
+								<div class="site-branding">
+									<h1 class="site-title"><a href="" title="Temptation" rel="home">TLC</a></h1>
 
-				.outer-circle{
-					width: 150px;
-					height: 150px;
-				  border-color: black;
-					-moz-border-radius: 100px;
-					-webkit-border-radius: 100px;
-					border-radius: 100px;
-				}
-
-				.inner-circle{
-					 width: 100px;
-					 height: 100px;
-					 background: yellow;
-					 -moz-border-radius: 100px;
-					 -webkit-border-radius: 100px;
-					 border-radius: 100px;
-				}
-
-			</style>
-
-			<div class="">
-					<div  style="max-width: 100%;">
-						<div id="header-image-section" style="width: 100%;background-image:url(assets/icons/6.jpg);overflow:hidden;position:relative;min-height:482px;height:100%;">
-							     <div class="row container"  style="font-size:1.3em;color:white;">
-										 	<div class="col-md-4 col-xs-12 col-sm-12">
-												<span><img src="assets/icons/new.png"></span>New Drivers & TLC Applicant
-											</div>
-											<div class="col-md-4 col-xs-12 col-sm-12">
-												<span><img src="assets/icons/app.png"></span>App Drivers, Uber & Others
-											</div>
-											<div class="col-md-4 col-xs-12 col-sm-12">
-												<span><img src="assets/icons/medallion.png"></span>Meddallion owners
-											</div>
-									 </div>
-
-									 <div class="row container" style="font-size:1.3em;color:white;">
-										 <div class="col-md-4 col-xs-12 col-sm-12">
-											 <img src="assets/icons/yellow.png"></span>Yellow Cab Drivers
-										 </div>
-										 <div class="col-md-4 col-xs-12 col-sm-12">
-											 <img src="assets/icons/suv.png"></span>SUV & Luxury Drivers
-										 </div>
-										<div class="col-md-4 col-xs-12 col-sm-12">
-											<span><img src="assets/icons/bosses.png"></span>Bosses and Garage owners
-										 </div>
-									</div>
-
-									<div class="row container" style="font-size:1.3em;color:white;">
-										 <div class="col-md-4 col-xs-12 col-sm-12">
-											 <span><img src="assets/icons/disp.png"></span>Garage Dispatcher
-										 </div>
-										 <div class="col-md-4 col-xs-12 col-sm-12">
-											 <span><img src="assets/icons/black.png"></span>Luxury and Black Car Drivers
-										 </div>
-										 <div class="col-md-4 col-xs-12 col-sm-12">
-											 <span><img src="assets/icons/lawyers.png"></span>TLC & DMV Lawyers
-										 </div>
-									</div>
-
-									<div class="row container" style="font-size:1.3em;color:white;">
-										 <div class="col-md-4 col-xs-12 col-sm-12">
-											 <span><img src="assets/icons/green.png"></span>Green Cab Drivers
-										 </div>
-										 <div class="col-md-4 col-xs-12 col-sm-12">
-											 <span><img src="assets/icons/gypsy.png"></span>Gypsy and Radio Disp. Drivers
-										 </div>
-										 <div class="col-md-4 col-xs-12 col-sm-12">
-											 <span><img src="assets/icons/commisioners.png"></span>And even TLC commisioners
-										 </div>
-									</div>
-
-									 <div class="col-md-12 col-xs-12 col-sm-12 text-center" id="header-subtext1">
-											 <span>One place for EVERYBODY involved in the NYC Taxi & Livery Business</span>
-									 </div>
-
-									 <div class="col-md-12 col-xs-12 col-sm-12 text-center" id="header-subtext2">
-											 <span>Top Communities Involved: Bangladesh,Indian,Pakistan,Dominican Republic,Haiti,Senegal
-												 ,China,Russia,Morocco,Egypt,Ghana,Nigeria </span>
-									 </div>
-
-						</div>
-
-					</div>
-			</div>
-
-
-				<div id="content" class="site-content row">
-
-					<div class="col-md-12" style="background-color:yellow;min-height:15em;height:100%;">
-							<div class="col-md-6 col-xs-12 col-sm-12 col-md-offset-3">
-								<div class="text-center"><h2>Sign Up in 3 Steps</h2></div>
-								<form action="/register" method="post">
-										<div class="col-md-12">
-												<div class="col-md-6 col-xs-12 col-sm-12">
-													<input type="text" class="form-control" name="email" placeholder="Email Address"/>
-												</div>
-												<div class="col-md-6 col-xs-12 col-sm-12">
-													<input type="password" class="form-control" name="password" placeholder="Password"/>
-												</div>
-										</div>
-										<br/><br/>
-										<div class="col-md-12 col-xs-12 col-sm-12">
-												<div class="col-md-12 col-xs-12 col-sm-12">
-													<input type="submit" value="Sign Up" class="btn btn-primary col-md-12 col-xs-12 col-sm-12" style="height:3em;font-size:1.3em;font-weight:bold;"/>
-												</div>
-										</div>
-								</form>
-							</div>
-					</div>
-
-					<div style="background-color:gray;height:100%;min-height:22em;margin-top:2em;">
-
-						<div class="col-md-12">
-								<div class="col-md-2 col-xs-12 col-sm-12" style="margin-top:2em;">
-										<div class="outer-circle">
-												<div class="inner-circle">
-
-												</div>
-										</div>
 								</div>
-								<div class="col-md-2 col-xs-12 col-sm-12" style="margin-top:2em;">
-										<script type="text/javascript">
-												function GetClock()
-												{
-														var d=new Date();
-														var nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
-														if(nyear<1000) nyear+=1900;
-														var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+							</header><!-- #masthead -->
+							<style>
+								 #menu-main-menu li a{
+										color:yellow;
+								 }
+						 </style>
+							<div id="primary-nav-wrapper" class="col-md-8 col-xs-12 container">
+								<nav id="primary-navigation" class="primary-navigation" role="navigation">
 
-														if(nhour==0){ap=" AM";nhour=12;}
-														else if(nhour<12){ap=" AM";}
-														else if(nhour==12){ap=" PM";}
-														else if(nhour>12){ap=" PM";nhour-=12;}
+										<h1 class="menu-toggle">Menu</h1>
+										<div class="screen-reader-text skip-link"><a href="#content">Skip to content</a></div>
 
-														if(nmin<=9) nmin="0"+nmin;
-														if(nsec<=9) nsec="0"+nsec;
+										<div class="menu-main-menu-container">
+											<ul id="menu-main-menu" class="menu nav-menu">
+												<li class="menu-item menu-item-type-custom menu-item-object-custom">
+													<a href="/">Home</a>
+												</li>
 
-														document.getElementById('clockbox').innerHTML=""+ndate+"."+(nmonth+1)+"."+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
-												}
-												window.onload=function()
-												{
-														GetClock();
-														setInterval(GetClock,1000);
-												}
-										</script>
-										<div id="clockbox" style="color:white;background-color:black;font-size:1.5em;font-weight:bold;margin-top:2em;">
-										</div>
-								</div>
-								<div class="col-md-8 col-xs-12 col-sm-12">
-									<div class="col-md-12 col-xs-12 col-sm-12" style="background-color:yellow;min-height:8em;height:100%;margin-top:2em;border-radius:10px;">
-											<span class=".sub-img-1"><img src="assets/icons/1.png" width="75" height="75" /></span>
-											<span class=".sub-img-2"><img src="assets/icons/2.png" width="75" height="75"/></span>
-											<span class=".sub-img-3"><img src="assets/icons/3.png" width="75" height="75"/></span>
-											<span class=".sub-img-4"><img src="assets/icons/4.png" width="75" height="75"/></span>
-											<span class=".sub-img-5"><img src="assets/icons/5.png" width="75" height="75"/></span>
-											<span class=".sub-img-6"><img src="assets/icons/6.png" width="75" height="75"/></span>
-											<span class=".sub-img-1"><img src="assets/icons/1.png" width="75" height="75" /></span>
-									</div>
-									<div class="row" style="background-color:#D3D3D3;min-height:8em;height:100%;margin-top:1em;margin-bottom:1em;border-radius:10px;">
-										 <div class="row col-md-12 col-sm-12 col-xs-12">
-											 	<div class="col-md-3 col-sm-12 col-xs-12">
-													<h4>Day-Shift(%)</h4>
-												</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>61</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>72</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>85</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>109</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>52</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12"> <h4>51</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>55</h4>	</div>
-										 </div>
-										 <div class="row col-md-12 col-sm-12 col-xs-12">
-											 	<div class="col-md-3 col-sm-12 col-xs-12">
-													<h4>Night-Shift(%)</h4>
-												</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>61</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>72</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>85</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>109</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>52</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>51</h4>	</div>
-												<div class="col-md-1 col-sm-12 col-xs-12">  <h4>55</h4>	</div>
-										 </div>
+												<li  class="menu-item menu-item-type-custom menu-item-object-custom">
+													<a href="">Driver</a>
+														<ul class="sub-menu">
+															<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+																<a href="new_driver">New Driver</a>
+															</li>
+															<li class="menu-item menu-item-type-taxonomy menu-item-object-category ">
+																<a href="already_driver">Already Driver</a>
+															</li>
+														</ul>
+												</li>
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+													<a href="/">Medallion Owners</a>
+												</li>
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+													<a href="#">The Union</a>
+													<ul class="sub-menu">
+														<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+															<a href="/union_general">General</a>
+														</li>
+														<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+															<a href="union_ranking_system">Ranking System</a>
+														</li>
+														<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+															<a href="union_dash_app">Dash App</a>
+														</li>
+														<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+															<a href="union_elections">Elections</a>
+														</li>
+														<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+															<a href="union_board">Board</a>
+														</li>
+														<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+															<a href="union_groups">Groups</a>
+														</li>
+														<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+															<a href="union_events">Events</a>
+														</li>
 
-										 <div class="row col-md-12 col-sm-12 col-xs-12">
-											 <div class="col-md-3 col-sm-12 col-xs-12">
-												<h4>Weekly(%)</h4>
-											 </div>
-											 <div class="col-md-1 col-sm-12 col-xs-12">  <h4>61</h4>	</div>
-											 <div class="col-md-1 col-sm-12 col-xs-12">  <h4>72</h4>	</div>
-											 <div class="col-md-1 col-sm-12 col-xs-12">  <h4>85</h4>	</div>
-											 <div class="col-md-1 col-sm-12 col-xs-12">  <h4>109</h4>	</div>
-											 <div class="col-md-1 col-sm-12 col-xs-12">  <h4>52</h4>	</div>
-											 <div class="col-md-1 col-sm-12 col-xs-12">  <h4>51</h4>	</div>
-											 <div class="col-md-1 col-sm-12 col-xs-12">  <h4>55</h4>	</div>
-										</div>
+													</ul>
+												</li>
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+													<a href="about">Future</a>
+												</li>
+												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+													<a href="">Invest</a>
+												</li>
+												<% if(locals.session && locals.session.valid){ %>
+													<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+														<a href="mail">Inbox</a>
+													</li>
+													<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+														<a href="#"><%= locals.session.email %></a>
+														<ul class="sub-menu">
+															<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+																<a href="profile">Profile</a>
+															</li>
+															<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+																<a href="contact">Help</a>
+															</li>
+															<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+																<a href="blog">Blog</a>
+															</li>
+															<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+																<a href="logout">Logout</a>
+															</li>
+														</ul>
+													</li>
+												<% }else{ %>
 
+													<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+														<a href="login">Login</a>
+													</li>
 
-									</div>
-								</div>
-						</div>
+												<% } %>
 
-					</div>
-
-					<div style="background-color:gray;height:2em;margin-top:2em;">
-						&nbsp;
-					</div>
-
-					<div class="container" style="margin-top:2em;">
-						<div class="col-md-12 col-xs-12 col-sm-12">
-								<div class="col-md-4 col-xs-12 col-sm-12" style="background-image:url(assets/1.jpg);">
-									<div  id="ads-title" class="col-md-12 col-xs-12 col-sm-12">
-										Post your add for free
-									</div>
-									<div style="color:yellow;">
-											<ul style="list-style-type:none" id="ads-subsection">
-												<li><a href="/need_car">Need a cab</a></li>
-												<li><a href="/cars">You have cab</a></li>
-												<li><a href="/need_partner">Need a night shift driver</a></li>
-												<li><a href="/partners">You are a night shift driver</a></li>
-												<li><a href="/need_partner">Need a day shift driver</a></li>
-												<li><a href="/partners">You are a day shift driver</a></li>
 											</ul>
-									</div>
-								</div>
+										</div>
+								</nav><!-- #site-navigation -->
+						</div>
+						<div id="fixed-search">
+							<form role="search" method="get" class="row search-form" action="http://demo.inkhive.com/temptation/">
+								<label>
+									<span class="screen-reader-text">Search for:</span>
 
-								<div class="col-md-4 col-xs-12 col-sm-12" style="background-image:url(assets/2.jpg);">
-									<div  id="ads-title" class="col-md-12 col-xs-12 col-sm-12">
-										Drivers Housing Ads for Just
-									</div>
-									<div style="color:yellow;">
-										<ul style="list-style-type:none" id="ads-subsection">
-											<li><a href="/">Need a room-mate, culturally matched </a></li>
-											<li><a href="/">You have a room</a></li>
-											<li><a href="/">Need a cash apartment</a></li>
-											<li><a href="/">You have an apartment</a></li>
-											<li><a href="/">Need few months Apt. for Visitors</a></li>
-											<li><a href="/">Rent your few months apartment</a></li>
+									<input class="search-field" placeholder="Search..." name="s" type="text">
+								</label>
+								<span class="show-fake"><i class="fa fa-search"> </i></span>
+							</form>
+						</div>
+					</div>
+				</div><!--#top-bar-->
+
+
+					<style>
+						#header-image-section a{
+							color:inherit;
+							margin-top:7em;
+						}
+
+						#ads-subsection li a{
+							font-size:1.3em;
+							color:yellow;
+							margin-top: 0.5em;
+						}
+
+						#ads-title{
+							font-size:1.3em;
+							background-color:rgba(255,255,0,0.3);
+							font-weight: bold;
+							color:black;
+
+						}
+						#header-subtext1 span{
+							color:black;
+							font-size:1.5em;
+							font-weight: bold;
+							margin-top:2em;
+							background-color: yellow;
+							width:100%;
+						}
+
+						#header-subtext2{
+							color:white;
+							margin-top:2em;
+						}
+
+						#info-subsection a{
+							font-size:1.3em;
+							color:white;
+							margin-top: 0.5em;
+						}
+
+						#info-subsection{
+							min-height:14em;
+							height: 100%;
+						}
+
+						.outer-circle{
+							width: 150px;
+							height: 150px;
+						  border-color: black;
+							-moz-border-radius: 100px;
+							-webkit-border-radius: 100px;
+							border-radius: 100px;
+						}
+
+						.inner-circle{
+							 width: 100px;
+							 height: 100px;
+							 background: yellow;
+							 -moz-border-radius: 100px;
+							 -webkit-border-radius: 100px;
+							 border-radius: 100px;
+						}
+
+						.footer-title,.footer-title a{
+								color:yellow;
+								font-weight: bold;
+						}
+
+
+					</style>
+
+
+
+			<div ui-view></div>
+
+
+
+			<div id="footer-sidebar" class="widget-area col-md-12 clearfix" >
+					<div class="container" style="margin-top:3em;">
+						<div>
+								<div class="footer-column col-md-4">
+									<aside class="">
+										<ul class="rp">
+											 <li class="footer-title">Home</li>
+											 <li  class="footer-title">About Us</li>
+											 <li  class="footer-title">Investors</li><br/>
+											 <li  class="footer-text">
+												 &copy;TLCWXYZ Trademark, Website and Apps are registered, Copyrighted and Owned by Inventway,LLC.
+											 </li><br/>
+											 <li class="footer-text">
+												 &copy;All right reserved for Inventway,LLC. Filed in New York State under Number #4482422.
+											 </li><br/>
+											 <li class="footer-text">
+												 <i class=""></i>Feel free to mail us at: inventway@gmail.com <br/>
+												 <i class=""></i>31-00 47th Ave #3100b, Long Island City, NY 11101. <br/>
+												 <i class=""></i>Phone : +1(347) 579-8462 <br/>
+												 <i class=""></i>www.inventwayamerica.com <br/>
+											 </li><br/>
 										</ul>
-									</div>
+									</aside>
+								</div>
+								<div class="footer-column col-md-2">
+									<aside class="">
+										<ul>
+											<li class="footer-title">
+												<a href="contact">New Driver</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li class="footer-text">
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li >
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+
+										</ul>
+									</aside>
+								</div>
+								<div class="footer-column col-md-2">
+									<aside id="recent-posts-3" class="widget widget_recent_entries">
+										<ul>
+											<li>
+												<a href="contact">Already a driver</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li class="footer-text">
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li >
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+
+										</ul>
+									</aside>
+								</div>
+								<div class="footer-column col-md-2">
+									<aside id="recent-posts-3" class="widget widget_recent_entries">
+										<ul>
+											<li>
+												<a href="contact">Medallion Owners</a>
+											</li>
+											<li>
+												<a href="/">Pages</a>
+											</li>
+											<li>
+												<a href="/">Pages</a>
+											</li>
+											<li>
+												<a href="/">Pages</a>
+											</li>
+											<li>
+												<a href="/">Pages</a>
+											</li>
+											<li>
+												<a href="/">Pages</a>
+											</li>
+											<li>
+												<a href="/">Pages</a>
+											</li>
+
+										</ul>
+									</aside>
 								</div>
 
-								<div class="col-md-4 col-xs-12 col-sm-12" style="background-image:url(assets/3.jpg);">
-									<div id="ads-title" class="col-md-12 col-xs-12 col-sm-12">
-										Drivers & Business
-									</div>
-									<div style="color:yellow;">
-											<ul style="list-style-type:none" id="ads-subsection">
-												<li><a href="/">Need to Share-hold a business </a></li>
-												<li><a href="/">You have a business, Need Partner</a></li>
-												<li><a href="/">Cabs,Black,Green, SUV and Limos</a></li>
-												<li><a href="/">Delis & Restaurants</a></li>
-												<li><a href="/">Food carts and street vending</a></li>
-												<li><a href="/">Other business</a></li>
-											</ul>
-									</div>
+								<div class="footer-column col-md-2">
+									<aside id="recent-posts-3" class="widget widget_recent_entries">
+										<ul>
+											<li>
+												<a href="contact">The Union</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li class="footer-text">
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li >
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+											<li class="footer-text">
+												<a href="/">Pages</a>
+											</li>
+
+										</ul>
+									</aside>
 								</div>
-							</div>
+
 						</div>
-
-				<div style="background-color:gray;height:2em;margin-top:2em;">
-
+						<div class="row">
+								<div class="col-md-4">
+										<i class=""></i>
+								</div>
+						</div>
+					</div>
 				</div>
 
+				<footer id="colophon" class="site-footer row" role="contentinfo">
+					<div class="container">
+						<div class="site-info col-md-7">
+							<span class="sep">
+								<i class="fa fa-square"> </i>
+							</span>
+							&copy; TLC 2016
+						</div><!-- .site-info -->
+						<div id="social-icons" class="col-md-5">
 
-				  <div class="container" style="margin-top:2em;">
-						<div class="col-md-12 col-xs-12 col-sm-12" >
-							<div class="col-md-4 col-xs-12 col-sm-12" style="background-image:url(assets/1.jpg);">
-								<div  id="ads-title">Mastering Downtown for $39.99</div>
-
-								<div style="color:yellow;">
-										<ul style="list-style-type:none" id="info-subsection">
-											<li><a href="">Be a Pro Downtown Driver</a></li>
-											<li><a href="">Master the Most Difficult Map to Learn</a></li>
-											<li><a href="">Know where customers are</a></li>
-											<li><a href="">Closest Rest Spots and Taxi stands</a></li>
-
-										</ul>
-								</div>
-							</div>
-
-							<div class="col-md-4 col-xs-12 col-sm-12" style="background-image:url(assets/2.jpg);">
-								<div  id="ads-title">
-									Manhattan Overview for $39.99
-								</div>
-
-								<div style="color:yellow;">
-									<ul style="list-style-type:none" id="info-subsection">
-										<li><a href="">Be a Pro Downtown Driver</a></li>
-										<li><a href="">Master the City Map</a></li>
-										<li><a href="">Know Where Customers Are</a></li>
-										<li><a href="">Closest Rest Spots and Taxi stands</a></li>
-
-									</ul>
-								</div>
-							</div>
-
-							<div class="col-md-4 col-xs-12 col-sm-12" style="background-image:url(assets/3.jpg);">
-								<div id="ads-title">
-									Coming Up Soon , NYC 3D Driving
-								</div>
-
-								<div style="color:yellow;">
-										<ul style="list-style-type:none" id="info-subsection">
-											<li><a href="/">3D Driving To Master The City </a></li>
-											<li><a href="/">Become a Professional NYC Driver, without leaving your Warm Hommy Seat</a></li>
-											<br/>
-											<li><a href="/">We are in the process of partnering with Uber or Others to offer this wonderful service</a></li>
-										</ul>
-								</div>
-							</div>
 						</div>
 					</div>
+				</footer><!-- #colophon -->
 
-					<div class="container" style="margin-bottom:5em;margin-top:2em;">
-
-					</div>
-
-		  <% include partials/footer %>
 
 
 		</div>
