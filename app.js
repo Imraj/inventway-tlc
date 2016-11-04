@@ -46,14 +46,15 @@ app.use('/', routes);
 
 app.use('/users', users);
 
-app.get('/', function (req, res) {
+app.all('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/templates/index.html')); //load the angular index page.
 });
 
+/*
 app.get('*', function (req, res, next) {
     next();
 });
-
+*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -68,7 +69,7 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    //res.status(err.status || 500);
+    res.status(err.status || 500);
     console.log("err.message =  : "+err.message);
     console.log("err =  : " + err);
     /*res.render('error', {
@@ -81,8 +82,8 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  /*res.status(err.status || 500);
-  res.render('error', {
+  res.status(err.status || 500);
+  /*res.render('error', {
     message: err.message,
     error: {}
   });*/
