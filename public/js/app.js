@@ -2,6 +2,10 @@ var apptlc = angular.module("flapper",["ui.router"]);
 
 apptlc.controller("HomeCtrl",["$scope","$state",function($scope,$state){
 
+  $scope.categoriesA = ["Garage Dispatcher","Medallion Owner","Hotel Doorman","Garage Owner","Building Doorman",
+                        "TLC Commisioner","Medallion Brookers or Corp.","DMV & TLC Lawyer","Radio Dispatcher",
+                      "DMV Lawyer","City Dispatcher","TLC Lawyer"];
+
   $scope.user = {
     email:"",
     password:"",
@@ -13,7 +17,7 @@ apptlc.controller("HomeCtrl",["$scope","$state",function($scope,$state){
   };
 
   $scope.uploadImage = function(){
-    
+
   }
 
   $scope.saveUser = function(){
