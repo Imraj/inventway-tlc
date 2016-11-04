@@ -2,13 +2,15 @@ var apptlc = angular.module("flapper",["ui.router"]);
 
 apptlc.controller("HomeCtrl",["$scope","$state",function($scope,$state){
 
-  $scope.user = {
-    email:"",
-    password:""
-  }
+  $scope.user = {};
 
   $scope.saveUser = function(){
     $state.go("complete_registeration");
+  }
+
+  $scope.registerUser = function(){
+      console.log("register button clicked");
+      console.log(JSON.stringify($scope.user,null,4));
   }
 
 }]);
@@ -50,7 +52,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("complete_registeration",{
          templateUrl:"templates/user/complete_registeration.html",
          url:"/complete_registeration",
-         controller:"AuthCtrl"
+         controller:"HomeCtrl"
       })
 
       .state("blog",{
