@@ -8,15 +8,7 @@ apptlc.controller("HomeCtrl",["$scope","$state",function($scope,$state){
 
   $scope.testd = "testd";
 
-  $scope.user = {
-    email:"",
-    password:"",
-    actor:"",
-    driver_type:"",
-    driver_community:"",
-    business_type:"",
-    image:""
-  };
+  $scope.user = {};
 
   $scope.uploadImage = function(){
 
