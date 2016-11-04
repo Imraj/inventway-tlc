@@ -13,7 +13,9 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope",function($scope,$st
   $scope.categoriesB2 = ["Yellow Cab","Gypsy & Radio","App Uber & Others","Green Cab","SUV",
                          "Dial7 & Others","Black Car","Limousine","Commuter Van"];
 
-  $scope.categoriesC = ["Insurance company"]
+  $scope.categoriesC = ["Insurance company","Car Dealer","Meter Shop","Car Wash","Verifone","Lube & Oil Change","CMT.",
+                        "Collision and Body Shop","Food and Catering Business","Accounting Business","Other Business"
+                       ]
 
   $scope.user = {
     email: "",
