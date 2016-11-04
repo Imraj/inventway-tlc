@@ -51,10 +51,9 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory",funct
 
 apptlc.factory("AuthFactory",["$http","$scope","$rootScope",function($http,$scope,$rootScope){
 
-
   var rdsf = {
       registerUser : function(userData){
-        return $http.post("/register",{user:userData});
+        return $http.post("/register",{"user":userData});
       }
   };
 
