@@ -27,8 +27,8 @@ var app = express();
 mongoose.connect("mongodb://mhadiab:mhadiab85@app-tlc-318.mongo.dbs.appsdeck.eu:30245/app-tlc-318");
 //mongodb://<user>:<password>@app-tlc-318.mongo.dbs.appsdeck.eu:30245/app-tlc-318
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -41,6 +41,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.all('/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/public/templates/index.html')); //load the angular index page.
+});
 
 app.use('/', routes);
 
