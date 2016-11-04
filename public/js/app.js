@@ -2,7 +2,19 @@ var apptlc = angular.module("flapper",["ui.router"]);
 
 apptlc.controller("HomeCtrl",["$scope","$state",function($scope,$state){
 
-  $scope.user = {};
+  $scope.user = {
+    email:"",
+    password:"",
+    actor:"",
+    driver_type:"",
+    driver_community:"",
+    business_type:"",
+    image:""
+  };
+
+  $scope.uploadImage = function(){
+    
+  }
 
   $scope.saveUser = function(){
     $state.go("complete_registeration");
