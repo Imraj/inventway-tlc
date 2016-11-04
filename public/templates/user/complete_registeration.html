@@ -1,38 +1,38 @@
-<div id="fh5co-contact-section" style="margin-top:5em;margin-bottom:5em;color:white;">
+<div id="fh5co-contact-section" style="margin-top:5em;margin-bottom:5em;color:white;font-size:1.2em;">
 			<div class="container">
 				<div class="col-md-10 col-md-offset-1">
 					<form>
 							<div class="step1">
+								<div>
+										<div class="col-md-6 col-xs-12 col-sm-12">
+											<div class="form-group">
+												<input type="text" placeholder="Email address" ng-model="user.email" class="form-control" />
+										 </div>
+										</div>
 
-								<div class="col-md-6 col-xs-12 col-sm-12">
-									<div class="form-group">
-										<input type="text" placeholder="Email address" ng-model="user.email" class="form-control" />
-								 </div>
-								</div>
-
-								<div class="col-md-6 col-xs-12 col-sm-12">
-										<div class="form-group">
-											 <input type="password" placeholder="Password" ng-model="user.password" class="form-control" />
+										<div class="col-md-6 col-xs-12 col-sm-12">
+												<div class="form-group">
+													 <input type="password" placeholder="Password" ng-model="user.password" class="form-control" />
+												</div>
 										</div>
 								</div>
-
 							</div>
 
 							<div class="step2">
 
 								 <div class="step2a">
 												 <div class="row">
-												 		<h2>Select which one applies to you</h2>
+												 		<h2>Category A : You are one of the actors to the Taxi and livery business</h2>
 											 	 </div>
 												 <div class="row">
 													 <span class="col-md-6 col-sm-12 col-xs-12">
 														 <span class="form-group">
-																<input type="radio" style="width:1em;" ng-model="user.actor" name="actor">Garage Dispatcher
+																<input type="radio" style="width:1em;" ng-model="user.actor" name="actor">Garage Dispatcher<br/>
 														 </span>
 													 </span>
 													 <span class="col-md-6 col-sm-12 col-xs-12">
 														 <span class="form-group">
-															 <input type="radio" ng-model="user.actor" name="actor"/>Medallion Owner
+															 <input type="radio" ng-model="user.actor" name="actor"/>Medallion Owner<br/>
 														 </span>
 													 </span>
 												 </div>
@@ -105,6 +105,9 @@
 								 </div>
 
 								 <div class="step2b">
+									 <div class="row">
+											<h2>Category B: What kind of driver are you? OR What kind of driver do you want to be?</h2>
+									 </div>
 									 	<div class="row">
 											<div class="form-group">
 													<input type="radio" ng-model="user.driver_type" name="driver_type"/>Already experienced driver.<br/>
@@ -123,7 +126,7 @@
 											</div>
 
 											<div>
-													<h3>You already Drove OR You want to drive & Join which of this communities
+													<h2>You already Drove OR You want to drive & Join which of this communities</h2>
 											</div>
 
 											<div class="row">
@@ -194,7 +197,7 @@
 								 <div class="step2c">
 
 									 <div class="row">
-											<h2>You are business representative related to taxi & livery business</h2>
+											<h2>Category C : You are business representative related to taxi & livery business</h2>
 									 </div>
 									 <div class="row">
 										 <div class="col-md-6 col-sm-12 col-xs-12">
@@ -291,7 +294,7 @@
 							</div>
 
 							<div class="form-group">
-									<input type="submit" value="Submit" class="btn btn-primary col-md-12 col-sm-12 col-xs-12" />
+									<button type="submit" value="Submit" class="btn btn-primary col-md-12 col-sm-12 col-xs-12" ng-click="registerUser()"></button>
 							</div>
 
 					</form>
