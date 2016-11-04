@@ -53,7 +53,7 @@ apptlc.factory("AuthFactory",function($http){
 
     return {
           registerUser : function(userData){
-            //return $http.post("/register",{"user":userData});
+            return $http.post("/register",{"user":userData});
           }
     };
 

@@ -145,9 +145,13 @@ router.post("/logout",function(req,res,next){
 router.post('/register',function(req,res,next){
 
   var user = new User({
-    email : req.body.email
+    email : req.body.email,
+    actor : req.body.user.actor,
+    business_type : req.body.user.business_type,
+    driver_type : req.body.user.driver_type,
+    driver_community : req.body.user.driver_community
   });
-  user.setPassword(req.body.password);
+  user.setPassword(req.body.user.password);
 
   user.save(function(err,user){
       if(err)return next(err);
