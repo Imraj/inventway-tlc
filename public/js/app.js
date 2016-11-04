@@ -1,6 +1,6 @@
 var apptlc = angular.module("flapper",["ui.router"]);
 
-apptlc.controller("HomeCtrl",["$scope","$state","RegistrationDataShareFactory",function($scope,$state,RegistrationDataShareFactory){
+apptlc.controller("HomeCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
   $scope.categoriesA = ["Garage Dispatcher","Medallion Owner","Hotel Doorman","Garage Owner","Building Doorman",
                         "TLC Commisioner","Medallion Brookers or Corp.","DMV & TLC Lawyer","Radio Dispatcher",
@@ -15,28 +15,27 @@ apptlc.controller("HomeCtrl",["$scope","$state","RegistrationDataShareFactory",f
 
   $scope.categoriesC = ["Insurance company"]
 
-  $scope.testd = "atestd";
-
-  var rdata = RegistrationDataShareFactory.retrieveData();
-  console.log("rdata : " + rdata[0] | rdata[1]);
-  $scope.user.email = rdata[0];
-  $scope.user.password = rdata[1];
-
   $scope.user = {
-    email: $scope.user.email | "",
-    password : $scope.user.password | "",
-    actor : $scope.user.actor | "",
-    driver_type : $scope.user.driver_type | "",
-    driver_community : $scope.user.driver_community | "",
-    business_type : $scope.user.business_type | ""
+    email: "",
+    password : "",
+    actor :"",
+    driver_type :"",
+    driver_community :"",
+    business_type :""
   };
+
+  if($rootScope._email != "")$scope.user.email = $rootScope._email;
+  if($rootScope._password != "")$scope.user.password = $rootScope._password;
+
+  console.log( $scope.user.email + " | " + $scope.user.password);
 
   $scope.uploadImage = function(){
 
   }
 
   $scope.saveUser = function(){
-    RegistrationDataShareFactory.saveData($scope.user.email,$scope.user.password);
+    $rootScope._email = $scope.user.email;
+    $rootScope._password = $scope.user.password;
     $state.go("complete_registeration");
   }
 
