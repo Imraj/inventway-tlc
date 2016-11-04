@@ -18,9 +18,9 @@ apptlc.controller("HomeCtrl",["$scope","$state","RegistrationDataShareFactory",f
   $scope.testd = "atestd";
 
   var rdata = RegistrationDataShareFactory.retrieveData();
-  console.log("rdata : " + rdata["email "] | rdata["pwd"]);
-  $scope.user.email = rdata["email"];
-  $scope.user.password = rdata["pwd"];
+  console.log("rdata : " + rdata[0] | rdata[1]);
+  $scope.user.email = rdata[0];
+  $scope.user.password = rdata[1];
 
   $scope.user = {
     email: $scope.user.email | "",
@@ -48,12 +48,12 @@ apptlc.controller("HomeCtrl",["$scope","$state","RegistrationDataShareFactory",f
 }]);
 
 apptlc.factory("RegistrationDataShareFactory",["$state","$scope",function($state,$scope){
-  var savedData = {};
+  var savedData = [];
 
   var rdsf = {
     saveData : function(email,pwd){
-      savedData["email"] = email;
-      savedData["pwd"] = pwd;
+      savedData[0] = email;
+      savedData[1] = pwd;
     },
     retrieveData : function(){
       return savedData;
