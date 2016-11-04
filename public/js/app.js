@@ -53,7 +53,7 @@ apptlc.factory("AuthFactory",["$http","$scope","$rootScope",function($http,$scop
 
   var rdsf = {
       registerUser : function(userData){
-        return $http.post("/register",{"user":userData});
+        //return $http.post("/register",{"user":userData});
       }
   };
 
