@@ -44,12 +44,12 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory",funct
   $scope.registerUser = function(){
       console.log("register button clicked");
       console.log(JSON.stringify($scope.user,null,4));
-      AuthFactory.registerUser($scope.user);
+      //AuthFactory.registerUser($scope.user);
   }
 
 }]);
 
-apptlc.factory("AuthFactory",["$http","$scope","$rootScope",function($http,$scope,$rootScope){
+apptlc.factory("AuthFactory",function($http){
 
     return {
           registerUser : function(userData){
@@ -57,9 +57,7 @@ apptlc.factory("AuthFactory",["$http","$scope","$rootScope",function($http,$scop
           }
     };
 
-
-
-}]);
+});
 
 apptlc.config([ "$stateProvider","$urlRouterProvider",
   function($stateProvider,$urlRouterProvider){
