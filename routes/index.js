@@ -110,9 +110,6 @@ router.get('/blog',function(req,res,next){
   res.render('blog',{title:"Blog"})
 });
 
-router.get('/login',function(req,res,next){
-  res.render('login',{title:"Login"})
-});
 
 router.post('/login',function(req,res,next){
 
@@ -144,9 +141,6 @@ router.post("/logout",function(req,res,next){
 
 });
 
-router.get('/register',function(req,res,next){
-  res.render('register',{title:"Register"})
-});
 
 router.post('/register',function(req,res,next){
 
@@ -157,11 +151,8 @@ router.post('/register',function(req,res,next){
 
   user.save(function(err,user){
       if(err)return next(err);
-      req.session.user_id = user._id;
-      req.session.email = user.email;
-      req.session.valid = true;
-
-      res.render('/complete_profile');
+      console.log("user is " + user);
+      return res.json({user:user.generateJWT()});
   });
 
 });

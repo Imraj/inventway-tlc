@@ -1,6 +1,6 @@
 var apptlc = angular.module("flapper",["ui.router"]);
 
-apptlc.controller("HomeCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory",function($scope,$state,$rootScope,AuthFactory){
 
   $scope.categoriesA = ["Garage Dispatcher","Medallion Owner","Hotel Doorman","Garage Owner","Building Doorman",
                         "TLC Commisioner","Medallion Brookers or Corp.","DMV & TLC Lawyer","Radio Dispatcher",
@@ -44,21 +44,18 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope",function($scope,$st
   $scope.registerUser = function(){
       console.log("register button clicked");
       console.log(JSON.stringify($scope.user,null,4));
+      AuthFactory.registerUser($scope.user);
   }
 
 }]);
 
-apptlc.factory("RegistrationDataShareFactory",["$state","$scope",function($state,$scope){
-  var savedData = [];
+apptlc.factory("AuthFactory",["$http","$scope","$rootScope",function($http,$scope,$rootScope){
+
 
   var rdsf = {
-    saveData : function(email,pwd){
-      savedData[0] = email;
-      savedData[1] = pwd;
-    },
-    retrieveData : function(){
-      return savedData;
-    }
+      registerUser : function(userData){
+        return $http.post("/register",{user:userData});
+      }
   };
 
   return rdsf;
