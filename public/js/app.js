@@ -6,6 +6,8 @@ apptlc.controller("HomeCtrl",["$scope","$state",function($scope,$state){
                         "TLC Commisioner","Medallion Brookers or Corp.","DMV & TLC Lawyer","Radio Dispatcher",
                       "DMV Lawyer","City Dispatcher","TLC Lawyer"];
 
+  $scope.testd = "testd";
+
   $scope.user = {
     email:"",
     password:"",
