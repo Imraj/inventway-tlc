@@ -1,4 +1,4 @@
-@import "../fonts/font-awesome/css/font-awesome.min.css";
+
 /* Table of Contents
 ------------------------------------------------------- *
 
@@ -16,7 +16,7 @@
 	9. Footer
 	10. HTML Markup and Formatting
 	11. Widgets Style
-	12. Comments	
+	12. Comments
 
 /* 0. Bootstrap Fixes
 -------------------------------------------------------	*/
@@ -65,10 +65,7 @@ code {
   bottom: 0;
   z-index: 1;
 }
-#parallax-home-bg,
-#parallax-bg {
-  background: url(../../images/headerbg.jpg) center top repeat-x;
-}
+
 #page {
   position: relative;
   z-index: 888;
@@ -435,9 +432,9 @@ a:active {
   }
 }
 @media screen and (max-width: 420px) {
-  
+
 }
-/* 5. Navigation Menu 
+/* 5. Navigation Menu
 -------------------------------------------------------	*/
 #primary-nav-wrapper {
   text-align: center;
@@ -639,7 +636,7 @@ a:active {
   	}
   */
 }
-/* 7. Content 
+/* 7. Content
 ------------------------------------------------------- */
 #content {
   border-top: solid 4px #000000;
@@ -649,7 +646,7 @@ a:active {
   margin-left: 0px;
   background: #000000;
 }
-/* 7.1 Primary 
+/* 7.1 Primary
 ------------------------------------------------------- */
 #primary-home {
   margin-top: 60px;
@@ -1036,7 +1033,7 @@ h1.page-title {
 .page .entry-meta {
   color: grey;
 }
-/* 7.2 Secondary 
+/* 7.2 Secondary
 ------------------------------------------------------- */
 #secondary,
 #secondary-home {
@@ -1404,7 +1401,7 @@ h1.page-title {
 .pagination ul  > li:last-child  > span {
   border-rigth-width: 1px;
 }
-/* 9. Footer 
+/* 9. Footer
 ------------------------------------------------------- */
 #colophon {
   padding: 16px 10px;
