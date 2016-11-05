@@ -95,7 +95,7 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",func
       console.log(JSON.stringify($scope.loginData,null,4));
       AuthFactory.loginUser($scope.email,$scope.password)
             .error(function(err){
-                console.log("err login msg  : " $scope.email + " | " + $scope.password);
+                console.log("err login msg  : " $scope.email + " | " + $scope.password );
             }).then(function(){
                 console.log("login going to base.overive");
                 $state.go("base.overview");
