@@ -88,13 +88,14 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
 
 apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",function($scope,$state,$rootScope,AuthFactory){
 
-    $scope.loginData = {}
+    $scope.email = "";
+    $scope.password = "";
 
     $scope.loginUser = function(){
       console.log(JSON.stringify($scope.loginData,null,4));
-      AuthFactory.loginUser($scope.loginData)
+      AuthFactory.loginUser($scope.email,$scope.password)
             .error(function(err){
-                console.log("err login msg  : " + JSON.stringify(err,null,4));
+                console.log("err login msg  : " $scope.email + " | " + $scope.password));
             }).then(function(){
                 console.log("login going to base.overive");
                 $state.go("base.overview");
@@ -119,8 +120,8 @@ apptlc.factory("AuthFactory",function($http,$window){
             });
           };
 
-          auth.loginUser = function(user){
-            return $http.post("/login",{email:user.email,password:user.password}).success(function(data){
+          auth.loginUser = function(email,password){
+            return $http.post("/login",{"email":email,"password":password}).success(function(data){
                 auth.saveToken(data.token);
             });
           };
