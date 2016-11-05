@@ -50,9 +50,6 @@ app.use('/', routes);
 
 app.use('/users', users);
 
-app.all('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/public/templates/index.html')); //load the angular index page.
-});
 
 /*
 app.get('*', function (req, res, next) {
