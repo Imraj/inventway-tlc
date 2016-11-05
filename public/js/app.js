@@ -120,7 +120,7 @@ apptlc.factory("AuthFactory",function($http,$window){
           };
 
           auth.loginUser = function(user){
-            return $http.post("/login",user).success(function(data){
+            return $http.post("/login",{email:user.email,password:user.password}).success(function(data){
                 auth.saveToken(data.token);
             });
           };

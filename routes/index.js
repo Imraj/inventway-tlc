@@ -22,18 +22,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/need_car',function(req,res,next){
 
-  if(req.session.valid)
-  {
-    res.render('need_car',{title:"Need a car",session:req.session});
-  }
-  else{
-    req.session.renderTo = 'need_car';
-    res.render("login",{session:req.session,title:"Need a car"});
-  }
-
-});
 
 router.post('/car',function(req,res,next){
 
