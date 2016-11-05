@@ -4,6 +4,10 @@ apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,Aut
 
   $rootScope._currentUser = AuthFactory.currentUser();
   $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
+  $rootScope.rootLogOut = function(){
+    AuthFactory.logOut();
+    $state.go("index");
+  }
 
 }]);
 
@@ -127,6 +131,10 @@ apptlc.factory("AuthFactory",function($http,$window){
 
           auth.getToken = function(){
             return $window.localStorage['apptlc-token'];
+          };
+
+          auth.logOut = function(){
+              $window.localStorage.removeItem('apptlc-token');
           };
 
           auth.isLoggedIn = function(){
