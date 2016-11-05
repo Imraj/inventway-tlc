@@ -119,7 +119,7 @@ apptlc.factory("AuthFactory",function($http,$window){
           };
 
           auth.loginUser = function(userData){
-            return $http.post("/login",{"user":user}).success(function(data){
+            return $http.post("/login",{"user":userData}).success(function(data){
                 auth.saveToken(data.token);
             });
           };
