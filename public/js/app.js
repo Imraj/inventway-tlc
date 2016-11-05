@@ -82,6 +82,22 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
 
 }]);
 
+apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",function($scope,$state,$rootScope,AuthFactory){
+
+    $scope.user = {
+      email:"",
+      password:""
+    }
+
+    AuthFactory.loginUser($scope.user)
+          .error(function(err){
+              console.log("login err");
+          }).then(function(){
+              console.log("login going to base.overive");
+              $state.go("base.overview");
+          });
+}]);
+
 apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function(){
 
 
@@ -96,7 +112,13 @@ apptlc.factory("AuthFactory",function($http,$window){
             return $http.post("/register",{"user":userData}).success(function(data){
                 auth.saveToken(data.token);
             });
-          }
+          };
+
+          auth.loginUser = function(user){
+            return $http.post("/login",{"user":user}).success(function(data){
+                auth.saveToken(data.token);
+            });
+          };
 
           auth.saveToken = function(token){
             $window.localStorage['apptlc-token'] = token;
@@ -199,7 +221,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("login",{
         templateUrl:"templates/user/login.html",
         url:"/login",
-        controller:"AuthCtrl"
+        controller:"LoginCtrl"
       })
 
       .state("register",{

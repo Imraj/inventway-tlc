@@ -117,20 +117,14 @@ router.post('/login',function(req,res,next){
 
     if(err)return next(err);
 
-    if(user){
-      req.session.first_name = user.first_name;
-      req.session.last_name = user.last_name;
-      req.session.user_id = user._id;
-      req.session.email = user.email;
-      req.session.valid = true;
+     if(user){
+       return res.json({token:user.generateJWT()});
+     }
+     else{
+       return res.status(401).json(info);
+     }
 
-      return res.render('index',{session:req.session});
-    }
-    else{
-      return res.status(401).json(info);
-    }
-
-  })(req,res,next);
+   })(req,res,next);
 
 });
 
@@ -162,23 +156,6 @@ router.post('/register',function(req,res,next){
 
 });
 
-router.get('/complete_registration',function(req,res,next){
-  if(req.session.valid)
-  {
-      res.render('/complete_profile',{title:"Complete Registration",session:req.session});
-  }
-  else
-  {
-       res.redirect("login");
-  }
-
-});
-
-router.post('/complete_registration',function(req,res,next){
-
-
-
-});
 
 router.get('/profile',function(req,res,next){
     if(req.session.valid)
@@ -192,17 +169,6 @@ router.get('/profile',function(req,res,next){
 
 });
 
-router.get('/edit_profile',function(req,res,next){
-    if(req.session.valid)
-    {
-        res.render('edit_profile',{title:"My Profile",session:req.session});
-    }
-    else{
-       req.session.renderTo = 'profile';
-       res.render('login',{title:'Login',session:req.session});
-    }
-
-});
 
 router.post('/update_profile',function(req,res,next){
 
@@ -224,17 +190,6 @@ router.post('/update_profile',function(req,res,next){
 
 });
 
-router.get('/complete_profile',function(req,res,next){
-  if(req.session.valid)
-  {
-      res.render('/complete_profile',{title:"Complete Profile",session:req.session});
-  }
-  else
-  {
-       res.redirect("login");
-  }
-
-});
 
 router.post('/complete_profile',function(req,res,next){
 
@@ -256,11 +211,6 @@ router.post('/complete_profile',function(req,res,next){
         res.redirect("/");
       }
   });
-
-});
-
-router.get('/inbox',function(req,res,next){
-
 
 });
 
