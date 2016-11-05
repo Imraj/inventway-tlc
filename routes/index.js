@@ -136,9 +136,10 @@ router.post('/register',function(req,res,next){
     driver_community : req.body.user.driver_community,
     image : req.body.user.image
   });
+  user.setPassword(req.body.user.password);
   user.save(function(err,ruser){
       if(err)return next(err);
-      user.setPassword(req.body.user.password);
+
       console.log("user is " + ruser);
       return res.json({token:user.generateJWT()});
   });
