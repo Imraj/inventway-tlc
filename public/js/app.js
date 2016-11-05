@@ -185,7 +185,12 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("index",{
         templateUrl:"templates/home.html",
         url:"/",
-        controller:"HomeCtrl"
+        controller:"HomeCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(AuthFactory.isLoggedIn()){
+              $state.go("base.overview");
+            }
+        }]
 
       })
 
@@ -199,19 +204,34 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.account",{
         templateUrl:"templates/base/account.html",
         url:"/account",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.ads",{
         templateUrl:"templates/base/ads.html",
         url:"/ads",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.build_history",{
         templateUrl:"templates/base/build_history.html",
         url:"/build_history",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
 
@@ -219,73 +239,133 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.codriving",{
         templateUrl:"templates/base/codriving.html",
         url:"/driving",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.contract",{
         templateUrl:"templates/base/contract.html",
         url:"/contract",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.election",{
         templateUrl:"templates/base/election.html",
         url:"/election",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.inbox",{
         templateUrl:"templates/base/inbox.html",
         url:"/inbox",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.join_group",{
         templateUrl:"templates/base/join_group.html",
         url:"/join_group",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.overview",{
         templateUrl:"templates/base/overview.html",
         url:"/overview",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.payments",{
         templateUrl:"templates/base/payments.html",
         url:"/payments",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.qualifications",{
         templateUrl:"templates/base/qualifications.html",
         url:"/qualifications",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.ranks",{
         templateUrl:"templates/base/ranks.html",
         url:"/ranks",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.tickets",{
         templateUrl:"templates/base/tickets.html",
         url:"/tickets",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.upload",{
         templateUrl:"templates/base/upload.html",
         url:"/upload",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("base.wroteby",{
         templateUrl:"templates/base/wroteby.html",
         url:"/wroteby",
-        controller:"BaseCtrl"
+        controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
       })
 
       .state("new_driver",{
@@ -304,19 +384,33 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         templateUrl:"templates/user/login.html",
         url:"/login",
         controller:"LoginCtrl",
-
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(AuthFactory.isLoggedIn()){
+              $state.go("base.overview");
+            }
+        }]
       })
 
       .state("register",{
         templateUrl:"templates/user/register.html",
         url:"/register",
-        controller:"AuthCtrl"
+        controller:"AuthCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(AuthFactory.isLoggedIn()){
+              $state.go("base.overview");
+            }
+        }]
       })
 
       .state("complete_registeration",{
          templateUrl:"templates/user/complete_registeration.html",
          url:"/complete_registeration",
-         controller:"HomeCtrl"
+         controller:"HomeCtrl",
+         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+             if(AuthFactory.isLoggedIn()){
+               $state.go("base.overview");
+             }
+         }]
       })
 
       .state("blog",{
