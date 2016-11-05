@@ -65,7 +65,8 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
         console.log("reg err");
       })
       .then(function(){
-        $rootScope.isAuthenticated = AuthFactory.isLoggedIn();
+        $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
+        $rootScope._currentUser = AuthFactory.currentUser();
         console.log("going to base | isauth : " + $rootScope.isAuthenticated);
         $state.go("base");
       });

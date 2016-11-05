@@ -137,7 +137,7 @@
 															</li>
 														</ul>
 												</li>
-											
+
 												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
 													<a href="#">The Union</a>
 													<ul class="sub-menu">
@@ -172,8 +172,8 @@
 													<a href="">Invest</a>
 												</li>
 
-													<li ng-show="isAuthenticated" class="menu-item menu-item-type-taxonomy menu-item-object-category">
-														<a href="#">{{_email}}</a>
+													<li ng-show="_isAuthenticated" class="menu-item menu-item-type-taxonomy menu-item-object-category">
+														<a href="#">{{_currentUser}}</a>
 														<ul class="sub-menu">
 															<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
 																<a href="profile">Profile</a>
@@ -191,7 +191,7 @@
 													</li>
 
 
-													<li ng-hide="isAuthenticated" class="menu-item menu-item-type-taxonomy menu-item-object-category">
+													<li ng-hide="_isAuthenticated" class="menu-item menu-item-type-taxonomy menu-item-object-category">
 														<a href="login">Login</a>
 													</li>
 
