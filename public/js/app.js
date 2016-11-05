@@ -98,6 +98,9 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",func
                 console.log("err login msg  : " +  $scope.email + " | " + $scope.password );
             }).then(function(){
                 console.log("login going to base.overive");
+                $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
+                $rootScope._currentUser = AuthFactory.currentUser();
+                $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
                 $state.go("base.overview");
             });
     }
