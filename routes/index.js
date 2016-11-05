@@ -144,22 +144,20 @@ router.post("/logout",function(req,res,next){
 
 router.post('/register',function(req,res,next){
 
-
   console.log(JSON.stringify(req.body,null,4));
-  /*var user = new User({
-    email : req.body.email,
+  var user = new User({
+    email : req.body.user.email,
     actor : req.body.user.actor,
     business_type : req.body.user.business_type,
     driver_type : req.body.user.driver_type,
     driver_community : req.body.user.driver_community
   });
-  user.setPassword(req.body.user.password);
-
-  user.save(function(err,user){
+  user.save(function(err,ruser){
       if(err)return next(err);
-      console.log("user is " + user);
+      user.setPassword(req.body.user.password);
+      console.log("user is " + ruser);
       return res.json({user:user.generateJWT()});
-  });*/
+  });
 
 });
 
