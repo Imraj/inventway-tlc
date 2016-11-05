@@ -154,26 +154,26 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       })
 
       .state("base.overview",{
-        templateUrl:"templates/base/overview.html",
-        url:"/base/overview",
+        templateUrl:"templates/overview.html",
+        url:"/overview",
         controller:"BaseCtrl"
       })
 
       .state("base.inbox",{
-        templateUrl:"templates/base/inbox.html",
-        url:"/base/inbox",
+        templateUrl:"templates/inbox.html",
+        url:"/inbox",
         controller:"BaseCtrl"
       })
 
       .state("base.ads",{
-        templateUrl:"templates/base/ads.html",
-        url:"/base/ads",
+        templateUrl:"templates/ads.html",
+        url:"/ads",
         controller:"BaseCtrl"
       })
 
       .state("base.qualifications",{
-        templateUrl:"templates/base/qualifications.html",
-        url:"/base/qualifications",
+        templateUrl:"templates/qualifications.html",
+        url:"/qualifications",
         controller:"BaseCtrl"
       })
 
