@@ -196,27 +196,95 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         controller:"BaseCtrl"
       })
 
-      .state("base.overview",{
-        templateUrl:"templates/overview.html",
-        url:"/overview",
-        controller:"BaseCtrl"
-      })
-
-      .state("base.inbox",{
-        templateUrl:"templates/inbox.html",
-        url:"/inbox",
+      .state("base.account",{
+        templateUrl:"templates/base/account.html",
+        url:"/account",
         controller:"BaseCtrl"
       })
 
       .state("base.ads",{
-        templateUrl:"templates/ads.html",
+        templateUrl:"templates/base/ads.html",
         url:"/ads",
         controller:"BaseCtrl"
       })
 
+      .state("base.build_history",{
+        templateUrl:"templates/base/build_history.html",
+        url:"/build_history",
+        controller:"BaseCtrl"
+      })
+
+
+
+      .state("base.codriving",{
+        templateUrl:"templates/base/codriving.html",
+        url:"/driving",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.contract",{
+        templateUrl:"templates/base/contract.html",
+        url:"/contract",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.election",{
+        templateUrl:"templates/base/election.html",
+        url:"/election",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.inbox",{
+        templateUrl:"templates/base/inbox.html",
+        url:"/inbox",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.join_group",{
+        templateUrl:"templates/base/join_group.html",
+        url:"/join_group",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.overview",{
+        templateUrl:"templates/base/overview.html",
+        url:"/overview",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.payments",{
+        templateUrl:"templates/base/payments.html",
+        url:"/payments",
+        controller:"BaseCtrl"
+      })
+
       .state("base.qualifications",{
-        templateUrl:"templates/qualifications.html",
+        templateUrl:"templates/base/qualifications.html",
         url:"/qualifications",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.ranks",{
+        templateUrl:"templates/base/ranks.html",
+        url:"/ranks",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.tickets",{
+        templateUrl:"templates/base/tickets.html",
+        url:"/tickets",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.upload",{
+        templateUrl:"templates/base/upload.html",
+        url:"/upload",
+        controller:"BaseCtrl"
+      })
+
+      .state("base.wroteby",{
+        templateUrl:"templates/base/wroteby.html",
+        url:"/wroteby",
         controller:"BaseCtrl"
       })
 
