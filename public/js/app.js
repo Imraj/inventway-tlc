@@ -89,13 +89,16 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",func
       password:""
     }
 
-    AuthFactory.loginUser($scope.user)
-          .error(function(err){
-              console.log("login err ;" + JSON.stringify(err,null,4));
-          }).then(function(){
-              console.log("login going to base.overive");
-              $state.go("base.overview");
-          });
+    $scope.loginUser = function(){
+      AuthFactory.loginUser($scope.user)
+            .error(function(err){
+                console.log("login err ;" + JSON.stringify(err,null,4));
+            }).then(function(){
+                console.log("login going to base.overive");
+                $state.go("base.overview");
+            });
+    }
+
 }]);
 
 apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function(){
