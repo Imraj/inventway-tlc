@@ -20,7 +20,83 @@
       margin-bottom:1em;
     }
   </style>
-
+  <div class="row">
+      <div class="col-md-4">
+          <div class="row">
+            <img class="img-circle" src="{{_currentUserDetails.image}}" />
+          </div>
+          <div class="row">
+              {{_currentUserDetails.email}}
+          </div>
+          <div class="row">
+              {{_currentUserDetails.actor}}
+          </div>
+          <div class="row">
+              {{_currentUserDetails.driver_community}}
+          </div>
+          <div class="row" ng-if="_currentUserDetails.business_type">
+              {{_currentUserDetails.business_type}}
+          </div>
+      </div>
+      <div class="col-md-8">
+          <div id="desc">
+              <div id="title">Inbox</div>
+              <div id="info">Get Instant messages from other users</div>
+          </div>
+          <div id="desc">
+              <div id="title">Qualifications</div>
+              <div id="info">Tell the community what you can drive</div>
+          </div>
+          <div id="desc">
+              <div id="title">Rank</div>
+              <div id="info">Get ranked and valued into our taxi and livery business</div>
+          </div>
+          <div id="desc">
+              <div id="title">Wrote By</div>
+              <div id="info">Share your story / article</div>
+          </div>
+          <div id="desc">
+              <div id="title">My Account</div>
+              <div id="info">Change account info</div>
+          </div>
+          <div id="desc">
+              <div id="title">Co-Driving</div>
+              <div id="info">Share experience with a new driver and get paid $30-$40 </div>
+          </div>
+          <div id="desc">
+              <div id="title">Post an Ad</div>
+              <div id="info">Post your ad, Need a car, Have a car, Need an Apt., Have an Apt.</div>
+          </div>
+          <div id="desc">
+              <div id="title">Tickets</div>
+              <div id="info">Get bids from attorneys to fight your TLC, DMV or NYPD Traffic ticket.</div>
+          </div>
+          <div id="desc">
+              <div id="title">Vote / Election</div>
+              <div id="info">Make change to the business by voting </div>
+          </div>
+          <div id="desc">
+              <div id="title">Payments</div>
+              <div id="info">Manage your payment</div>
+          </div>
+          <div id="desc">
+              <div id="title">Join group</div>
+              <div id="info">Apply to join a group for being an active member of the community</div>
+          </div>
+          <div id="desc">
+              <div id="title">Upload</div>
+              <div id="info">Sell your uploaded video to newly licensed driver.</div>
+          </div>
+          <div id="desc">
+              <div id="title">Contract</div>
+              <div id="info">One Contract for all NYC garages.</div>
+          </div>
+          <div id="desc">
+              <div id="title">Build history</div>
+              <div id="info">Build your reputation.</div>
+          </div>
+      </div>
+  </div>
 
 
 </div>
