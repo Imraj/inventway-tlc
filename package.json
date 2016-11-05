@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "angular-file-upload": "^2.3.4",
     "angular-messages": "^1.5.8",
     "body-parser": "~1.15.1",
     "connect-flash": "^0.1.1",

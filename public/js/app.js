@@ -1,4 +1,4 @@
-var apptlc = angular.module("flapper",["ui.router","ngMessages"]);
+var apptlc = angular.module("flapper",["ui.router","ngMessages","angularFileUpload"]);
 
 apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory",function($scope,$state,$rootScope,AuthFactory){
 
