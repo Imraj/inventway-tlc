@@ -1,7 +1,7 @@
-var apptlc = angular.module("flapper",["ui.router","ngMessages","angularFileUpload"]);
+var apptlc = angular.module("flapper",["ui.router","ngMessages","angular-filepicker"]);
 
-apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory",
-                          function($scope,$state,$rootScope,AuthFactory){
+apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","filepickerService",
+                          function($scope,$state,$rootScope,AuthFactory,filepickerService){
 
   $scope.categoriesA = ["Garage Dispatcher","Medallion Owner","Hotel Doorman","Garage Owner","Building Doorman",
                         "TLC Commisioner","Medallion Brookers or Corp.","DMV & TLC Lawyer","Radio Dispatcher",
@@ -25,7 +25,7 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory",
     driver_type :"",
     driver_community :"",
     business_type :"",
-    uploader:""
+    image:""
   };
 
   if($rootScope._email != "")$scope.user.email = $rootScope._email;
@@ -33,11 +33,26 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory",
 
   console.log( $scope.user.email + " | " + $scope.user.password);
 
+  $scope.uploadFiles = function(file,invfile){
+
+  }
 
   $scope.saveUser = function(){
     $rootScope._email = $scope.user.email;
     $rootScope._password = $scope.user.password;
     $state.go("complete_registeration");
+  }
+
+  $scope.upload = function(index1,index2){
+          filepickerService.pick({
+              mimetype: 'image/*',
+              language: 'en',
+              services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+              openTo: 'IMAGE_SEARCH'
+            },function(Blob){
+                  console.log(JSON.stringify(Blob));
+                  $scope.user.image = Blob.url;
+              });
   }
 
   $scope.registerUser = function(){
@@ -56,6 +71,10 @@ apptlc.factory("AuthFactory",function($http){
           }
     };
 
+});
+
+apptlc.config(function(filepickerProvider){
+    filepickerProvider.setKey('AgJlhxtixSnK4e0Hdw3kdz');
 });
 
 apptlc.config([ "$stateProvider","$urlRouterProvider",
