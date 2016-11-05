@@ -69,7 +69,7 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
         $rootScope._currentUser = AuthFactory.currentUser();
         $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
         console.log("going to base | isauth : " + $rootScope.isAuthenticated);
-        $state.go("base");
+        $state.go("base.overview");
       });
   }
 
@@ -149,6 +149,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base",{
         templateUrl:"templates/base.html",
         url:"/base",
+        abstract:true,
         controller:"BaseCtrl"
       })
 
