@@ -90,9 +90,10 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",func
     }
 
     $scope.loginUser = function(){
+      console.log(JSON.stringify($scope.user,null,4));
       AuthFactory.loginUser($scope.user)
             .error(function(err){
-                console.log("login err ;" + JSON.stringify(err,null,4));
+                console.log("err login msg  : " + JSON.stringify(err,null,4));
             }).then(function(){
                 console.log("login going to base.overive");
                 $state.go("base.overview");
@@ -117,7 +118,7 @@ apptlc.factory("AuthFactory",function($http,$window){
             });
           };
 
-          auth.loginUser = function(user){
+          auth.loginUser = function(userData){
             return $http.post("/login",{"user":user}).success(function(data){
                 auth.saveToken(data.token);
             });
