@@ -34,8 +34,6 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
   console.log( $scope.user.email + " | " + $scope.user.password);
 
 
-  $rootScope.isAuthenticated = AuthFactory.isLoggedIn();
-
   $scope.uploadFiles = function(file,invfile){
 
   }
@@ -67,10 +65,17 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
         console.log("reg err");
       })
       .then(function(){
-        console.log("going to base");
+        $rootScope.isAuthenticated = AuthFactory.isLoggedIn();
+        console.log("going to base | isauth : " + $rootScope.isAuthenticated);
         $state.go("base");
       });
   }
+
+}]);
+
+apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function(){
+
+
 
 }]);
 
