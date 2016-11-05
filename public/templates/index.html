@@ -137,9 +137,7 @@
 															</li>
 														</ul>
 												</li>
-												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
-													<a href="/">Medallion Owners</a>
-												</li>
+											
 												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
 													<a href="#">The Union</a>
 													<ul class="sub-menu">
@@ -173,12 +171,9 @@
 												<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
 													<a href="">Invest</a>
 												</li>
-												<% if(locals.session && locals.session.valid){ %>
-													<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
-														<a href="mail">Inbox</a>
-													</li>
-													<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
-														<a href="#"><%= locals.session.email %></a>
+
+													<li ng-show="isAuthenticated" class="menu-item menu-item-type-taxonomy menu-item-object-category">
+														<a href="#">{{_email}}</a>
 														<ul class="sub-menu">
 															<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
 																<a href="profile">Profile</a>
@@ -194,13 +189,13 @@
 															</li>
 														</ul>
 													</li>
-												<% }else{ %>
 
-													<li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+
+													<li ng-hide="isAuthenticated" class="menu-item menu-item-type-taxonomy menu-item-object-category">
 														<a href="login">Login</a>
 													</li>
 
-												<% } %>
+
 
 											</ul>
 										</div>
