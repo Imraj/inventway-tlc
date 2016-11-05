@@ -34,7 +34,7 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
   console.log( $scope.user.email + " | " + $scope.user.password);
 
 
-  $scope.isAuthenticated = AuthFactory.isLoggedIn();
+  $rootScope.isAuthenticated = AuthFactory.isLoggedIn();
 
   $scope.uploadFiles = function(file,invfile){
 
@@ -77,11 +77,11 @@ apptlc.factory("AuthFactory",function($http,$window){
           }
 
           auth.saveToken = function(token){
-            $window.localStorage['mhadiab-token'] = token;
+            $window.localStorage['apptlc-token'] = token;
           };
 
           auth.getToken = function(){
-            return $window.localStorage['mhadiab-token'];
+            return $window.localStorage['apptlc-token'];
           };
 
           auth.isLoggedIn = function(){

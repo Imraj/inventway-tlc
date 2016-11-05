@@ -47,8 +47,12 @@ UserSchema.methods.generateJWT = function(){
 
   return jwt.sign({
     _id:this._id,
-    first_name:this.first_name,
-    last_name:this.last_name,
+    accountType:this.accountType,
+    actor:this.actor,
+    driver_community:this.driver_community,
+    driver_type : this.driver_type,
+    business_type:this.business_type,
+    image:this.image,
     email:this.email,
     exp:parseInt(exp.getTime()/1000)
   },'SECRET');
