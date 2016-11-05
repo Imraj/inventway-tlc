@@ -84,14 +84,11 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
 
 apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",function($scope,$state,$rootScope,AuthFactory){
 
-    $scope.user = {
-      email:"",
-      password:""
-    }
+    $scope.loginData = {}
 
     $scope.loginUser = function(){
-      console.log(JSON.stringify($scope.user,null,4));
-      AuthFactory.loginUser($scope.user)
+      console.log(JSON.stringify($scope.loginData,null,4));
+      AuthFactory.loginUser($scope.loginData)
             .error(function(err){
                 console.log("err login msg  : " + JSON.stringify(err,null,4));
             }).then(function(){
