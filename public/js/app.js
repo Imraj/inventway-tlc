@@ -33,6 +33,9 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
 
   console.log( $scope.user.email + " | " + $scope.user.password);
 
+
+  $scope.isAuthenticated = AuthFactory.isLoggedIn();
+
   $scope.uploadFiles = function(file,invfile){
 
   }
@@ -63,13 +66,46 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
 
 }]);
 
-apptlc.factory("AuthFactory",function($http){
+apptlc.factory("AuthFactory",function($http,$window){
 
-    return {
-          registerUser : function(userData){
-            return $http.post("/register",{"user":userData});
+          var auth = {};
+
+          auth.registerUser = function(userData){
+            return $http.post("/register",{"user":userData}).success(function(data){
+                auth.saveToken(data.token);
+            });
           }
-    };
+
+          auth.saveToken = function(token){
+            $window.localStorage['mhadiab-token'] = token;
+          };
+
+          auth.getToken = function(){
+            return $window.localStorage['mhadiab-token'];
+          };
+
+          auth.isLoggedIn = function(){
+            var token = auth.getToken();
+            console.log("isLoggedIn token : " + token);
+            if(token){
+              var payload = JSON.parse($window.atob(token.split('.')[1]));
+              console.log("payload  ee : " + JSON.stringify(payload,null,4) );
+              return payload.exp > Date.now()/1000;
+            }
+            else {
+              return false;
+            }
+          };
+
+          auth.currentUser = function(){
+              if(auth.isLoggedIn()){
+                var token = auth.getToken();
+                var payload = JSON.parse($window.atob(token.split('.')[1]));
+                return payload.email;
+              }
+         };
+
+         return auth;
 
 });
 

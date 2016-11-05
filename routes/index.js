@@ -157,7 +157,7 @@ router.post('/register',function(req,res,next){
       if(err)return next(err);
       user.setPassword(req.body.user.password);
       console.log("user is " + ruser);
-      return res.json({user:user.generateJWT()});
+      return res.json({token:user.generateJWT()});
   });
 
 });
