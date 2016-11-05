@@ -43,7 +43,7 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
     $state.go("complete_registeration");
   }
 
-  $scope.upload = function(index1,index2){
+  $scope.upload = function(){
           filepickerService.pick({
               mimetype: 'image/*',
               language: 'en',

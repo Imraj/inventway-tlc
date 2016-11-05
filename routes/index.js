@@ -150,7 +150,8 @@ router.post('/register',function(req,res,next){
     actor : req.body.user.actor,
     business_type : req.body.user.business_type,
     driver_type : req.body.user.driver_type,
-    driver_community : req.body.user.driver_community
+    driver_community : req.body.user.driver_community,
+    image : req.body.user.image
   });
   user.save(function(err,ruser){
       if(err)return next(err);
