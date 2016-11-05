@@ -36,7 +36,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({store:new MongoStore({mongooseConnection : mongoose.connection}),secret:"abcdefgh1234qwerty"}));
+//app.use(session({store:new MongoStore({mongooseConnection : mongoose.connection}),secret:"abcdefgh1234qwerty"}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
