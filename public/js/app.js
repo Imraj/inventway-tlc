@@ -181,12 +181,8 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("index",{
         templateUrl:"templates/home.html",
         url:"/",
-        controller:"HomeCtrl",
-        onEnter:["$state","AuthFactory",function($state,AuthFactory){
-          if(AuthFactory.isLoggedIn()){
-            $state.go("base.overview");
-          }
-        }]
+        controller:"HomeCtrl"
+
       })
 
       .state("base",{
@@ -236,11 +232,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         templateUrl:"templates/user/login.html",
         url:"/login",
         controller:"LoginCtrl",
-        onEnter:["$state","AuthFactory",function($state,AuthFactory){
-          if(AuthFactory.isLoggedIn()){
-            $state.go("base.overview");
-          }
-        }]
+
       })
 
       .state("register",{
@@ -252,12 +244,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("complete_registeration",{
          templateUrl:"templates/user/complete_registeration.html",
          url:"/complete_registeration",
-         controller:"HomeCtrl",
-         onEnter:["$state","AuthFactory",function($state,AuthFactory){
-           if(AuthFactory.isLoggedIn()){
-             $state.go("base.overview");
-           }
-         }]
+         controller:"HomeCtrl"
       })
 
       .state("blog",{
