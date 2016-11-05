@@ -61,7 +61,15 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
   $scope.registerUser = function(){
       console.log("register button clicked");
       console.log(JSON.stringify($scope.user,null,4));
-      AuthFactory.registerUser($scope.user);
+      AuthFactory.registerUser($scope.user)
+      .error(function(err){
+        $scope.err = err;
+        console.log("reg err");
+      })
+      .then(function(){
+        console.log("going to base");
+        $state.go("base");
+      });
   }
 
 }]);
@@ -121,6 +129,12 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         templateUrl:"templates/home.html",
         url:"/",
         controller:"HomeCtrl"
+      })
+
+      .state("base",{
+        templateUrl:"templates/base.html",
+        url:"/base",
+        controller:"BaseCtrl"
       })
 
       .state("new_driver",{
