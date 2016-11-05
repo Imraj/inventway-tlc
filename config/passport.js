@@ -20,7 +20,7 @@ passport.use(new LocalStrategy(
         }
 
         if(!user.validPassword(password)){
-             console.log("my err here 3 :  Incorrect password" + );
+             console.log("my err here 3 :  Incorrect password");
             return done(null,false,{message : " Incorrect password "});
         }
 

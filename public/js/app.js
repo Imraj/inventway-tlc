@@ -139,10 +139,10 @@ apptlc.factory("AuthFactory",function($http,$window){
 
           auth.isLoggedIn = function(){
             var token = auth.getToken();
-            console.log("isLoggedIn token : " + token);
+            //console.log("isLoggedIn token : " + token);
             if(token){
               var payload = JSON.parse($window.atob(token.split('.')[1]));
-              console.log("payload  ee : " + JSON.stringify(payload,null,4) );
+              //console.log("payload  ee : " + JSON.stringify(payload,null,4) );
               return payload.exp > Date.now()/1000;
             }
             else {
