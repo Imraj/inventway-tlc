@@ -6,10 +6,12 @@ var jwt = require('jsonwebtoken');
 var UserSchema = mongoose.Schema({
 
   email:String,
-  phone:String,
+  actor:String,
+  driver_type:String,
+  driver_community:String,
+  business_type:String,
   hash:String,
   salt:String,
-  profileComplete:{type:Boolean,default:false},
   createdAt:{type:Date,default:Date.now},
   accountType:{type:String,default:"user"},
   image:{type:String,default:"profile.png"}
