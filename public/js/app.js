@@ -1,5 +1,12 @@
 var apptlc = angular.module("flapper",["ui.router","ngMessages","angular-filepicker"]);
 
+apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,AuthFactory){
+
+  $rootScope._currentUser = AuthFactory.currentUser();
+  $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
+
+}]);
+
 apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","filepickerService",
                           function($scope,$state,$rootScope,AuthFactory,filepickerService){
 
