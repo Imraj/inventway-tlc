@@ -67,6 +67,7 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
       .then(function(){
         $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
         $rootScope._currentUser = AuthFactory.currentUser();
+        $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
         console.log("going to base | isauth : " + $rootScope.isAuthenticated);
         $state.go("base");
       });
@@ -119,6 +120,14 @@ apptlc.factory("AuthFactory",function($http,$window){
               }
          };
 
+         auth.currentUserDetails = function(){
+             if(auth.isLoggedIn()){
+               var token = auth.getToken();
+               var payload = JSON.parse($window.atob(token.split('.')[1]));
+               return payload;
+             }
+        };
+
          return auth;
 
 });
@@ -142,6 +151,13 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         url:"/base",
         controller:"BaseCtrl"
       })
+
+      .state("base.overview",{
+        templateUrl:"templates/base/overview.html",
+        url:"/base",
+        controller:"BaseCtrl"
+      })
+
 
       .state("new_driver",{
         templateUrl:"templates/driver/new_driver.html",
