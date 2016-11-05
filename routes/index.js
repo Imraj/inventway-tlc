@@ -144,7 +144,9 @@ router.post("/logout",function(req,res,next){
 
 router.post('/register',function(req,res,next){
 
-  var user = new User({
+
+  console.log(JSON.stringify(req.body,null,4));
+  /*var user = new User({
     email : req.body.email,
     actor : req.body.user.actor,
     business_type : req.body.user.business_type,
@@ -157,7 +159,7 @@ router.post('/register',function(req,res,next){
       if(err)return next(err);
       console.log("user is " + user);
       return res.json({user:user.generateJWT()});
-  });
+  });*/
 
 });
 
