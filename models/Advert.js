@@ -9,7 +9,8 @@ var AdvertSchema = mongoose.Schema({
   description:String,
   createdAt:{type:Date,default:Date.now},
   createdBy:String,
-  image:String
+  image:String,
+  published:{type:Boolean,default:false}
 
 });
 
