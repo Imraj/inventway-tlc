@@ -1,0 +1,46 @@
+<div class="container">
+
+  <div class="row" style="font-size:1.5em;">
+      <div class="col-md-6 col-xs-12 col-sm-12">
+          Downtown
+      </div>
+      <div class="col-md-6 col-xs-12 col-sm-12">
+          Category A : {{_currentUserDetails.driver_type}}
+      </div>
+  </div>
+  <hr/>
+  <style>
+    #title{
+      font-size:1.5em;
+      color:#00FFFF;
+    }
+    #info{
+      color:black;
+    }
+    #desc{
+      margin-bottom:1em;
+    }
+  </style>
+  <div class="row">
+      <div class="col-md-4">
+          <div class="row">
+            <img class="img-circle" src="{{_currentUserDetails.image}}" />
+          </div>
+          <div class="row text-center" style="font-size:1.5em;">
+              {{_currentUserDetails.email}}
+          </div>
+          <div class="row text-center" style="font-size:1.5em;">
+              {{_currentUserDetails.actor}}
+          </div>
+          <div class="row text-center" style="font-size:1.5em;">
+              {{_currentUserDetails.driver_community}}
+          </div>
+          <div class="row text-center" style="font-size:1.5em;" ng-if="_currentUserDetails.business_type">
+              {{_currentUserDetails.business_type}}
+          </div>
+      </div>
+
+  </div>
+
+
+</div>

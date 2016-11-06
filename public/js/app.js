@@ -603,6 +603,105 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         }]
       })
 
+      .state("base.city_3d",{
+        templateUrl:"templates/base/city/city_3d.html",
+        url:"/city_3d",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.city_downtown",{
+        templateUrl:"templates/base/city/city_downtown.html",
+        url:"/city_downtown",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.city_regulation",{
+        templateUrl:"templates/base/city/city_regulation.html",
+        url:"/city_regulation",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.city_money_spots",{
+        templateUrl:"templates/base/city/city_money_spots.html",
+        url:"/city_money_spots",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.city_rest_spots",{
+        templateUrl:"templates/base/city/city_rest_spots.html",
+        url:"/city_rest_spots",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.city_camera_list",{
+        templateUrl:"templates/base/city/city_camera_list.html",
+        url:"/city_camera_list",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.city_turn_ticket",{
+        templateUrl:"templates/base/city/city_turn_ticket.html",
+        url:"/city_turn_ticket",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.city_airport_ticket",{
+        templateUrl:"templates/base/city/city_airport_ticket.html",
+        url:"/city_airport_ticket",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.city_all_package",{
+        templateUrl:"templates/base/city/city_all_package.html",
+        url:"/city_all_package",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
       .state("new_driver",{
         templateUrl:"templates/driver/new_driver.html",
         url:"/new_driver",
