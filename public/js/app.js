@@ -2,6 +2,7 @@ var apptlc = angular.module("flapper",["ui.router","ngMessages","angular-filepic
 
 apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,AuthFactory){
 
+  $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
   $rootScope._currentUser = AuthFactory.currentUser();
   $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
   if($rootScope._currentUserDetails.driver_type == "Already Experienced Driver"){
