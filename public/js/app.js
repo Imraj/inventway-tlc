@@ -138,7 +138,7 @@ apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope",function($scope,
 
 
   $scope.updateQualification = function(){
-    
+
   }
 
 }]);
@@ -392,7 +392,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.ranks",{
         templateUrl:"templates/base/ranks.html",
         url:"/ranks",
-        controller:"BaseCtrl",
+        controller:"BaseRankCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
