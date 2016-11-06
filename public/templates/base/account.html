@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row" style="font-size:1.5em;">
       <div class="col-md-6 col-xs-12 col-sm-12">
           Account
       </div>
@@ -9,6 +9,15 @@
       </div>
   </div>
 
+  <div class="row">
+      <div class="col-md-4">
+        <img class="img-circle" src="{{_currentUserDetails.image}}" />
+      </div>
+      <div class+"col-md-8">
+        <div class="form-group">
+          <button ng-click="uploadImage()">Upload Image</button>
+        </div>
+      </div>
+  </div>
 
 </div>
-

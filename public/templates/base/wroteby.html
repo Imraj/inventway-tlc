@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row" style="font-size:1.5em;">
       <div class="col-md-6 col-xs-12 col-sm-12">
           Wrote By
       </div>
@@ -8,7 +8,43 @@
           Category A : {{_currentUserDetails.driver_type}}
       </div>
   </div>
+  <hr/>
+
+  <div class="row">
+      <div id="head">
+          Share your Thought & Story
+      </div>
+      <form>
+
+          <div class="form-group">
+              <input type="text" placeholder="Title" ng-model="blog.title" class="form-control"/>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                  <textarea placeholder="Text" rows="20" ng-model="blog.text" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <button ng-click="uploadBlogImage()">Upload Image</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-6">
+                  <button class="btn btn-primary" ng-click="saveAndExitBlog()">Save & Exit</button>
+              </div>
+
+              <div class="col-md-6">
+                  <button class="btn btn-primary" ng-click="publishBlog()">Publish</button>
+              </div>
+          </div>
+
+      </form>
+  </div>
 
 
 </div>
-

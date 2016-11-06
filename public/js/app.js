@@ -107,9 +107,162 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",func
 
 }]);
 
-apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function(){
+apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
 
+
+}]);
+
+apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.uploadHVideo = function(){
+    filepickerService.pick({
+        mimetype: 'image/*',
+        language: 'en',
+        services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+        openTo: 'COMPUTER'
+      },function(Blob){
+            console.log(JSON.stringify(Blob));
+            $scope.hvideo = Blob.url;
+    });
+  }
+
+}]);
+
+apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.group = {application:""}
+
+  $scope.sendGroupApplication = function(){
+
+  }
+
+}]);
+
+apptlc.controller("BasePaymentCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.card = {
+    name:"",
+    number:"",
+    exp_month:"",
+    exp_year:"",
+    cvv:""
+  }
+
+  $scope.updateCard = function(){
+
+  }
+
+}]);
+
+apptlc.controller("BaseElectionCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.applyForElection = function(){
+
+  }
+
+  $scope.sendYourVote = function(){
+
+  }
+
+
+}]);
+
+
+apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.uploadTicketImage = function(){
+    filepickerService.pick({
+        mimetype: 'image/*',
+        language: 'en',
+        services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+        openTo: 'COMPUTER'
+      },function(Blob){
+            console.log(JSON.stringify(Blob));
+
+    });
+  }
+
+  $scope.uploadImageOrVideo = function(){
+    filepickerService.pick({
+        mimetype: 'image/*',
+        language: 'en',
+        services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+        openTo: 'COMPUTER'
+      },function(Blob){
+            console.log(JSON.stringify(Blob));
+
+    });
+  }
+
+  $scope.submitTicket = function(){
+    filepickerService.pick({
+        mimetype: 'image/*',
+        language: 'en',
+        services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+        openTo: 'COMPUTER'
+      },function(Blob){
+            console.log(JSON.stringify(Blob));
+
+    });
+  }
+
+}]);
+
+apptlc.controller("BaseCODCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.CODExperience = "";
+
+  $scope.saveAndExitCOD = function(){
+
+  }
+
+  $scope.activateCOD = function(){
+
+  }
+
+}]);
+
+apptlc.controller("BaseAcctCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.uploadImage = function(){
+
+    filepickerService.pick({
+        mimetype: 'image/*',
+        language: 'en',
+        services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+        openTo: 'COMPUTER'
+      },function(Blob){
+            console.log(JSON.stringify(Blob));
+
+    });
+  }
+
+}]);
+
+apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.blog={title:"",text:"",image:""}
+
+  $scope.saveAndExitBlog = function(){
+
+  }
+
+  $scope.uploadBlogImage = function(){
+    filepickerService.pick({
+        mimetype: 'image/*',
+        language: 'en',
+        services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+        openTo: 'COMPUTER'
+      },function(Blob){
+            console.log(JSON.stringify(Blob));
+            $scope.blog.image = Blob.url;
+        });
+  }
+
+  $scope.publishBlog = function(){
+
+  }
 
 }]);
 
@@ -269,7 +422,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.account",{
         templateUrl:"templates/base/account.html",
         url:"/account",
-        controller:"BaseCtrl",
+        controller:"BaseAcctCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -304,7 +457,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.codriving",{
         templateUrl:"templates/base/codriving.html",
         url:"/driving",
-        controller:"BaseCtrl",
+        controller:"BaseCODCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -327,6 +480,17 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         templateUrl:"templates/base/election.html",
         url:"/election",
         controller:"BaseCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.hvideo",{
+        templateUrl:"templates/base/hvideo.html",
+        url:"/hvideo",
+        controller:"BaseHVideoCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -403,7 +567,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.tickets",{
         templateUrl:"templates/base/tickets.html",
         url:"/tickets",
-        controller:"BaseCtrl",
+        controller:"BaseTicketCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -425,7 +589,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.wroteby",{
         templateUrl:"templates/base/wroteby.html",
         url:"/wroteby",
-        controller:"BaseCtrl",
+        controller:"BaseBlogCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");

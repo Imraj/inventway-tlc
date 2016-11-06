@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row" style="font-size:1.5em;">
       <div class="col-md-6 col-xs-12 col-sm-12">
           Groups
       </div>
@@ -9,6 +9,30 @@
       </div>
   </div>
 
+  <div class="row">
+    <h3>Groups A-Z</h3>
+    <div class="col-md-6">
+        <div>Group name 001</div>
+        <div>Group name 002</div>
+        <div>Group name 003</div>
+        <div>Group name 004</div>
+        <div>Group name 005</div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <h3>Want to create a group? Send application to the admin.</h3>
+    <div class="col-md-12">
+        <div class="form-group">
+            <textarea class="form-control" rows="5" ng-model="group.application" cols="10" placeholder="In few words, tell us the purpose of the group" ></textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="sendGroupApplication()">Send application</button>
+        </div>
+    </div>
+
+  </div>
+
 
 </div>
-

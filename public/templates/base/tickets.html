@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row" style="font-size:1.5em;">
       <div class="col-md-6 col-xs-12 col-sm-12">
           Tickets
       </div>
@@ -8,7 +8,37 @@
           Category A : {{_currentUserDetails.driver_type}}
       </div>
   </div>
+  <hr/>
+
+  <div class="row">
+      <p>
+          Have you got a ticket NYPD, TLC, NYPD Traffic? Upload your tickets here and get offers from attorneys
+          seeking to serve you for getting dismissed.
+      </p>
+
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <textarea class="form-control col-md-12 col-sm-12" ng-model="ticket.description" rows="10"></textarea>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+       <button ng-click="uploadTicketImage()">Upload your ticket</button>
+    </div>
+
+    <div class="col-md-6">
+       <button ng-click="uploadImageOrVideo()">Upload Image/Video to prove</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 pull-right">
+       <button ng-click="submitTicket()">Submit Ticket</button>
+    </div>
+  </div>
 
 
 </div>
-

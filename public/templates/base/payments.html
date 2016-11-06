@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row" style="font-size:1.5em;">
       <div class="col-md-6 col-xs-12 col-sm-12">
           Payment
       </div>
@@ -10,5 +10,78 @@
   </div>
 
 
-</div>
+  <div class="row">
+      <div id="title">Payment History</div>
+      <table class="table">
+        <tr>
+            <td>Transaction Date</td>
+            <td>Type</td>
+            <td>Cost</td>
+            <td>Tax</td>
+            <td>Total</td>
+        </tr>
+        <tr>
+          <td>11/12/2016</td>
+          <td>POST Ads</td>
+          <td>$4.99</td>
+          <td>$0.80</td>
+          <td>$5.79</td>
+        </tr>
+        <tr>
+          <td>11/12/2016</td>
+          <td>POST Ads</td>
+          <td>$4.99</td>
+          <td>$0.80</td>
+          <td>$5.79</td>
+        </tr>
+        <tr>
+          <td>11/12/2016</td>
+          <td>POST Ads</td>
+          <td>$4.99</td>
+          <td>$0.80</td>
+          <td>$5.79</td>
+        </tr>
+        <tr>
+          <td>11/12/2016</td>
+          <td>POST Ads</td>
+          <td>$4.99</td>
+          <td>$0.80</td>
+          <td>$5.79</td>
+        </tr>
+      </table>
+  </div>
 
+  <div class="row">
+      <div id="title">
+          Edit Saved Card
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form>
+          <div class="form-group">
+              <input type="text" placeholder="Card name" class="form-control" ng-model="card.name" />
+          </div>
+          <div class="form-group">
+              <input type="text" placeholder="Card number" class="form-control" ng-model="card.number" />
+          </div>
+          <div class="form-group">
+            <div class="col-md-6">
+                <input type="text" placeholder="Exp month" class="form-control" ng-model="card.exp_month" />
+            </div>
+            <div class="col-md-6">
+                <input type="text" placeholder="Exp year" class="form-control" ng-model="card.exp_year" />
+            </div>
+          </div>
+          <div class="form-group">
+              <input type="text" placeholder="Card cvv" class="form-control" ng-model="card.cvv" />
+          </div>
+          <div class="form-group">
+              <button type="submit" ng-click="updateCard()" class="form-control">Save Card</button>
+          </div>
+      </form>
+    </div>
+  </div>
+
+</div>
