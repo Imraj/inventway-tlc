@@ -5,7 +5,7 @@ apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,Aut
   $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
   $rootScope._currentUser = AuthFactory.currentUser();
   $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
-  if($rootScope._currentUserDetails.driver_type == "Already Experienced Driver"){
+  if($rootScope._currentUserDetails.driver_type.indexOf("Driver") !== -1 ){
     $rootScope._currentAcctType = "driver";
   }
   $rootScope.rootLogOut = function(){
