@@ -13,16 +13,66 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
-  /*if(req.session.valid){
-      res.render('index', { title: 'Home',session:req.session });
-  }*/
-
   res.render('index', { title: 'Home'});
 });
 
+router.post('/login',function(req,res,next){
 
+  passport.authenticate('local',function(err,user,info){
 
+    if(err)return next(err);
+
+     if(user){
+       return res.json({token:user.generateJWT()});
+     }
+     else{
+       return res.status(401).json(info);
+     }
+
+   })(req,res,next);
+
+});
+
+router.post('/register',function(req,res,next){
+
+  console.log(JSON.stringify(req.body,null,4));
+  var user = new User({
+    email : req.body.user.email,
+    actor : req.body.user.actor,
+    business_type : req.body.user.business_type,
+    driver_type : req.body.user.driver_type,
+    driver_community : req.body.user.driver_community,
+    image : req.body.user.image
+  });
+  user.setPassword(req.body.user.password);
+  user.save(function(err,ruser){
+      if(err)return next(err);
+
+      console.log("user is " + ruser);
+      return res.json({token:user.generateJWT()});
+  });
+
+});
+
+router.post("/submit_ad",function(req,res,next){
+
+  var advert = new Advert({
+      type:req.body.ad.type,
+      model:req.body.ad.model,
+      year:req.body.ad.year,
+      description:req.body.ad.description,
+      image:req.body.ad.image,
+      createdBy:req.body.ad.user
+  });
+
+  advert.save(function(err,ad){
+      if(err){
+        res.json({"error":err});
+      }
+      res.status('200').json({"success":true});
+  });
+
+});
 
 router.post('/car',function(req,res,next){
 
@@ -49,17 +99,6 @@ router.post('/car',function(req,res,next){
         res.redirect('/cars');
         //return res.status('200').json({success:true});
     });
-
-});
-
-router.get('/need_partner',function(req,res,next){
-  if(req.session.valid){
-      res.render('need_partner',{title:"Need a partner",session:req.session});
-  }
-  else{
-    req.session.renderTo = 'need_partner';
-    res.render('login',{session:req.session,title:'Need Partner'});
-  }
 
 });
 
@@ -91,74 +130,12 @@ router.post('/partner',function(req,res,next){
 
 });
 
-router.get('/contact',function(req,res,next){
-  res.render('contact',{title:"Contact us"})
-});
-
-router.get('/blog',function(req,res,next){
-  res.render('blog',{title:"Blog"})
-});
-
-
-router.post('/login',function(req,res,next){
-
-  passport.authenticate('local',function(err,user,info){
-
-    if(err)return next(err);
-
-     if(user){
-       return res.json({token:user.generateJWT()});
-     }
-     else{
-       return res.status(401).json(info);
-     }
-
-   })(req,res,next);
-
-});
-
 router.post("/logout",function(req,res,next){
 
   req.session.destroy();
   res.redirect('index');
 
 });
-
-
-router.post('/register',function(req,res,next){
-
-  console.log(JSON.stringify(req.body,null,4));
-  var user = new User({
-    email : req.body.user.email,
-    actor : req.body.user.actor,
-    business_type : req.body.user.business_type,
-    driver_type : req.body.user.driver_type,
-    driver_community : req.body.user.driver_community,
-    image : req.body.user.image
-  });
-  user.setPassword(req.body.user.password);
-  user.save(function(err,ruser){
-      if(err)return next(err);
-
-      console.log("user is " + ruser);
-      return res.json({token:user.generateJWT()});
-  });
-
-});
-
-
-router.get('/profile',function(req,res,next){
-    if(req.session.valid)
-    {
-        res.render('profile',{title:"My Profile",session:req.session});
-    }
-    else{
-       req.session.renderTo = 'profile';
-       res.render('login',{title:'Login',session:req.session});
-    }
-
-});
-
 
 router.post('/update_profile',function(req,res,next){
 
@@ -323,54 +300,6 @@ router.post("/inbox/send/:user",function(req,res,next){
   }
 
 });
-
-router.get('/new_driver',function(req,res,next){
-  res.render('new_driver',{title:" New Driver "});
-});
-
-router.get('/already_driver',function(req,res,next){
-
-});
-
-
-router.get('/union_general',function(req,res,next){
-
-  res.render('union/union_general',{title:" Union - General "});
-
-});
-
-router.get('/union_ranking_system',function(req,res,next){
-  res.render('union/union_ranking_system',{title:" Union - Ranking System "});
-});
-
-router.get('/union_dash_app',function(req,res,next){
-  res.render('union/union_dash_app',{title:" Union - Dash App "});
-});
-
-router.get('/union_elections',function(req,res,next){
-  res.render('union/union_elections',{title:" Union - Elections "});
-});
-
-router.get('/union_board',function(req,res,next){
-  res.render('union/union_board',{title:" Union - Board "});
-});
-
-router.get('/union_groups',function(req,res,next){
-  res.render('union/union_groups',{title:" Union - Groups "});
-});
-
-router.get('/new_group',function(req,res,next){
-  res.render('union/new_group',{title:"Union - New Group"});
-});
-
-router.get('/union_events',function(req,res,next){
-  res.render('union/union_events',{title:" Union - Events "});
-});
-
-router.get('/new_event',function(req,res,next){
-  res.render('union/new_event',{title:"Union - New Event"});
-});
-
 
 
 
