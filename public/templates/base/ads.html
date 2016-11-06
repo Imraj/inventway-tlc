@@ -51,8 +51,8 @@
 
       </div>
   </div>
-  Test : {{ads.type}} 
-  <div id="car_info" ng-show="ads.type in driver_ads_only">
+  Test : {{ads.type}}
+  <div id="car_info" ng-show="driver_ads_only.indexOf(ads.type) != -1">
           <h2>Select car model</h2>
           <div class="col-md-12">
               <div class="col-md-4">
