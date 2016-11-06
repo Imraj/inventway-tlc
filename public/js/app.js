@@ -6,10 +6,10 @@ apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,Aut
   $rootScope._currentUser = AuthFactory.currentUser();
   $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
 
-  if($rootScope._currentUserDetails.driver_type.indexOf("Driver") !== -1 ){
+  if($rootScope._currentUserDetails.driver_type && $rootScope._currentUserDetails.driver_type.indexOf("Driver") !== -1 ){
     $rootScope._currentAcctType = "driver";
   }
-  console.log("cat : " + $rootScope._currentAcctType);
+  
   $rootScope.rootLogOut = function(){
     AuthFactory.logOut();
     $state.go("index");
