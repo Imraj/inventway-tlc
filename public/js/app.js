@@ -60,7 +60,7 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
               mimetype: 'image/*',
               language: 'en',
               services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
-              openTo: 'IMAGE_SEARCH'
+              openTo: 'COMPUTER'
             },function(Blob){
                   console.log(JSON.stringify(Blob));
                   $scope.user.image = Blob.url;
@@ -110,6 +110,71 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",func
 apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function(){
 
 
+
+}]);
+
+apptlc.controller("BaseRankCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.ranks = ["In cab rank","Anonymous/Nickname badge","Plate ranks(front and back)","Front Rank Plate Holder",
+                  "Back Rank Plate Holder","Incab holder & Limiter","All of the above"
+                  ];
+
+    $scope.rank = {type:""}
+
+    $scope.payAndOrderRank = function(){
+
+    }
+
+}]);
+
+apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.vehicles = ["Yellow Cab","Gypsy & Radio","App Uber & Others","Green Cab","SUV",
+                           "Dial7 & Others","Black Car","Limousine","Commuter Van"];
+
+  $scope.qualifs =  ["Already Experienced Driver","New Driver Currently got licensed by TLC",
+                        "New Student seeking to get  TLC License","Driver-Owned Vehicle(DOV)",
+                         "Individual-Owned Operator(Own Vehicle & Medallion)"];
+
+
+  $scope.updateQualification = function(){
+    
+  }
+
+}]);
+
+apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerService",
+            function($scope,$state,$rootScope,filepickerService){
+
+
+          $scope.ads = {
+            type:"",
+            image:"",
+            description:""
+          }
+
+  $scope.driver_ads_only = ["Need a cab","You have a cab","Need a night-shift driver","You are a night-shift driver",
+                            "Need a day-shift driver","You are a day-shift driver"];
+
+  $scope.housing_ads_only = ["Need a roommate culturally matched","You have a room","Need cash apartment",
+                            "You have an apartment","Need five-months apt. for visitors",
+                            "Rent your apartment for few months"];
+
+  $scope.driver_biz_ads = ["Need to sharehold a business","You have a business, Need a partner",
+                 "Cabs,Black,Green,SUVs and Limos","Delis and Restaurant","Food cart and street vending",
+                  "Other Businesses"];
+
+    $scope.uploadAdsImage = function(){
+      filepickerService.pick({
+          mimetype: 'image/*',
+          language: 'en',
+          services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+          openTo: 'COMPUTER'
+        },function(Blob){
+              console.log(JSON.stringify(Blob));
+              $scope.ads.image = Blob.url;
+          });
+    }
 
 }]);
 
@@ -215,7 +280,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.ads",{
         templateUrl:"templates/base/ads.html",
         url:"/ads",
-        controller:"BaseCtrl",
+        controller:"BaseAdsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -316,7 +381,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.qualifications",{
         templateUrl:"templates/base/qualifications.html",
         url:"/qualifications",
-        controller:"BaseCtrl",
+        controller:"BaseQuaCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");

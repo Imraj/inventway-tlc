@@ -8,6 +8,40 @@
           Category A : {{_currentUserDetails.driver_type}}
       </div>
   </div>
+  <hr/>
 
+  <div class="row">
+      <h3 id="qua_title">Change your qualifications</h3>
+      <div id="qua_subtitle">
+        Change your vehicle and community.
+      </div>
+      <div class="form-group">
+          <div class="col-md-6 col-sm-12" ng-repeat="v in vehicles">
+                <input type="radio" ng-model="qua.vehicle" name="qua_vehicle" ng-value="v" /> {{v}} <br/>
+          </div>
+      </div>
+  </div>
+
+  <div class="row" style="margin-top:3em;">
+      <h3 id="qua_title">Switch your qualifications</h3>
+
+      <div class="form-group">
+          <div class="col-md-6 col-sm-12" ng-repeat="q in qualifs">
+                <input type="radio" ng-model="qua.qualif" name="qua_qualif" ng-value="q" /> {{q}} <br/>
+          </div>
+      </div>
+  </div>
+
+  <div class="row" style="margin-top:3em;">
+    <div class="form-group">
+      <button ng-click="uploadQuaImage()">Upload Image</button>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:3em;">
+    <div class="form-group">
+      <button class="btn btn-primary pull-right col-md-6" ng-click="updateQualification()">Update Qualification</button>
+    </div>
+  </div>
 
 </div>

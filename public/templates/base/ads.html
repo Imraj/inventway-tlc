@@ -8,6 +8,57 @@
           Category A : {{_currentUserDetails.driver_type}}
       </div>
   </div>
+  <hr/>
 
+  <div class="row">
+      <div class="col-md-7">
+        <div>
+          <h2>Post your ad for free $0</h2>
+          <div class="form-group" ng-repeat="driver_ad in driver_ads_only">
+              <input type="radio" name="ads_type" ng-model="ads.type" ng-value="driver_ad" /> {{driver_ad}} <br/>
+          </div>
+        </div>
+
+        <div style="margin-top:2em;">
+          <h2>Drivers Housing Ads for just $0.99</h2>
+          <div class="form-group" ng-repeat="housing_ad in housing_ads_only">
+              <input type="radio" name="ads_type" ng-model="ads.type" ng-value="housing_ad" /> {{housing_ad}} <br/>
+          </div>
+        </div>
+
+        <div style="margin-top:2em;">
+          <h2>Drivers and Business Partners for $4.99</h2>
+          <div class="form-group" ng-repeat="db_ad in driver_biz_ads">
+              <input type="radio" name="ads_type" ng-model="ads.type" ng-value="db_ad" /> {{db_ad}} <br/>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-5">
+
+        <div class="row">
+          <div class="form-group">
+            <textarea placeholder="Write your ads description" class="form-control" rows="10" cols="5" ng-model="ads.description"></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <button ng-click="uploadAdsImage()">Upload Image</button>
+          </div>
+        </div>
+
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-6">
+          <button class="btn btn-primary col-md-12 col-sm-12" ng-click="saveAndExitAds()">Save & Exit</button>
+      </div>
+      <div class="col-md-6">
+          <button class="btn btn-primary col-md-12 col-sm-12" ng-click="payAndSubmitAds()">Pay & Submit</button>
+      </div>
+  </div>
 
 </div>
