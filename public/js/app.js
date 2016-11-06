@@ -5,7 +5,7 @@ apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,Aut
   $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
   $rootScope._currentUser = AuthFactory.currentUser();
   $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
-  console.log("rd: " + $rootScope._currentUserDetails.driver_type.indexOf("Driver"));
+
   if($rootScope._currentUserDetails.driver_type.indexOf("Driver") !== -1 ){
     $rootScope._currentAcctType = "driver";
   }
@@ -302,15 +302,16 @@ apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope",function($scope,
 
 }]);
 
-apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerService",
-            function($scope,$state,$rootScope,filepickerService){
+apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerService","AdFactory",
+            function($scope,$state,$rootScope,filepickerService,AdFactory){
 
-
-          $scope.ads = {
-            type:"",
-            image:"",
-            description:""
-          }
+  $scope.ads = {
+      type:"",
+      image:"",
+      description:"",
+      car_model:"",
+      car_year:""
+  }
 
   $scope.driver_ads_only = ["Need a cab","You have a cab","Need a night-shift driver","You are a night-shift driver",
                             "Need a day-shift driver","You are a day-shift driver"];
@@ -333,6 +334,33 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
               console.log(JSON.stringify(Blob));
               $scope.ads.image = Blob.url;
           });
+    }
+
+    $scope.saveAndExitAds = function(){
+      AdFactory.saveAndExitAds($scope.ads)
+               .success(function(data,status){
+                  if(data.success == true)
+                  {
+
+                  }
+               })
+               .error(function(err,code)
+               {
+
+               });
+    }
+
+    $scope.payAndSubmitAds = function(){
+      AdFactory.payAndSubmitAds($scope.ads)
+               .success(function(data,status){
+                 if(data.success == true)
+                 {
+
+                 }
+               })
+               .error(function(err,code){
+
+               });
     }
 
 }]);
@@ -395,6 +423,22 @@ apptlc.factory("AuthFactory",function($http,$window){
         };
 
          return auth;
+
+});
+
+apptlc.factory("AdFactory",function($http,$rootScope){
+
+  var ads = {};
+  var createdBy = $rootScope._currentUserDetails._id;
+  ads.saveAndExitAds = function(ad){
+     return $http.post("/submit_ad",{"ad":ad,"published":false,"createdBy":createdBy});
+  };
+
+  ads.payAndSubmitAds = function(ad){
+    return $http.post("/submit_ad",{"ad":ad,"published":true,"createdBy":createdBy});
+  };
+
+  return ads;
 
 });
 

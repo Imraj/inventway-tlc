@@ -3,8 +3,8 @@ var User = mongoose.model("User");
 
 var AdvertSchema = mongoose.Schema({
 
-  model:String,
-  year:String,
+  car_model:String,
+  car_year:String,
   type:String,
   description:String,
   createdAt:{type:Date,default:Date.now},

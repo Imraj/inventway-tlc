@@ -58,11 +58,12 @@ router.post("/submit_ad",function(req,res,next){
 
   var advert = new Advert({
       type:req.body.ad.type,
-      model:req.body.ad.model,
-      year:req.body.ad.year,
+      car_model:req.body.ad.model,
+      car_year:req.body.ad.year,
       description:req.body.ad.description,
       image:req.body.ad.image,
-      createdBy:req.body.ad.user
+      createdBy:req.body.ad.createdBy,
+      published:req.body.published
   });
 
   advert.save(function(err,ad){
