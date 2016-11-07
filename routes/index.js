@@ -63,7 +63,7 @@ router.post("/submit_ad",function(req,res,next){
       car_year:req.body.ad.year,
       description:req.body.ad.description,
       image:req.body.ad.image,
-      createdBy:req.body.ad.createdBy,
+      createdBy:req.body.createdBy,
       published:req.body.published
   });
 
