@@ -246,12 +246,25 @@ apptlc.controller("BaseAcctCtrl",["$scope","$state","$rootScope",function($scope
 
 }]);
 
-apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory",function($scope,$state,$rootScope,BlogFactory){
 
   $scope.blog={title:"",text:"",image:""}
 
   $scope.saveAndExitBlog = function(){
-
+    console.log(JSON.stringify($scope.blog,null,4));
+    BlogFactory.saveAndExitBlog($scope.blog)
+             .success(function(data,status){
+                console.log(JSON.stringify(data,null,4));
+                if(data.success == true)
+                {
+                  var message = '<strong>Well done!</strong> You ads successfully submitted.';
+                  var id = Flash.create('success', message, 0, {class: 'custom-class', id: 'custom-id'}, true);
+                }
+             })
+             .error(function(err,code)
+             {
+               console.log(err + " | " + code);
+             });
   }
 
   $scope.uploadBlogImage = function(){
@@ -267,8 +280,20 @@ apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope",function($scope
   }
 
   $scope.publishBlog = function(){
+    console.log(JSON.stringify($scope.blog,null,4));
+    BlogFactory.payAndSubmitBlog($scope.blog)
+             .success(function(data,status){
+               console.log( JSON.stringify(data,null,4) );
+               if(data.success == true)
+               {
 
+               }
+             })
+             .error(function(err,code){
+                console.log(err + " | " + code);
+             });
   }
+
 
 }]);
 
