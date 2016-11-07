@@ -522,7 +522,7 @@ apptlc.factory("AdFactory",function($http,$rootScope){
 
 });
 
-pptlc.factory("UnionFactory",function($http,$rootScope){
+apptlc.factory("UnionFactory",function($http,$rootScope){
 
   var createdBy = $rootScope._currentUserDetails._id;
   var unions = {};
