@@ -344,6 +344,12 @@ apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope",function($scope,
 
 }]);
 
+apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+
+
+}]);
+
 apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerService","AdFactory","Flash",
             function($scope,$state,$rootScope,filepickerService,AdFactory,Flash){
 
@@ -518,6 +524,10 @@ apptlc.factory("AdFactory",function($http,$rootScope){
     return $http.post("/submit_ad",{"ad":ad,"published":true,"createdBy":createdBy});
   };
 
+  ads.getAllAds = function(){
+    return $http.post("/ads");
+  }
+
   return ads;
 
 });
@@ -657,6 +667,17 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         templateUrl:"templates/base/ads.html",
         url:"/ads",
         controller:"BaseAdsCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.view_ads",{
+        templateUrl:"templates/base/view_ads.html",
+        url:"/view_ads",
+        controller:"BaseViewAdsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
