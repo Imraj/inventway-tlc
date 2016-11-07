@@ -466,7 +466,7 @@ apptlc.config(function(filepickerProvider){
     filepickerProvider.setKey('AgJlhxtixSnK4e0Hdw3kdz');
 });
 
-app.config(funtion(FlashProvider){
+apptlc.config(funtion(FlashProvider){
     FlashProvider.setTimeout(5000);
     FlashProvider.setShowClose(true);
     //FlashProvider.setOnDismiss(myCallback);
