@@ -598,11 +598,8 @@ apptlc.controller("UnionEventCtrl",["$scope","$state","$stateParams","UnionFacto
               $scope.ev = data.eve;
           })
           .error(function(err,code){
-              console.log(err + " | " + code);
+              console.log(err + " | c: " + code);
           });
-
-}
-
 }]);
 
 
