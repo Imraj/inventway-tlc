@@ -466,10 +466,10 @@ apptlc.config(function(filepickerProvider){
     filepickerProvider.setKey('AgJlhxtixSnK4e0Hdw3kdz');
 });
 
-app.config((FlashProvider) => {
+app.config(funtion(FlashProvider){
     FlashProvider.setTimeout(5000);
     FlashProvider.setShowClose(true);
-    FlashProvider.setOnDismiss(myCallback);
+    //FlashProvider.setOnDismiss(myCallback);
 });
 
 apptlc.config([ "$stateProvider","$urlRouterProvider",
