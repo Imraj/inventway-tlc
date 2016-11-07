@@ -55,61 +55,12 @@
   <div id="car_info" ng-show="driver_ads_only.indexOf(ads.type) != -1">
           <h2>Select car model</h2>
           <div class="col-md-12">
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/chevrolet_impala.jpg" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Chevrolet Impala"/>
-              </div>
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/ford_cmax.jpg" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Ford CMax"/>
-              </div>
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/ford_escape.jpg" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Ford Escape"/>
+              <div class="col-md-4" ng-repeat="c in car_images">
+                <img width="100" height="100" src="{{c.img}}" />
+                <input type="radio" name="car_model" ng-model="ads.model" ng-value="c.val"/>
               </div>
           </div>
 
-          <div class="col-md-12">
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/ford_grand_victoria.jpg" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Ford Grand Victoria"/>
-              </div>
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/ford_taraus.jpg" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Ford Taraus"/>
-              </div>
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/ford_transit.png" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Ford Transit"/>
-              </div>
-          </div>
-
-          <div class="col-md-12">
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/nissan_maxima.jpg" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Nissan Maxima"/>
-              </div>
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/nissan_nv200.jpg" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Nissan MV 200"/>
-              </div>
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/toyota_camry.jpg" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Toyota Camry"/>
-              </div>
-          </div>
-
-          <div class="col-md-12">
-
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/toyota_highlander.jpg" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Toyota Highlander"/>
-              </div>
-              <div class="col-md-4">
-                <img width="100" height="100" src="images/cars/toyota_prius.png" />
-                <input type="radio" name="car_model" ng-model="ads.car_model"  value="Toyota Prius"/>
-              </div>
-          </div>
 
           <div class="col-md-12">
             <div class="form-group">

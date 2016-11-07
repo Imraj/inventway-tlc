@@ -324,6 +324,21 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
                  "Cabs,Black,Green,SUVs and Limos","Delis and Restaurant","Food cart and street vending",
                   "Other Businesses"];
 
+  $scope.car_images = [
+                       {img:"images/cars/chevrolet_impala.jpg",val:"Chevrolet Impala"},
+                       {img:"images/cars/ford_cmax.jpg",val:"Ford CMax"},
+                       {img:"images/cars/ford_escape.jpg",val:"Ford Escape"},
+                       {img:"images/cars/ford_grand_victoria.jpg",val:"Ford Grand Victoria"},
+                       {img:"images/cars/ford_taraus.jpg",val:"Ford Taraus"},
+                       {img:"images/cars/ford_transit.png",val:"Ford Transit"},
+                       {img:"images/cars/nissan_maxima.jpg",val:"Nissan Maxima"},
+                       {img:"images/cars/nissan_nv200.jpg",val:"Nissan MV 200"},
+                       {img:"images/cars/toyota_camry.jpg",val:"Toyota Camry"},
+                       {img:"images/cars/toyota_highlander.jpg",val:"Toyota Highlander"},
+                       {img:"images/cars/toyota_prius.png",val:"Toyota Prius"}
+                    ];
+
+
     $scope.uploadAdsImage = function(){
       filepickerService.pick({
           mimetype: 'image/*',
