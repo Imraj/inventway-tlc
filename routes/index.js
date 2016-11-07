@@ -271,13 +271,15 @@ router.post('/message',function(req,res,next){
 
   var msgId = req.body.msgId;
 
-  Message.findOne({ $or : [{_id:msgId},{messageParent:msgId}],function(err,msg){
+  Message.findOne({ $or : [{_id:msgId},{messageParent:msgId}]},
+      function(err,msg){
 
-    if(err)return next(err);
+          if(err)return next(err);
 
-    return res.status('200').json({message:msg});
+          return res.status('200').json({message:msg});
 
-  }).sort('-date');
+      }).sort("-createdAt");
+
 
 });
 
