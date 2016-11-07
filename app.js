@@ -15,7 +15,12 @@ require('./models/User');
 require('./models/Car');
 require('./models/Partner');
 require('./models/Inbox');
+require('./models/Advert');
+require('./models/Blog');
+require('./models/Ticket');
+require('./models/Election');
 require('./config/passport');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
