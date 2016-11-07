@@ -12,13 +12,29 @@
 
   <div class="row">
       <div id="inbox" style="height:100%;min-height:10em;">
-          
+
+          <table class="table table-stripped">
+
+             <tr ng-repeat="msg in messages">
+               <a href="/message/:id">
+                  <td>
+                      <b>{{msg.createdBy}}</b>
+                  </td>
+                  <td></td>
+                  <td>
+                      {{msg.subject}}
+                  </td>
+                  <td>
+                      {{msg.createdAt}}
+                  </td>
+                </a>
+             </tr>
+
+          </table>
+
       </div>
-     
+
   </div>
 
 
 </div>
-
-
-

@@ -85,6 +85,9 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
         $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
         $rootScope._currentUser = AuthFactory.currentUser();
         $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
+        if($rootScope._currentUserDetails && $rootScope._currentUserDetails.driver_type && $rootScope._currentUserDetails.driver_type.indexOf("Driver") !== -1 ){
+          $rootScope._currentAcctType = "driver";
+        }
         console.log("going to base | isauth : " + $rootScope._isAuthenticated);
         $state.go("base.overview");
       });
@@ -107,6 +110,9 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",func
                 $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
                 $rootScope._currentUser = AuthFactory.currentUser();
                 $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
+                if($rootScope._currentUserDetails && $rootScope._currentUserDetails.driver_type && $rootScope._currentUserDetails.driver_type.indexOf("Driver") !== -1 ){
+                  $rootScope._currentAcctType = "driver";
+                }
                 $state.go("base.overview");
             });
     }
@@ -135,6 +141,47 @@ apptlc.controller("UnionCtrl",["$scope","$state","$rootScope","UnionFactory",fun
 
 }]);
 
+
+apptlc.controller("BaseInboxCtrl",["$scope","$state","$rootScope","InboxFactory",function($scope,$state,$rootScope,InboxFactory){
+
+    InboxFactory.getMessages()
+        .success(function(data,status){
+            console.log(data + " | " + status);
+            $scope.messages = data.messages;
+        })
+        .error(function(err,code){
+            console.log(err + " | " + code);
+        });
+
+}]);
+
+apptlc.controller("BaseInboxMsgCtrl",["$scope","$state","$rootScope","$stateParams","InboxFactory",
+                                                          function($scope,$state,$rootScope,$stateParams,InboxFactory){
+
+  var msgId = $stateParams.id;
+  InboxFactory.getMessage(msgId)
+            .success(function(data,status){
+                console.log(data + " | " + status);
+                $scope.message = data.message;
+            })
+            .error(function(err,code){
+                console.log(err + " | " + code);
+            });
+
+
+  $scope.replyAdMessage = function(msgParentId)
+  {
+
+     AdFactory.replyMessage($scope.message,msgParentId)
+                 .success(function(data,status){
+                     console.log(data + " | " + status);
+                 })
+                 .error(function(err,code){
+                     console.log(err + " | " + code);
+                 });
+  }
+
+}]);
 
 apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
@@ -348,12 +395,13 @@ apptlc.controller("BaseViewAllAdsCtrl",["$scope","$state","$rootScope","AdFactor
 
   AdFactory.getAllAds()
            .success(function(data,status){
+              console.log("data : " + JSON.stringify(data,null,4) + " | " + status);
               if(data.success){
-                $scope.ads = data.ads;
+                $scope.all_ads = data.ads;
               }
            })
            .error(function(err,code){
-              console.log("err");
+              console.log("err : " + err + " | " + code);
            });
 
 }]);
@@ -363,19 +411,39 @@ apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope","AdFactory",
 
   var adsId = $stateParams.id;
 
+  $scope.showContactForm = false;
+  $scope.showContactFormClick = function(){
+    $scope.showContactForm = !$scope.showContactForm;
+  }
+
   AdFactory.getAds(adsId)
            .success(function(data,status){
               if(data.success){
-                $scope.ads = data.ads;
+                $scope.ad = data.ads;
               }
            })
            .error(function(err,code){
               console.log("err");
            });
 
+   $scope.message = {subject:"",content:""};
+   $scope.sendAdMessage = function(user)
+   {
+
+     AdFactory.sendMessage($scope.message,user)
+              .success(function(data,status){
+                  console.log(data + " | " + status);
+              })
+              .error(function(err,code){
+                  console.log(err + " | " + code);
+              });
+   };
+
+
+
 }]);
 
-apptlc.controller("BaseViewBlogsCtrl",["$scope","$state","$rootScope","AdFactory",function($scope,$state,$rootScope,BlogFactory){
+apptlc.controller("BaseViewAllBlogsCtrl",["$scope","$state","$rootScope","BlogFactory",function($scope,$state,$rootScope,BlogFactory){
 
   BlogFactory.getAllBlogs()
            .success(function(data,status){
@@ -389,15 +457,50 @@ apptlc.controller("BaseViewBlogsCtrl",["$scope","$state","$rootScope","AdFactory
 
 }]);
 
+apptlc.controller("BaseViewBlogsCtrl",["$scope","$state","$rootScope","BlogFactory","$stateParams",
+                      function($scope,$state,$rootScope,BlogFactory,$stateParams){
+
+  var blog_id = $stateParams.id;
+
+  BlogFactory.getBlog(blog_id)
+           .success(function(data,status){
+              if(data.success){
+                $scope.blog = data.blog;
+              }
+           })
+           .error(function(err,code){
+              console.log("err");
+           });
+
+}]);
+
+
 apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerService","AdFactory","Flash",
             function($scope,$state,$rootScope,filepickerService,AdFactory,Flash){
 
-  $scope.ads = {
-      type:"",
-      image:"",
-      description:"",
-      car_model:"",
-      car_year:""
+    $scope.ads = {
+        type:"",
+        image:"",
+        description:"",
+        car_model:"",
+        car_year:""
+    };
+
+    $scope.card = {
+        name:"",
+        number:"",
+        cvv:"",
+        exp_month:"",
+        exp_year:"",
+    };
+
+  $scope.payWithCreditCard = false;
+  $scope.payWithCreditCardClick = function(){
+      $scope.payWithCreditCard = !$scope.payWithCreditCard;
+  }
+
+  $scope.payWithPaypal =function(){
+
   }
 
   $scope.driver_ads_only = ["Need a cab","You have a cab","Need a night-shift driver","You are a night-shift driver",
@@ -471,6 +574,37 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
     }
 
 }]);
+
+apptlc.controller("UnionAllEventsCtrl",["$scope","$state","UnionFactory",function($scope,$state,UnionFactory){
+
+  UnionFactory.getAllEvents()
+          .success(function(data,status){
+              console.log(JSON.stringify(data,null,4) + " | " + status);
+              $scope.events = data.events;
+          })
+          .error(function(err,code){
+              console.log(err + " | " + code);
+          });
+
+}]);
+
+apptlc.controller("UnionEventCtrl",["$scope","$state","$stateParams","UnionFactory",function($scope,$state,$stateParams,UnionFactory){
+
+  var ev_id = $stateParams.id;
+
+  UnionFactory.getEvent(ev_id)
+          .success(function(data,status){
+              console.log(JSON.stringify(data,null,4) + " | " + status);
+              $scope.ev = data.eve;
+          })
+          .error(function(err,code){
+              console.log(err + " | " + code);
+          });
+
+}
+
+}]);
+
 
 apptlc.factory("AuthFactory",function($http,$window){
 
@@ -549,6 +683,10 @@ apptlc.factory("BlogFactory",function($http,$rootScope){
 
   blogs.getAllBlogs = function(){
     return $http.post("/blogs");
+  };
+
+  blogs.getBlog = function(id){
+    return $http.post("/blog",{"id":id});
   }
 
   return blogs;
@@ -575,6 +713,14 @@ apptlc.factory("AdFactory",function($http,$rootScope){
     return $http.post("/ad",{"id":id});
   }
 
+  ads.sendMessage = function(msg,msgTo){
+    return $http.post("/send_message",{"message":msg,"createdBy":createdBy,"msgTo":msgTo});
+  }
+
+  ads.replyMessage = function(msg,msgParentId){
+    return $http.post("/reply_message",{"message":msg,"createdBy":createdBy,"msgParentId":msgParentId});
+  }
+
   return ads;
 
 });
@@ -587,10 +733,33 @@ apptlc.factory("UnionFactory",function($http,$rootScope){
   unions.addEvent = function(ev)
   {
     return $http.post("/submit_event",{"event":ev,"createdBy":createdBy});
-  }
+  };
+
+  unions.getAllEvents = function(){
+    return $http.post("/events");
+  };
+
+  unions.getEvent = function(eventId)
+  {
+    return $http.post("/event",{"id":eventId});
+  };
 
   return unions;
 
+});
+
+apptlc.factory("InboxFactory",function($http,$rootScope){
+  var inbox = {};
+
+  inbox.getMessages = function(){
+    return $http.post("/messages");
+  };
+
+  inbox.getMessage = function(id){
+     return $http.post("/message",{"msgId":id});
+  };
+
+  return inbox;
 });
 
 apptlc.config(function(filepickerProvider){
@@ -667,17 +836,28 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
 
       })
 
-      .state("union_event",{
+      .state("union_events",{
         templateUrl:"templates/union/events.html",
         url:"/union_events",
-        controller:"UnionCtrl",
+        controller:"UnionAllEventsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
             }
         }]
-
       })
+
+      .state("union_event",{
+        templateUrl:"templates/union/event.html",
+        url:"/union_events/:id",
+        controller:"UnionEventCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
 
       .state("union_newevent",{
         templateUrl:"templates/union/newevent.html",
@@ -805,7 +985,18 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.inbox",{
         templateUrl:"templates/base/inbox.html",
         url:"/inbox",
-        controller:"BaseCtrl",
+        controller:"BaseInboxCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.inbox_msg",{
+        templateUrl:"templates/base/message.html",
+        url:"/inbox/:id",
+        controller:"BaseInboxMsgCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1020,18 +1211,6 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
               $state.go("login");
             }
         }]
-      })
-
-      .state("new_driver",{
-        templateUrl:"templates/driver/new_driver.html",
-        url:"/new_driver",
-        controller:"HomeCtrl"
-      })
-
-      .state("already_driver",{
-        templateUrl:"templates/driver/already_driver.html",
-        url:"/already_driver",
-        controller:"HomeCtrl"
       })
 
       .state("login",{

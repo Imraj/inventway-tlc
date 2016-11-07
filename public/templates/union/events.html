@@ -11,46 +11,23 @@
       <h2>Upcoming Union Events</h2>
   </div>
 
-  <table class="table">
+  <table class="table table-bordered">
       <tr>
         <th>Event Name</th>
+        <th>Description</th>
         <th>Venue</th>
-        <th>Date and Time</th>
-        <th>Time</th>
+        <th>Date and Tim</th>
+        <th></th>
+
       </tr>
-      <tr>
-        <td>Test Ev 1</td>
-        <td>Test location one 01</td>
-        <td> 27th May,2016 </td>
-        <td> 8:00am </td>
-      </tr>
-      <tr>
-        <td>Test Ev 1</td>
-        <td>Test location one 01</td>
-        <td> 27th May,2016 </td>
-        <td> 9:00am </td>
-      </tr>
-      <tr>
-        <td>Test Ev 1</td>
-        <td>Test location one 01</td>
-        <td> 27th May,2016 </td>
-        <td> 8:00am </td>
-      </tr>
-      <tr>
-        <td>Test Ev 1</td>
-        <td>Test location one 01</td>
-        <td> 27th May,2016 </td>
-        <td> 8:00am </td>
-      </tr>
-      <tr>
-        <td>Test Ev 1</td>
-        <td>Test location one 01</td>
-        <td> 27th May,2016 </td>
-        <td> 8:00am </td>
+      <tr ng-repeat="ev in events">
+        <td>{{ev.name}}</td>
+        <td>{{ev.description}}</td>
+        <td>{{ev.venue}}</td>
+        <td> {{ev.ev_date}} {{ev.ev_time}} </td>
+        <td><a href="/union_events/"{{ev._id}}>View</a></td>
       </tr>
   </table>
 
 
 </div>
-
-

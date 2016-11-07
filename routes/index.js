@@ -9,6 +9,7 @@ var Partner = mongoose.model("Partner");
 var Inbox = mongoose.model("Inbox");
 var Advert = mongoose.model("Advert");
 var Event = mongoose.model("Event");
+var Message = mongoose.model("Message");
 
 var passport = require('passport');
 
@@ -76,6 +77,40 @@ router.post("/submit_event",function(req,res,next){
 
 });
 
+router.post("/events",function(req,res,next){
+
+  Event.find({},function(err,events){
+    if(err)
+    {
+      return next(err);
+    }
+    else
+    {
+      res.status('200').json({success:true,events:events})
+    }
+
+  });
+
+});
+
+router.post("/event",function(req,res,next){
+
+    var ev = req.body.id;
+
+    Event.findOne({_id:ev},function(err,eve){
+      if(err){
+        return next(err);
+      }
+      else{
+        res.status('200').json({success:true,eve:eve});
+      }
+    });
+
+
+
+});
+
+
 router.post("/submit_ad",function(req,res,next){
 
   var advert = new Advert({
@@ -114,9 +149,9 @@ router.post("/ads",function(req,res,next){
 
 });
 
-router.post("/ads/:ad",function(req,res,next){
+router.post("/ad",function(req,res,next){
 
-  var ad = req.param("ad");
+  var ad = req.body.id;
 
   Advert.findOne({_id:ad},function(err,ad){
     if(err){
@@ -167,9 +202,9 @@ router.post("/blogs",function(req,res,next){
 
 });
 
-router.post("/blogs/:blog",function(req,res,next){
+router.post("/blog",function(req,res,next){
 
-  var blog = req.param("blog");
+  var blog = req.body.id;
 
   Blog.findOne({_id:blog},function(err,blog){
     if(err){
@@ -182,159 +217,83 @@ router.post("/blogs/:blog",function(req,res,next){
 
 });
 
-router.post('/car',function(req,res,next){
+router.post('/send_message',function(req,res,next){
 
-    var shift = req.body.shift;
-    var location = req.body.location;
-    var zip_code = req.body.zip_code;
-    var experience = req.body.experience;
-    var createdBy = req.session.user_id;
-    var model = req.body.car_model;
-    var year =  req.body.car_year;
-
-    var car = new Car({
-      shift:shift,
-      location:location,
-      zip_code:zip_code,
-      experience:experience,
-      model:model,
-      year:year,
-      createdBy:createdBy
-    });
-
-    car.save(function(err,car){
-        if(err)return next(err);
-        res.redirect('/cars');
-        //return res.status('200').json({success:true});
-    });
-
-});
-
-router.post('/partner',function(req,res,next){
-
-  var shift = req.body.shift;
-  var location = req.body.location;
-  var zip_code = req.body.zip_code;
-  var experience = req.body.experience;
-  var createdBy = req.session.user_id;
-  var model = req.body.car_model;
-  var year = req.body.car_year;
-
-  var partner = new Partner({
-    shift:shift,
-    location:location,
-    zip_code:zip_code,
-    experience:experience,
-    model:model,
-    year:year,
-    createdBy:createdBy
+  var subject = new Message({
+    subject : req.body.msg.subject,
+    content : req.body.msg.content,
+    createdBy : req.body.createdBy,
+    messageTo : req.body.msgTo
   });
 
-  partner.save(function(err,car){
-      if(err)return next(err);
-      //return res.status('200').json({success:true});
-      res.redirect('/partners');
-  });
+  subject.save(function(err,msg){
 
-});
-
-router.post("/logout",function(req,res,next){
-
-  req.session.destroy();
-  res.redirect('index');
-
-});
-
-router.post('/update_profile',function(req,res,next){
-
-  var phone = req.body.phone;
-  var email = req.body.email;
-  var userId = req.session.user_id;
-
-  var query = User.findById(user_id);
-
-  query.exec(function(err,user){
     if(err)return next(err);
-    if(user){
-      user.email = email;
-      user.phone = phone;
-    }
 
-    res.redirect("login");
+    return res.status('200').json({success:true});
+
   });
 
 });
 
+router.post('/reply_message',function(req,res,next){
 
-router.post('/complete_profile',function(req,res,next){
+  var subject = new Message({
+    content : req.body.msg.content,
+    createdBy : req.body.createdBy,
+    messageType : "reply",
+    messageParent : req.body.msgParentId
+  });
 
-  var user = req.session.user_id;
-  var phone = req.body.phone;
-  var neighbourhood = req.body.neighbourhood;
-  var account_type = req.body.account_type;
-  var car_type = req.body.car_type;
+  subject.save(function(err,msg){
 
-  User.find({_id:user},function(err,user){
-      if(err)return next(err);
+    if(err)return next(err);
 
-      if(user){
-        user.phone = phone;
-        user.neighbourhood = neighbourhood;
-        user.account_type = account_type;
-        user.car_type = car_type;
+    return res.status('200').json({success:true});
 
-        res.redirect("/");
-      }
   });
 
 });
 
-router.get("/cars",function(req,res,next){
+router.post('/messages',function(req,res,next){
 
+  Message.find({messageType:"main"},function(err,msgs){
 
-    Car.find({},function(err,cars){
-        if(err)return next(err);
-        res.render('cars',{title:'All cars',cars : cars,session:req.session });
-    });
+    if(err)return next(err);
+
+    return res.status('200').json({messages:msgs});
+
+  }).sort('-createdAt');
 
 });
 
-router.get("/cars/:car",function(req,res,next){
+router.post('/message',function(req,res,next){
 
-  var carId = req.param('car');
-  console.log("my carId is : " + carId);
-  var query = Car.findById(carId);
+  var msgId = req.body.msgId;
 
-  query.exec(function(err,car){
-      if(err)return next(err);
-      console.log("car is : " + car);
-      res.render('car',{car:car,title:"Car",session:req.session});
+  Message.findOne({ $or : [{_id:msgId},{messageParent:msgId}],function(err,msg){
+
+    if(err)return next(err);
+
+    return res.status('200').json({message:msg});
+
+  }).sort('-createdAt');
+
+});
+
+/*router.post('/child_messages',function(req,res,next){
+
+  var msgId = req.body.msgId;
+
+  Message.findOne({messageParent:msgId},function(err,msg){
+
+    if(err)return next(err);
+
+    return res.status('200').json({message:msg});
+
   });
 
-});
-
-router.get("/partners",function(req,res,next){
-
-    Partner.find({},function(err,partners){
-      if(err)return next(err);
-      res.render('partners',{title:'All partners',partners : partners,session:req.session });
-    });
-
-
-});
-
-router.get("/partner/:partner",function(req,res,next){
-
-  var partnerId = req.param(partner);
-  var query = Partner.findById(partnerId);
-
-  query.exec(function(err,partner){
-      if(err)return next(err);
-
-      res.render('partner',{partner:partner,title:"Partner",session:req.session});
-  });
-
-});
+});*/
 
 
 router.get('/mail',function(req,res,next){

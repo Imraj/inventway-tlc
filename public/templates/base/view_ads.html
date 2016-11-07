@@ -20,10 +20,10 @@
         <th>Image</th>
         <th></th>
       </tr>
-      <tr ng-repeat="ad in ads">
+      <tr ng-repeat="ad in all_ads">
         <td>{{ad.type}}</td>
         <td>
-          {{ad.description}}
+          {{ ad.description | limitTo : 100 }}
         </td>
         <th>{{ad.price}}</th>
         <th>{{ad.createdAt}}</th>
