@@ -359,7 +359,7 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
                   if(data.success == true)
                   {
                     var message = '<strong>Well done!</strong> You ads successfully submitted.';
-                    Flash.create('success', message, 0, {class: 'custom-class', id: 'custom-id'}, true);
+                    var id = Flash.create('success', message, 0, {class: 'custom-class', id: 'custom-id'}, true);
                   }
                })
                .error(function(err,code)
@@ -466,7 +466,7 @@ apptlc.config(function(filepickerProvider){
     filepickerProvider.setKey('AgJlhxtixSnK4e0Hdw3kdz');
 });
 
-apptlc.config(function(FlashProvider){
+apptlc.config((FlashProvider) => {
     FlashProvider.setTimeout(5000);
     FlashProvider.setShowClose(true);
     //FlashProvider.setOnDismiss(myCallback);
