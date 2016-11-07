@@ -344,9 +344,31 @@ apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope",function($scope,
 
 }]);
 
-apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope","AdFactory",function($scope,$state,$rootScope,AdFactory){
 
+  AdFactory.getAllAds()
+           .success(function(data,status){
+              if(data.success){
+                $scope.ads = data.ads;
+              }
+           })
+           .error(function(err,code){
+              console.log("err");
+           });
 
+}]);
+
+apptlc.controller("BaseViewBlogsCtrl",["$scope","$state","$rootScope","AdFactory",function($scope,$state,$rootScope,BlogFactory){
+
+  BlogFactory.getAllBlogs()
+           .success(function(data,status){
+              if(data.success){
+                $scope.blogs = data.blogs;
+              }
+           })
+           .error(function(err,code){
+              console.log("err");
+           });
 
 }]);
 
@@ -507,6 +529,10 @@ apptlc.factory("BlogFactory",function($http,$rootScope){
   blogs.payAndSubmitAds = function(blog){
     return $http.post("/submit_blog",{"blog":blog,"published":true,"createdBy":createdBy});
   };
+
+  blogs.getAllBlogs = function(){
+    return $http.post("/blogs");
+  }
 
   return blogs;
 
@@ -685,6 +711,19 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         }]
       })
 
+
+      //ind == individual
+      .state("base.ind_ad",{
+        templateUrl:"templates/base/ind_ad.html",
+        url:"/view_ads/:id",
+        controller:"BaseViewAdsCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
       .state("base.build_history",{
         templateUrl:"templates/base/build_history.html",
         url:"/build_history",
@@ -844,7 +883,18 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.articles",{
         templateUrl:"templates/base/articles.html",
         url:"/articles",
-        controller:"BaseBlogCtrl",
+        controller:"BaseViewBlogCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.article",{
+        templateUrl:"templates/base/article.html",
+        url:"/articles/:id",
+        controller:"BaseViewBlogCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
