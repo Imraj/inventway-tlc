@@ -119,9 +119,19 @@ apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$st
 
 }]);
 
-apptlc.controller("UnionCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("UnionCtrl",["$scope","$state","$rootScope","UnionFactory",function($scope,$state,$rootScope,UnionFactory){
 
+  $scope.event = {};
 
+  $scope.submitEvent = function(){
+    UnionFactory.addEvent($scope.event)
+                .success(function(data,status){
+
+                })
+                .error(function(err,code){
+
+                });
+  }
 
 }]);
 
@@ -509,6 +519,19 @@ apptlc.factory("AdFactory",function($http,$rootScope){
   };
 
   return ads;
+
+});
+
+pptlc.factory("UnionFactory",function($http,$rootScope){
+
+  var unions = {};
+
+  unions.addEvent = function(ev)
+  {
+    
+  }
+
+  return unions;
 
 });
 
