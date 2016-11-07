@@ -462,6 +462,67 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
 
       })
 
+      .state("union_general",{
+        templateUrl:"templates/union/general.html",
+        url:"/union_general",
+        controller:"UnionCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+
+      })
+
+      .state("union_ranking_system",{
+        templateUrl:"templates/union/ranking_system.html",
+        url:"/union_ranking_system",
+        controller:"UnionCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+
+      })
+
+      .state("union_dash_app",{
+        templateUrl:"templates/union/dash_app.html",
+        url:"/union_dash_app",
+        controller:"UnionCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+
+      })
+
+      .state("union_board",{
+        templateUrl:"templates/union/board.html",
+        url:"/union_board",
+        controller:"UnionCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+
+      })
+
+      .state("union_event",{
+        templateUrl:"templates/union/events.html",
+        url:"/union_events",
+        controller:"UnionCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+
+      })
+
+
       .state("base",{
         templateUrl:"templates/base.html",
         url:"/base",
