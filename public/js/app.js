@@ -344,9 +344,26 @@ apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope",function($scope,
 
 }]);
 
-apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope","AdFactory",function($scope,$state,$rootScope,AdFactory){
+apptlc.controller("BaseViewAllAdsCtrl",["$scope","$state","$rootScope","AdFactory",function($scope,$state,$rootScope,AdFactory){
 
   AdFactory.getAllAds()
+           .success(function(data,status){
+              if(data.success){
+                $scope.ads = data.ads;
+              }
+           })
+           .error(function(err,code){
+              console.log("err");
+           });
+
+}]);
+
+apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope","AdFactory","$stateParams",
+                                          function($scope,$state,$rootScope,AdFactory,$stateParams){
+
+  var adsId = $stateParams.id;
+
+  AdFactory.getAds(adsId)
            .success(function(data,status){
               if(data.success){
                 $scope.ads = data.ads;
@@ -554,6 +571,10 @@ apptlc.factory("AdFactory",function($http,$rootScope){
     return $http.post("/ads");
   }
 
+  ads.getAds = function(id){
+    return $http.post("/ad",{"id":id});
+  }
+
   return ads;
 
 });
@@ -703,7 +724,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.view_ads",{
         templateUrl:"templates/base/view_ads.html",
         url:"/view_ads",
-        controller:"BaseViewAdsCtrl",
+        controller:"BaseViewAllAdsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
