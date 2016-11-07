@@ -446,10 +446,10 @@ apptlc.factory("AuthFactory",function($http,$window){
 
 });
 
-apptlc.factory("AdFactory",function($http,$rootScope){
+apptlc.factory("AdFactory",function($http,$rootScope,AuthFactory){
 
   var ads = {};
-  var createdBy = $rootScope._currentUserDetails._id;
+  var createdBy = AuthFactory.currentUser() ;
   ads.saveAndExitAds = function(ad){
      return $http.post("/submit_ad",{"ad":ad,"published":false,"createdBy":createdBy});
   };
