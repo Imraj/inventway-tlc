@@ -77,6 +77,38 @@ router.post("/submit_ad",function(req,res,next){
 
 });
 
+router.post("/ads",function(req,res,next){
+
+  Advert.find({},function(err,ads){
+
+    if(err)
+    {
+      return next(err);
+    }
+    else
+    {
+      res.status('200').json({success:true,ads:ads})
+    }
+
+  });
+
+});
+
+router.post("/ads/:ad",function(req,res,next){
+
+  var ad = req.param("ad");
+
+  Advert.findOne({_id:ad},function(err,ad){
+    if(err){
+      return next(err);
+    }
+    else{
+      res.status('200').json({success:true,ad:ad});
+    }
+  });
+
+});
+
 router.post("/submit_blog",function(req,res,next){
 
   var blog= new Blog({
@@ -94,6 +126,38 @@ router.post("/submit_blog",function(req,res,next){
         res.json({"error":err});
       }
       res.status('200').json({"success":true});
+  });
+
+});
+
+router.post("/blogs",function(req,res,next){
+
+  Blog.find({},function(err,blogs){
+
+    if(err)
+    {
+      return next(err);
+    }
+    else
+    {
+      res.status('200').json({success:true,blogs:blogs})
+    }
+
+  });
+
+});
+
+router.post("/blogs/:blog",function(req,res,next){
+
+  var blog = req.param("blog");
+
+  Blog.findOne({_id:blog},function(err,blog){
+    if(err){
+      return next(err);
+    }
+    else{
+      res.status('200').json({success:true,blog:blog});
+    }
   });
 
 });

@@ -119,6 +119,13 @@ apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$st
 
 }]);
 
+apptlc.controller("UnionCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+
+
+}]);
+
+
 apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
   $scope.uploadHVideo = function(){

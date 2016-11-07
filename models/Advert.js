@@ -10,7 +10,8 @@ var AdvertSchema = mongoose.Schema({
   createdAt:{type:Date,default:Date.now},
   createdBy:String,
   image:String,
-  published:{type:Boolean,default:false}
+  published:{type:Boolean,default:false},
+  price:{type:Number,default:0}
 
 });
 
