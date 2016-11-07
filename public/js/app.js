@@ -352,10 +352,10 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
     }
 
     $scope.saveAndExitAds = function(){
-      console.log(JSON.stringify($scope.ads,null,4) + " | " + JSON.stringify(data,null,4));
+      console.log(JSON.stringify($scope.ads,null,4));
       AdFactory.saveAndExitAds($scope.ads)
                .success(function(data,status){
-                  console.log(JSON.stringify($scope.ads,null,4) + " | " + JSON.stringify(data,null,4));
+                  console.log(JSON.stringify( JSON.stringify(data,null,4));
                   if(data.success == true)
                   {
 
@@ -368,10 +368,10 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
     }
 
     $scope.payAndSubmitAds = function(){
-      console.log(JSON.stringify($scope.ads,null,4) + " | " + JSON.stringify(data,null,4));
+      console.log(JSON.stringify($scope.ads,null,4));
       AdFactory.payAndSubmitAds($scope.ads)
                .success(function(data,status){
-                 console.log(JSON.stringify($scope.ads,null,4) + " | " + JSON.stringify(data,null,4));
+                 console.log(JSON.stringify(data,null,4));
                  if(data.success == true)
                  {
 
