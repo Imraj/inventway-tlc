@@ -566,6 +566,18 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
 
       })
 
+      .state("union_newevent",{
+        templateUrl:"templates/union/newevent.html",
+        url:"/union_new_event",
+        controller:"UnionCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+
+      })
+
 
       .state("base",{
         templateUrl:"templates/base.html",
