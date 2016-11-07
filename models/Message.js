@@ -3,7 +3,7 @@ var User = mongoose.model("User");
 
 var MessageSchema = mongoose.Schema({
 
-  subject:{type:String,default:"TLC Response to advert"}
+  subject:{type:String,default:"TLC Response to advert"},
   content:String,
   messageType:{type:String,default:"main"}, // 0 is main, 1 is reply
   messageParent:{type:String,default:"None"}, // None is parent for main message, original messageId is parent for reply messages
