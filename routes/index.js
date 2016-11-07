@@ -76,6 +76,27 @@ router.post("/submit_ad",function(req,res,next){
 
 });
 
+router.post("/submit_blog",function(req,res,next){
+
+  var blog= new Blog({
+      type:req.body.blog.type,
+      car_model:req.body.blog.model,
+      car_year:req.body.blog.year,
+      description:req.body.blog.description,
+      image:req.body.blog.image,
+      createdBy:req.body.createdBy,
+      published:req.body.published
+  });
+
+  blog.save(function(err,blog){
+      if(err){
+        res.json({"error":err});
+      }
+      res.status('200').json({"success":true});
+  });
+
+});
+
 router.post('/car',function(req,res,next){
 
     var shift = req.body.shift;

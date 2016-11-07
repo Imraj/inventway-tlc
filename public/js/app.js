@@ -446,6 +446,24 @@ apptlc.factory("AuthFactory",function($http,$window){
 
 });
 
+apptlc.factory("BlogFactory",function($http,$rootScope){
+
+  var blogs ={};
+
+  var createdBy = $rootScope._currentUserDetails._id;
+
+  blogs.saveAndExitAds = function(blog){
+     return $http.post("/submit_blog",{"blog":blog,"published":false,"createdBy":createdBy});
+  };
+
+  blogs.payAndSubmitAds = function(blog){
+    return $http.post("/submit_blog",{"blog":blog,"published":true,"createdBy":createdBy});
+  };
+
+  return blogs;
+
+});
+
 apptlc.factory("AdFactory",function($http,$rootScope){
 
   var ads = {};
