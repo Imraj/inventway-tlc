@@ -277,7 +277,7 @@ router.post('/message',function(req,res,next){
 
     return res.status('200').json({message:msg});
 
-  }).sort('-createdAt');
+  }).sort('-date');
 
 });
 
