@@ -841,6 +841,17 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         }]
       })
 
+      .state("base.articles",{
+        templateUrl:"templates/base/articles.html",
+        url:"/articles",
+        controller:"BaseBlogCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
       .state("base.city_3d",{
         templateUrl:"templates/base/city/city_3d.html",
         url:"/city_3d",
