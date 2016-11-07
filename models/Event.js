@@ -3,11 +3,13 @@ var User = mongoose.model("User");
 
 var EventSchema = mongoose.Schema({
 
-  title:String,
-  text:String,
+  name:String,
+  description:String,
+  venue:String,
+  ev_date:String,
+  ev_time:String,
   createdAt:{type:Date,default:Date.now},
   createdBy:String,
-  image:String
 
 });
 

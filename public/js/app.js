@@ -524,11 +524,12 @@ apptlc.factory("AdFactory",function($http,$rootScope){
 
 pptlc.factory("UnionFactory",function($http,$rootScope){
 
+  var createdBy = $rootScope._currentUserDetails._id;
   var unions = {};
 
   unions.addEvent = function(ev)
   {
-    
+    return $http.post("/submit_event",{"event":ev,"createdBy":createdBy});
   }
 
   return unions;

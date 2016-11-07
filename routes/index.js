@@ -56,6 +56,26 @@ router.post('/register',function(req,res,next){
 
 });
 
+router.post("/submit_event",function(req,res,next){
+
+  var event = new Event({
+      name:req.body.event.name,
+      venue:req.body.event.venue,
+      description:req.body.event.description,
+      ev_date:req.body.event.date,
+      ev_time:req.body.event.time,
+      createdBy:req.body.createdBy
+  });
+
+  event.save(function(err,event){
+      if(err){
+        res.json({"error":err});
+      }
+      res.status('200').json({"success":true});
+  });
+
+});
+
 router.post("/submit_ad",function(req,res,next){
 
   var advert = new Advert({
