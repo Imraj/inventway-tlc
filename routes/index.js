@@ -8,6 +8,7 @@ var Car = mongoose.model("Car");
 var Partner = mongoose.model("Partner");
 var Inbox = mongoose.model("Inbox");
 var Advert = mongoose.model("Advert");
+var Event = mongoose.model("Event");
 
 var passport = require('passport');
 

@@ -20,6 +20,7 @@ require('./models/Blog');
 require('./models/Ticket');
 require('./models/Election');
 require('./config/passport');
+require('./models/Event');
 
 
 var routes = require('./routes/index');
