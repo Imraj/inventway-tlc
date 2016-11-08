@@ -467,10 +467,11 @@ apptlc.controller("BaseViewAllBlogsCtrl",["$scope","$state","$rootScope","BlogFa
 apptlc.controller("BaseViewBlogCtrl",["$scope","$state","$rootScope","BlogFactory","$stateParams",
                       function($scope,$state,$rootScope,BlogFactory,$stateParams){
 
-  var blog_id = $stateParams.id;
+  var blog_id = $stateParams.aId;
   console.log("getting blog");
   BlogFactory.getBlog(blog_id)
            .success(function(data,status){
+             console.log("success fetching post");
              console.log(JSON.stringify(data,null,4));
               if(data.success){
                 $scope.blog = data.blog;
@@ -1104,7 +1105,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
 
       .state("base.article",{
         templateUrl:"templates/base/article.html",
-        url:"/articles/:id",
+        url:"/articles/:aId",
         controller:"BaseViewBlogCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
