@@ -169,10 +169,8 @@ router.post("/ad",function(req,res,next){
 router.post("/submit_blog",function(req,res,next){
 
   var blog= new Blog({
-      type:req.body.blog.type,
-      car_model:req.body.blog.model,
-      car_year:req.body.blog.year,
-      description:req.body.blog.description,
+      title:req.body.blog.title,
+      text:req.body.blog.text,
       image:req.body.blog.image,
       createdBy:req.body.createdBy,
       published:req.body.published
