@@ -213,6 +213,7 @@ router.post("/blog",function(req,res,next){
       return next(err);
     }
     else{
+      console.log("blog is : " + blog);
       res.status('200').json({success:true,blog:blog});
     }
   });

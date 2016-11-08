@@ -468,9 +468,10 @@ apptlc.controller("BaseViewBlogCtrl",["$scope","$state","$rootScope","BlogFactor
                       function($scope,$state,$rootScope,BlogFactory,$stateParams){
 
   var blog_id = $stateParams.id;
-
+  console.log("getting blog");
   BlogFactory.getBlog(blog_id)
            .success(function(data,status){
+             console.log(JSON.stringify(data,null,4));
               if(data.success){
                 $scope.blog = data.blog;
               }
