@@ -220,14 +220,14 @@ router.post("/blog",function(req,res,next){
 
 router.post('/send_message',function(req,res,next){
 
-  var subject = new Message({
+  var message = new Message({
     subject : req.body.msg.subject,
     content : req.body.msg.content,
     createdBy : req.body.createdBy,
     messageTo : req.body.msgTo
   });
 
-  subject.save(function(err,msg){
+  message.save(function(err,msg){
 
     if(err)return next(err);
 
@@ -239,14 +239,14 @@ router.post('/send_message',function(req,res,next){
 
 router.post('/reply_message',function(req,res,next){
 
-  var subject = new Message({
+  var message = new Message({
     content : req.body.msg.content,
     createdBy : req.body.createdBy,
     messageType : "reply",
     messageParent : req.body.msgParentId
   });
 
-  subject.save(function(err,msg){
+  message.save(function(err,msg){
 
     if(err)return next(err);
 

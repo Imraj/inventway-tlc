@@ -433,7 +433,7 @@ apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope","AdFactory",
               console.log("err");
            });
 
-   $scope.message = {subject:"",content:""};
+   $scope.message = {subject:"Re:In response to " + $scope.ad.type + " posted on " + $scope.ad.createdAt ,content:""};
    $scope.sendAdMessage = function(user)
    {
 
