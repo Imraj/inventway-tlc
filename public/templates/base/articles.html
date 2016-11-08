@@ -13,8 +13,8 @@
   <div class="row" ng-repeat="blog in blogs" style="margin-top:3em;">
       <h2>{{blog.title}}</h2>
       <div>On {{blog.createdAt}}</div>
-      <p style="font-size:1.5em;">
-          {{blog.text | limitTo:200}}
+      <p style="font-size:1.3em;">
+          {{blog.text | limitTo:200}}...
       </p>
       <div>
           <a href="/#/base/articles/{{blog._id}}">View</a>
