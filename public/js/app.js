@@ -322,7 +322,7 @@ apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","
              .success(function(data,status){
                 console.log(JSON.stringify(data,null,4));
                 console.log("data.success : " + data.success);
-                
+
                 if(data.success)
                 {
                   flash('Article successfully shared!');
@@ -479,8 +479,8 @@ apptlc.controller("BaseViewBlogCtrl",["$scope","$state","$rootScope","BlogFactor
 }]);
 
 
-apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerService","AdFactory","Flash",
-            function($scope,$state,$rootScope,filepickerService,AdFactory,Flash){
+apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerService","AdFactory",
+            function($scope,$state,$rootScope,filepickerService,AdFactory){
 
     $scope.ads = {
         type:"",
@@ -552,8 +552,7 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
                   console.log(JSON.stringify(data,null,4));
                   if(data.success == true)
                   {
-                    var message = '<strong>Well done!</strong> You ads successfully submitted.';
-                    var id = Flash.create('success', message, 0, {class: 'custom-class', id: 'custom-id'}, true);
+
                   }
                })
                .error(function(err,code)
@@ -767,11 +766,6 @@ apptlc.config(function(filepickerProvider){
     filepickerProvider.setKey('AgJlhxtixSnK4e0Hdw3kdz');
 });
 
-apptlc.config(function(FlashProvider){
-    FlashProvider.setTimeout(5000);
-    FlashProvider.setShowClose(true);
-    //FlashProvider.setOnDismiss(myCallback);
-});
 
 apptlc.config([ "$stateProvider","$urlRouterProvider",
   function($stateProvider,$urlRouterProvider){
