@@ -423,6 +423,7 @@ apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope","AdFactory",
     $scope.showContactForm = !$scope.showContactForm;
   }
 
+  $scope.ad = "";
   AdFactory.getAds(adsId)
            .success(function(data,status){
               if(data.success){
