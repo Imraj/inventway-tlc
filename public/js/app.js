@@ -163,6 +163,8 @@ apptlc.controller("BaseInboxMsgCtrl",["$scope","$state","$rootScope","$statePara
     $scope.replyMsg = !$scope.replyMsg;
   }
 
+  $scope.reply = {content:""};
+
   var msgId = $stateParams.id;
   InboxFactory.getMessage(msgId)
             .success(function(data,status){
