@@ -409,7 +409,7 @@ apptlc.controller("BaseViewAllAdsCtrl",["$scope","$state","$rootScope","AdFactor
 apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope","AdFactory","$stateParams",
                                           function($scope,$state,$rootScope,AdFactory,$stateParams){
 
-  var adsId = $stateParams.id;
+  var adsId = $stateParams.aId;
 
   $scope.showContactForm = false;
   $scope.showContactFormClick = function(){
@@ -913,7 +913,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       //ind == individual
       .state("base.ind_ad",{
         templateUrl:"templates/base/ind_ad.html",
-        url:"/view_ads/:id",
+        url:"/view_ads/:aId",
         controller:"BaseViewAdsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
