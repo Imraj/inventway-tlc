@@ -913,7 +913,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       //ind == individual
       .state("base.ind_ad",{
         templateUrl:"templates/base/ind_ad.html",
-        url:"/view_ad/:aId",
+        url:"/base/view_ad/:aId",
         controller:"BaseViewAdsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
@@ -1102,7 +1102,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
 
       .state("base.article",{
         templateUrl:"templates/base/article.html",
-        url:"/articles/:id",
+        url:"/base/articles/:id",
         controller:"BaseViewBlogCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
