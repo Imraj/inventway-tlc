@@ -1,4 +1,4 @@
-var apptlc = angular.module("flapper",["ui.router","ngMessages","angular-filepicker"]);
+var apptlc = angular.module("flapper",["ui.router","ngMessages","angular-filepicker","flash"]);
 
 apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,AuthFactory){
 
@@ -310,8 +310,8 @@ apptlc.controller("BaseAcctCtrl",["$scope","$state","$rootScope",function($scope
 
 }]);
 
-apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","filepickerService",
-                function($scope,$state,$rootScope,BlogFactory,filepickerService){
+apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","filepickerService","flash",
+                function($scope,$state,$rootScope,BlogFactory,filepickerService,flash){
 
   $scope.blog={title:"",text:"",image:""}
 
@@ -321,15 +321,17 @@ apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","
     BlogFactory.saveAndExitBlog($scope.blog)
              .success(function(data,status){
                 console.log(JSON.stringify(data,null,4));
-                if(data.success == true)
+                console.log("data.success : " + data.success);
+                
+                if(data.success)
                 {
-                  var message = '<strong>Well done!</strong> You ads successfully submitted.';
-                  var id = Flash.create('success', message, 0, {class: 'custom-class', id: 'custom-id'}, true);
+                  flash('Article successfully shared!');
                 }
              })
              .error(function(err,code)
              {
                console.log(err + " | " + code);
+               flash('An error occured! Please try again');
              });
   }
 

@@ -182,7 +182,7 @@ router.post("/submit_blog",function(req,res,next){
       if(err){
         res.json({"error":err});
       }
-      res.status('200').json({"success":true});
+      res.status('200').json({success:true});
   });
 
 });
