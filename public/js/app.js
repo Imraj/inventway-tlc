@@ -351,14 +351,17 @@ apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","
     console.log(JSON.stringify($scope.blog,null,4));
     BlogFactory.payAndSubmitBlog($scope.blog)
              .success(function(data,status){
-               console.log( JSON.stringify(data,null,4) );
-               if(data.success == true)
-               {
+               console.log(JSON.stringify(data,null,4));
+               console.log("data.success : " + data.success);
 
+               if(data.success)
+               {
+                 flash('Article successfully shared!');
                }
              })
              .error(function(err,code){
                 console.log(err + " | " + code);
+                flash('An error occured! Please try again');
              });
   }
 
