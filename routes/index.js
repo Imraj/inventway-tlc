@@ -10,6 +10,7 @@ var Inbox = mongoose.model("Inbox");
 var Advert = mongoose.model("Advert");
 var Event = mongoose.model("Event");
 var Message = mongoose.model("Message");
+var Blog = mongoose.model("Blog");
 
 var passport = require('passport');
 

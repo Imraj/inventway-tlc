@@ -22,6 +22,7 @@ require('./models/Election');
 require('./config/passport');
 require('./models/Event');
 require('./models/Message');
+require('./models/Blog');
 
 
 var routes = require('./routes/index');
