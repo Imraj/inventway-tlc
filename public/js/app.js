@@ -314,7 +314,8 @@ apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory",f
 
   $scope.blog={title:"",text:"",image:""}
 
-  $scope.saveAndExitBlog = function(){
+  $scope.saveAndExitBlog = function()
+  {
     console.log(JSON.stringify($scope.blog,null,4));
     BlogFactory.saveAndExitBlog($scope.blog)
              .success(function(data,status){
@@ -670,11 +671,11 @@ apptlc.factory("BlogFactory",function($http,$rootScope){
 
   var createdBy = $rootScope._currentUserDetails._id;
 
-  blogs.saveAndExitAds = function(blog){
+  blogs.saveAndExitBlog = function(blog){
      return $http.post("/submit_blog",{"blog":blog,"published":false,"createdBy":createdBy});
   };
 
-  blogs.payAndSubmitAds = function(blog){
+  blogs.payAndSubmitBlog = function(blog){
     return $http.post("/submit_blog",{"blog":blog,"published":true,"createdBy":createdBy});
   };
 
