@@ -434,9 +434,11 @@ apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope","AdFactory",
               console.log("err");
            });
 
-   $scope.message = {subject:"Re:In response to " + $scope.ad.type + " posted on " + $scope.ad.createdAt ,content:""};
+   $scope.message = {subject:" ",content:""};
    $scope.sendAdMessage = function(user)
    {
+     console.log("send msg clicked");
+     console.log(JSON.stringify($scope.message,null,4));
 
      AdFactory.sendMessage($scope.message,user)
               .success(function(data,status){
@@ -720,11 +722,11 @@ apptlc.factory("AdFactory",function($http,$rootScope){
   }
 
   ads.sendMessage = function(msg,msgTo){
-    return $http.post("/send_message",{"message":msg,"createdBy":createdBy,"msgTo":msgTo});
+    return $http.post("/send_message",{"msg":msg,"createdBy":createdBy,"msgTo":msgTo});
   }
 
   ads.replyMessage = function(msg,msgParentId){
-    return $http.post("/reply_message",{"message":msg,"createdBy":createdBy,"msgParentId":msgParentId});
+    return $http.post("/reply_message",{"msg":msg,"createdBy":createdBy,"msgParentId":msgParentId});
   }
 
   return ads;

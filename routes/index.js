@@ -226,7 +226,7 @@ router.post('/send_message',function(req,res,next){
     createdBy : req.body.createdBy,
     messageTo : req.body.msgTo
   });
-
+  console.log(JSON.stringify(message),null,4);
   message.save(function(err,msg){
 
     if(err)return next(err);
