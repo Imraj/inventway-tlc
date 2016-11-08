@@ -10,8 +10,8 @@
   </div>
   <hr/>
 
-  <div class="row">
-      <div id="inbox" style="height:100%;min-height:10em;background-color:white;border-radius:2em;">
+  <div class="row" style="height:100%;min-height:10em;background-color:white;border-radius:2em;">
+      <div id="inbox" >
 
         <div class="row" style="font-size:0.9em;">
            <div>Sent on : {{message.createdAt}}</div>
@@ -33,9 +33,7 @@
       </div>
   </div>
 
-  <div class="row" ng-show="replyMsg">
-      <div id="inbox" style="height:100%;min-height:10em;">
-
+  <div class="row">
         <form>
             <div class="form-group">
                 <textarea placeholder="Message content" class="form-control" rows="5" cols="8" ng-model="message.content">
@@ -47,8 +45,6 @@
             </div>
 
         </form>
-
-      </div>
   </div>
 
 
