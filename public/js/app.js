@@ -1102,7 +1102,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
 
       .state("base.article",{
         templateUrl:"templates/base/article.html",
-        url:"/base/articles/:id",
+        url:"/articles/:id",
         controller:"BaseViewBlogCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
