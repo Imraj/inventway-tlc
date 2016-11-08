@@ -419,7 +419,7 @@ apptlc.controller("BaseViewAdsCtrl",["$scope","$state","$rootScope","AdFactory",
   AdFactory.getAds(adsId)
            .success(function(data,status){
               if(data.success){
-                $scope.ad = data.ads;
+                $scope.ad = data.ad;
               }
            })
            .error(function(err,code){
