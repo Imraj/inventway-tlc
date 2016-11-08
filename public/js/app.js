@@ -457,7 +457,7 @@ apptlc.controller("BaseViewAllBlogsCtrl",["$scope","$state","$rootScope","BlogFa
 
 }]);
 
-apptlc.controller("BaseViewBlogsCtrl",["$scope","$state","$rootScope","BlogFactory","$stateParams",
+apptlc.controller("BaseViewBlogCtrl",["$scope","$state","$rootScope","BlogFactory","$stateParams",
                       function($scope,$state,$rootScope,BlogFactory,$stateParams){
 
   var blog_id = $stateParams.id;
@@ -1092,7 +1092,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.articles",{
         templateUrl:"templates/base/articles.html",
         url:"/articles",
-        controller:"BaseViewBlogCtrl",
+        controller:"BaseViewAllBlogsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
