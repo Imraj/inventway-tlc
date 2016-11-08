@@ -16,18 +16,18 @@
           <table class="table table-stripped">
 
              <tr ng-repeat="msg in messages">
-               <a href="/message/:id">
+
                   <td>
-                      <b>{{msg.createdBy}}</b>
+                      <a href="/message/:id"><b>TLC</b></a>
                   </td>
                   <td></td>
                   <td>
-                      {{msg.subject}}
+                      <a href="/message/:id">{{msg.subject}}</a>
                   </td>
                   <td>
                       {{msg.createdAt}}
                   </td>
-                </a>
+
              </tr>
 
           </table>
