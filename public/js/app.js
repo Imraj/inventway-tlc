@@ -913,7 +913,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       //ind == individual
       .state("base.ind_ad",{
         templateUrl:"templates/base/ind_ad.html",
-        url:"/view_ads/:aId",
+        url:"/view_ad/:aId",
         controller:"BaseViewAdsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
