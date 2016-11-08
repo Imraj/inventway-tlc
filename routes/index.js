@@ -151,7 +151,8 @@ router.post("/ads",function(req,res,next){
 
 router.post("/ad",function(req,res,next){
 
-  var ad = req.body.id;
+  var ad = req.body.adsId;
+  console.log("ads Id : " + ad);
 
   Advert.findOne({_id:ad},function(err,ad){
     if(err){
@@ -204,7 +205,7 @@ router.post("/blogs",function(req,res,next){
 
 router.post("/blog",function(req,res,next){
 
-  var blog = req.body.id;
+  var blog = req.body.blogId;
 
   Blog.findOne({_id:blog},function(err,blog){
     if(err){

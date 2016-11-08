@@ -683,7 +683,7 @@ apptlc.factory("BlogFactory",function($http,$rootScope){
   };
 
   blogs.getBlog = function(id){
-    return $http.post("/blog",{"id":id});
+    return $http.post("/blog",{"blogId":id});
   }
 
   return blogs;
@@ -707,7 +707,7 @@ apptlc.factory("AdFactory",function($http,$rootScope){
   }
 
   ads.getAds = function(id){
-    return $http.post("/ad",{"id":id});
+    return $http.post("/ad",{"adsId":id});
   }
 
   ads.sendMessage = function(msg,msgTo){
