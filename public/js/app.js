@@ -310,7 +310,8 @@ apptlc.controller("BaseAcctCtrl",["$scope","$state","$rootScope",function($scope
 
 }]);
 
-apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory",function($scope,$state,$rootScope,BlogFactory){
+apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","filepickerService",
+                function($scope,$state,$rootScope,BlogFactory,filepickerService){
 
   $scope.blog={title:"",text:"",image:""}
 
