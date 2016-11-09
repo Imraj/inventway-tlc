@@ -299,77 +299,20 @@ router.post('/message',function(req,res,next){
 });*/
 
 
-router.get('/mail',function(req,res,next){
-  if(req.session.valid){
-      res.render('all_contacts',{title:'Inbox',session:req.session});
-  }
-  else{
-      res.redirect('login');
-  }
+router.post("/update_qualification",function(req,res,next){
+
+  var vtype = req.body.qua.vehicle;
+  var qualif = req.body.qua.qualif;
+  var createdBy = req.body.createdBy;
+
+  console.log(JSON.stringify(req.body.qua),null,4);
+
+  var user = user.findById(createdBy);
+
+  
 
 });
 
-router.get("/inbox/:user",function(req,res,next){
-
-  var user = req.param('user');
-  var me_user = req.session.user_id;
-
-  if(req.session.valid)
-  {
-      Inbox.findOne({$or:[{userA:user,userB:me_user},{userA:me_user,userB:user}]},function(err,inbox){
-
-          if(err)return next(err);
-          if(inbox){
-              res.render('inbox',{messages:inbox.messages,createdBy:user,session:req.session,title:"Inbox"});
-          }
-          else{
-              res.render('inbox',{createdBy:user,session:req.session,title:"Inbox"});
-          }
-
-
-      });
-  }
-  else{
-    res.redirect('/login');
-  }
-
-});
-
-router.post("/inbox/send/:user",function(req,res,next){
-
-  var user = req.param('user');
-  var me_user = req.session.user_id;
-  var message = req.body.message;
-
-  if(req.session.valid)
-  {
-      Inbox.findOne({$or:[{userA:user,userB:me_user},{userA:me_user,userB:user}]},function(err,inbox){
-
-          if(err)return next(err);
-
-          if(inbox){
-            inbox.messages.push({mesage:message,from:me_user,to:user});
-          }
-          else if(!inbox){
-              messages = [{from:me_user,to:user,message:message}];
-              var inbox = new Inbox({
-                userA:me_user,
-                userB:user,
-                messages:messages
-              });
-              inbox.save(function(err,inb){
-                if(err)return next(err);
-                return res.status('200').json({success:true});
-              });
-          }
-
-      });
-  }
-  else{
-    res.redirect('/login');
-  }
-
-});
 
 
 

@@ -388,7 +388,7 @@ apptlc.controller("BaseRankCtrl",["$scope","$state","$rootScope",function($scope
 
 }]);
 
-apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope","QuaFactory",function($scope,$state,$rootScope,QuaFactory){
 
   $scope.vehicles = ["Yellow Cab","Gypsy & Radio","App Uber & Others","Green Cab","SUV",
                            "Dial7 & Others","Black Car","Limousine","Commuter Van"];
@@ -397,9 +397,17 @@ apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope",function($scope,
                         "New Student seeking to get  TLC License","Driver-Owned Vehicle(DOV)",
                          "Individual-Owned Operator(Own Vehicle & Medallion)"];
 
+  $scope.qualif = {vehicle:"",qualif:""};
 
-  $scope.updateQualification = function(){
-
+  $scope.updateQualification = function()
+  {
+      QuaFactory.updateQualification($scope.qualif)
+                .success(function(data,status){
+                   flash("Qualification updated successfully ! ");
+                })
+                .error(function(err,code){
+                  flash("Error occured while updating qualifications ! ");
+                });
   }
 
 }]);
@@ -777,6 +785,19 @@ apptlc.factory("InboxFactory",function($http,$rootScope){
   };
 
   return inbox;
+});
+
+apptlc.factory("QuaFactory",function($http,$rootScope){
+
+  var qua = {};
+
+  qua.updateQualification = function(qualif){
+    var createdBy = $rootScope._currentUserDetails._id;
+    return $http.post("/update_qualification",{"qua":qualif,"createdBy":createdBy});
+  }
+
+  return qua;
+
 });
 
 apptlc.config(function(filepickerProvider){
