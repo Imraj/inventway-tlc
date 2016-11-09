@@ -309,7 +309,16 @@ router.post("/update_qualification",function(req,res,next){
 
   var user = user.findById(createdBy);
 
-  
+  user.driver_type = vtype;
+  user.driver_community = qualif;
+
+  user.save(function(err,us){
+
+    if(err)return next(err);
+
+    res.status('200').json({success:true});
+
+  });
 
 });
 
