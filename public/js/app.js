@@ -17,7 +17,6 @@ apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,Aut
 
 }]);
 
-apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","filepickerService",
                           function($scope,$state,$rootScope,AuthFactory,filepickerService){
 
   $scope.categoriesA = ["Garage Dispatcher","Medallion Owner","Hotel Doorman","Garage Owner","Building Doorman",
@@ -132,10 +131,10 @@ apptlc.controller("UnionCtrl",["$scope","$state","$rootScope","UnionFactory",fun
   $scope.submitEvent = function(){
     UnionFactory.addEvent($scope.event)
                 .success(function(data,status){
-
+                  flash("Event successfully shared ! ");
                 })
                 .error(function(err,code){
-
+                  flash("Error occured while submitting the event ! ");
                 });
   }
 
@@ -567,12 +566,13 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
                   console.log(JSON.stringify(data,null,4));
                   if(data.success == true)
                   {
-
+                    flash('Ads successfully saved!');
                   }
                })
                .error(function(err,code)
                {
                  console.log(err + " | " + code);
+                 flash('Error occured while saving ads!');
                });
     }
 
@@ -583,11 +583,12 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
                  console.log( JSON.stringify(data,null,4) );
                  if(data.success == true)
                  {
-
+                     flash('Ads successfully posted!');
                  }
                })
                .error(function(err,code){
                   console.log(err + " | " + code);
+                  flash('Error occured while saving ads!');
                });
     }
 
@@ -613,6 +614,7 @@ apptlc.controller("UnionEventCtrl",["$scope","$state","$stateParams","UnionFacto
   UnionFactory.getEvent(ev_id)
           .success(function(data,status){
               console.log(JSON.stringify(data,null,4) + " | " + status);
+
               $scope.ev = data.eve;
           })
           .error(function(err,code){

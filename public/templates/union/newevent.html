@@ -3,43 +3,63 @@
 			<div class="container">
 
 
-        <form action="" method="post">
+        <form name="EventForm">
 					<div class="row">
+
+						<div class="alert alert-info">
+	            <flash:messages></flash:messages>
+	          </div>
+						
 						<div class="col-md-8 col-md-offset-2">
 
 								<div class="col-md-12">
                   <div class="form-group">
-                    <input type="text" class="form-control" ng-model="event.name" name="event_name" placeholder="Event Name">
+                    <input type="text" class="form-control" ng-model="event.name" required name="event_name" placeholder="Event Name">
+										<div id="err-msg" ng-messages="EventForm.event_name.$error" ng-if="EventForm.event_name.$touched">
+												<div ng-message="required">Event name is required</div>
+										</div>
                   </div>
 								</div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <input type="text" class="form-control" ng-model="event.venue" name="event_venue" placeholder="Venue">
+                    <input type="text" class="form-control" ng-model="event.venue" required name="event_venue" placeholder="Venue">
+										<div id="err-msg" ng-messages="EventForm.event_venue.$error" ng-if="EventForm.event_venue.$touched">
+												<div ng-message="required">Event venue is required</div>
+										</div>
                   </div>
 								</div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                      <textarea class="form-control col-md-12 col-xs-12 col-sm-12" ng-model="event.description" placeholder="Event Description"></textarea>
+                      <textarea class="form-control col-md-12 col-xs-12 col-sm-12" name="desc" required ng-model="event.description" placeholder="Event Description"></textarea>
+											<div id="err-msg" ng-messages="EventForm.desc.$error" ng-if="EventForm.desc.$touched">
+													<div ng-message="required">Event description is required</div>
+											</div>
                   </div>
 								</div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <input type="text" class="form-control" ng-model="event.date" name="event_date" placeholder="Date">
+                    <input type="text" class="form-control" ng-model="event.date " required name="event_date" placeholder="Date">
+										<div id="err-msg" ng-messages="EventForm.event_date.$error" ng-if="EventForm.event_date.$touched">
+												<div ng-message="required">Event date is required</div>
+										</div>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <input type="text" class="form-control" ng-model="event.time" name="event_time" placeholder="Time">
+                    <input type="text" class="form-control" ng-model="event.time" required name="event_time" placeholder="Time">
+										<div id="err-msg" ng-messages="EventForm.event_time.$error" ng-if="EventForm.event_time.$touched">
+												<div ng-message="required">Event time is required</div>
+										</div>
                   </div>
                 </div>
 
 								<div class="col-md-12">
 									<div class="form-group">
-										<button ng-click="submitEvent()" class="submit btn btn-primary col-md-12">Add Event</button>
+										<button ng-click="submitEvent()" ng-disabled="EventForm.$invalid" class="submit btn btn-primary col-md-12">Add Event</button>
 									</div>
 								</div>
 
@@ -48,6 +68,3 @@
 				</form>
 			</div>
 		</div>
-
-
-
