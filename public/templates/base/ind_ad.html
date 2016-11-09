@@ -48,18 +48,24 @@
       </div>
 
       <div class="row" ng-show="showContactForm" style="margin-top:2em;">
-          <form>
+          <form name="MsgForm">
               <div class="form-group">
-                  <input type="text" placeholder="Subject" class="form-control" ng-model="message.subject" />
+                  <input type="text" required placeholder="Subject" name="subject" class="form-control" ng-model="message.subject" />
+                  <div id="err-msg" ng-messages="MsgForm.subject.$error" ng-if="MsgForm.subject.$touched">
+                      <div ng-message="required">Field can't be empty</div>
+                  </div>
               </div>
 
               <div class="form-group">
-                  <textarea placeholder="Message content" class="form-control" rows="10" cols="10" ng-model="message.content">
+                  <textarea placeholder="Message content" required name="content" class="form-control" rows="10" cols="10" ng-model="message.content">
                   </textarea>
+                  <div id="err-msg" ng-messages="MsgForm.content.$error" ng-if="MsgForm.content.$touched">
+                      <div ng-message="required">Field can't be empty</div>
+                  </div>
               </div>
 
               <div class="form-group">
-                  <button class="btn btn-primary col-md-12 col-sm-12" ng-click="sendAdMessage(ad.createdBy)">Send Message</button>
+                  <button class="btn btn-primary col-md-12 col-sm-12" ng-disabled="MsgForm.$invalid" ng-click="sendAdMessage(ad.createdBy)">Send Message</button>
               </div>
 
           </form>

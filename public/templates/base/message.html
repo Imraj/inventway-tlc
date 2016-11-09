@@ -32,14 +32,17 @@
   </div>
   <hr/>
   <div class="row" style="margin-top:3em;">
-        <form>
+        <form name="ReplyForm">
             <div class="form-group">
-                <textarea placeholder="Message content" class="form-control" rows="5" cols="8" ng-model="reply.content">
+                <textarea placeholder="Message content" name="content" required class="form-control" rows="5" cols="8" ng-model="reply.content">
                 </textarea>
+                <div id="err-msg" ng-messages="ReplyForm.title.$error" ng-if="ReplyForm.title.$touched">
+                    <div ng-message="required">Field can't be empty</div>
+                </div>
             </div>
 
             <div class="form-group">
-                <button class="btn btn-primary col-md-12" ng-click="replyAdMessage(message._id)">Reply</button>
+                <button class="btn btn-primary col-md-12" ng-disabled="ReplyForm.$invalid" ng-click="replyAdMessage(message._id)">Reply</button>
             </div>
 
         </form>

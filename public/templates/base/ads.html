@@ -10,17 +10,15 @@
   </div>
   <hr/>
 
-  <div class="row">
-      <flash-message></flash-message>
-  </div>
 
+<form name="AdForm">
   <div class="row">
       <div class="col-md-6">
         <h2>Free Ad</h2>
         <div>
           <h4>Post your ad for free $0</h4>
           <div class="form-group" ng-repeat="driver_ad in driver_ads_only">
-              <input type="radio" name="ads_type" ng-model="ads.type" ng-value="driver_ad" /> {{driver_ad}} <br/>
+              <input type="radio" required name="ads_type" ng-model="ads.type" ng-value="driver_ad" /> {{driver_ad}} <br/>
           </div>
         </div>
       </div>
@@ -30,19 +28,21 @@
         <div style="">
           <h4>Drivers Housing Ads for just $0.99</h4>
           <div class="form-group" ng-repeat="housing_ad in housing_ads_only">
-              <input type="radio" name="ads_type" ng-model="ads.type" ng-value="housing_ad" /> {{housing_ad}} <br/>
+              <input type="radio" required name="ads_type" ng-model="ads.type" ng-value="housing_ad" /> {{housing_ad}} <br/>
           </div>
         </div>
 
         <div style="">
           <h4>Drivers and Business Partners for $4.99</h4>
           <div class="form-group" ng-repeat="db_ad in driver_biz_ads">
-              <input type="radio" name="ads_type" ng-model="ads.type" ng-value="db_ad" /> {{db_ad}} <br/>
+              <input type="radio" required name="ads_type" ng-model="ads.type" ng-value="db_ad" /> {{db_ad}} <br/>
           </div>
         </div>
 
       </div>
-
+      <div id="err-msg" ng-messages="AdForm.email.$error" ng-if="AdForm.email.$touched">
+          <div ng-message="required">Ad type is required</div>
+      </div>
 
   </div>
 
@@ -51,7 +51,10 @@
 
       <div class="row">
         <div class="form-group">
-          <textarea placeholder="Write your ads description" class="form-control" rows="10" cols="5" ng-model="ads.description"></textarea>
+          <textarea placeholder="Write your ads description" name="desc" class="form-control" rows="10" cols="5" ng-model="ads.description"></textarea>
+          <div id="err-msg" ng-messages="AdForm.desc.$error" ng-if="AdForm.desc.$touched">
+              <div ng-message="required">Ad description is required</div>
+          </div>
         </div>
       </div>
 
@@ -115,7 +118,7 @@
       </div>
     </div>
 
-    <form class="col-md-8 col-md-offset-2" ng-show="payWithCreditCard">
+    <div class="col-md-8 col-md-offset-2" ng-show="payWithCreditCard">
 
               <div class="form-group">
                   <input type="text" placeholder="Card Name" class="form-control" ng-model="card.name" />
@@ -145,7 +148,7 @@
                   <button class="btn btn-primary" ng-click="">Make Payment</button>
               </div>
 
-      </form>
+      </div>
 
     </div>
 
@@ -154,8 +157,9 @@
           <button class="btn btn-primary col-md-12 col-sm-12" ng-click="saveAndExitAds()">Save & Exit</button>
       </div>
       <div class="col-md-6">
-          <button class="btn btn-primary col-md-12 col-sm-12" ng-click="payAndSubmitAds()">Pay & Submit</button>
+          <button class="btn btn-primary col-md-12 col-sm-12" ng-disabled="AdForm.$invalid" ng-click="payAndSubmitAds()">Pay & Submit</button>
       </div>
   </div>
-
+  
+</form>
 </div>
