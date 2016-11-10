@@ -1064,7 +1064,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
 
       .state("base.codriving",{
         templateUrl:"templates/base/codriving.html",
-        url:"/driving",
+        url:"/codriving",
         controller:"BaseCODCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
