@@ -248,6 +248,8 @@ apptlc.controller("BaseElectionCtrl",["$scope","$state","$rootScope",function($s
 
 apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
+  $scope.ticket = {description:"",image:"",video:"",ticket_image:""};
+
   $scope.uploadTicketImage = function(){
     filepickerService.pick({
         mimetype: 'image/*',
@@ -256,7 +258,7 @@ apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope",function($sco
         openTo: 'COMPUTER'
       },function(Blob){
             console.log(JSON.stringify(Blob));
-
+            $scope.ticket.ticket_image = Blob.url;
     });
   }
 
@@ -268,7 +270,7 @@ apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope",function($sco
         openTo: 'COMPUTER'
       },function(Blob){
             console.log(JSON.stringify(Blob));
-
+            $scope.ticket.image = Blob.url;
     });
   }
 
@@ -280,9 +282,29 @@ apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope",function($sco
         openTo: 'COMPUTER'
       },function(Blob){
             console.log(JSON.stringify(Blob));
-
+            $scope.ticket.video = Blob.url;
     });
   }
+
+  $scope.submitData = function(){
+
+    QuaFactory.submitTicket($scope.ticket)
+             .success(function(data,status){
+
+             })
+             .error(function(err,code){
+
+             });
+
+  }
+
+  QuaFactory.getUserTickets()
+            .success(function(data,status){
+                $scope.tickets = data.tickets;
+            })
+            .error(function(err,code){
+                console.log(err + " | " + code);
+            });
 
 }]);
 
@@ -826,6 +848,14 @@ apptlc.factory("QuaFactory",function($http,$rootScope){
   qua.activateCOD = function(cod){
     return $http.post("/activate_cod",{"cod":cod,"createdBy":createdBy});
   };
+
+  qua.submitTicket = function(ticket){
+    return $http.post("/submit_ticket",{"ticket":ticket,"createdBy":createdBy});
+  };
+
+  qua.getUserTickets = function(user){
+    return $http.post("/get_user_tickets",{"user":createdBy});
+  }
 
   return qua;
 

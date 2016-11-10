@@ -314,7 +314,7 @@ router.post("/update_qualification",function(req,res,next){
   user.driver_type = driver_type;
   user.driver_community = driver_community;
 
-  user.save(function(err,us){
+  user.exec(function(err,us){
 
     if(err)return next(err);
 
@@ -354,4 +354,93 @@ router.post("/pay_and_order_rank",function(req,res,next){
 
 
 });
+
+
+router.post("/save_and_exit_cod",function(req,res,next){
+
+  var article = req.body.cod;
+  var createdBy = req.body.createdBy;
+
+  var cod = new COD({
+    article : article,
+    createdBy : createdBy
+  });
+
+  cod.save(function(err,cod){
+
+    if(err)return next(err);
+
+    if(cod){
+      return res.status('200').json({message:true});
+    }
+
+  });
+
+
+});
+
+router.post("/activate_cod",function(req,res,next){
+
+  var article = req.body.cod;
+  var createdBy = req.body.createdBy;
+
+  var cod = new COD({
+    article : article,
+    createdBy : createdBy
+  });
+
+  cod.save(function(err,cod){
+
+    if(err)return next(err);
+
+    if(cod){
+      return res.status('200').json({message:true});
+    }
+
+  });
+
+
+});
+
+router.post("/submit_ticket",function(req,res,next){
+
+  var description = req.body.ticket.description;
+  var ticket_image = req.body.ticket.ticket_image;
+  var image = req.body.ticket.image;
+  var video = req.body.ticket.video;
+  var createdBy = req.body.createdBy;
+
+  var ticket = new Ticket({
+    description:description,
+    ticket_image : ticket_image,
+    image:image,
+    video:video,
+    createdBy : createdBy
+  });
+
+  ticket.save(function(err,ticket){
+
+    if(err)return next(err);
+
+    return res.status('200').json({success:true});
+
+  });
+
+});
+
+router.post("/get_user_tickets",function(req,res,next){
+
+  var userId = req.body.user;
+
+  Ticket:find({createdBy:userId},function(err,ticket){
+
+    if(err)return next(err);
+
+    return res.status('200').json({success:true});
+
+  });
+
+
+});
+
 module.exports = router;
