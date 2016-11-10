@@ -398,7 +398,7 @@ apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope","QuaFactory","fl
                         "New Student seeking to get  TLC License","Driver-Owned Vehicle(DOV)",
                          "Individual-Owned Operator(Own Vehicle & Medallion)"];
 
-  $scope.qualif = {vehicle:"",qualif:""};
+  $scope.qualif = {driver_type:"",driver_community:""};
 
   $scope.updateQualification = function()
   {
