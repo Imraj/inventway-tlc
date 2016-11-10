@@ -1,4 +1,4 @@
-var apptlc = angular.module("flapper",["ui.router","ngMessages","angular-filepicker","flash"]);
+var apptlc = angular.module("flapper",["ui.router","ngMessages","angular-filepicker","flash","ui.calendar"]);
 
 apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,AuthFactory){
 
