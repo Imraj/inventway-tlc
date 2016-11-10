@@ -286,16 +286,28 @@ apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope",function($sco
 
 }]);
 
-apptlc.controller("BaseCODCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BaseCODCtrl",["$scope","$state","$rootScope","QuaFactory","flash",function($scope,$state,$rootScope,QuaFactory,flash){
 
   $scope.CODExperience = "";
 
   $scope.saveAndExitCOD = function(){
-
+      QuaFactory.saveAndExitCOD($scope.CODExperience)
+                .success(function(data,status){
+                    flash("Co-driving experience successfully saved");
+                })
+                .error(function(err,code){
+                    flash("Error occured while saving data");
+                });
   }
 
   $scope.activateCOD = function(){
-
+    QuaFactory.activateCOD($scope.CODExperience)
+              .success(function(data,status){
+                 flash("Co-driving experience successfully activated");
+              })
+              .error(function(err,code){
+                  flash("Error occured while activating data");
+              });
   }
 
 }]);
@@ -805,7 +817,15 @@ apptlc.factory("QuaFactory",function($http,$rootScope){
 
   qua.payAndOrderRank = function(rank){
     return $http.post("/pay_and_order_rank",{"rank":rank,"createdBy":createdBy});
-  }
+  };
+
+  qua.saveAndExitCOD = function(cod){
+    return $http.post("/save_and_exit_cod",{"cod":cod,"createdBy":createdBy});
+  };
+
+  qua.activateCOD = function(cod){
+    return $http.post("/activate_cod",{"cod":cod,"createdBy":createdBy});
+  };
 
   return qua;
 
