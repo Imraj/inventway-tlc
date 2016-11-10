@@ -221,7 +221,7 @@ apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope","QuaFactory",
 
 }]);
 
-apptlc.controller("BaseContractCtrl",["$scope","$state","$rootScope","GarageFactory""flash",
+apptlc.controller("BaseContractCtrl",["$scope","$state","$rootScope","GarageFactory","flash",
                               function($scope,$state,$rootScope,GarageFactory,flash){
 
   GarageFactory.getAllGarages()
