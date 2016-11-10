@@ -17,7 +17,8 @@ apptlc.run(["$rootScope","$window","AuthFactory",function($rootScope,$window,Aut
 
 }]);
 
-                          function($scope,$state,$rootScope,AuthFactory,filepickerService){
+apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","filepickerService",
+function($scope,$state,$rootScope,AuthFactory,filepickerService){
 
   $scope.categoriesA = ["Garage Dispatcher","Medallion Owner","Hotel Doorman","Garage Owner","Building Doorman",
                         "TLC Commisioner","Medallion Brookers or Corp.","DMV & TLC Lawyer","Radio Dispatcher",
