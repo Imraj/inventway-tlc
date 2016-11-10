@@ -309,7 +309,7 @@ router.post("/update_qualification",function(req,res,next){
 
   console.log(JSON.stringify(req.body.qua),null,4);
 
-  var user = user.findById(createdBy);
+  var user = User.findById(createdBy);
 
   user.driver_type = driver_type;
   user.driver_community = driver_community;
