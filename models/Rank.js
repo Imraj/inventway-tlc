@@ -3,7 +3,13 @@ var mongoose = require('mongoose');
 var RankSchema = mongoose.Schema({
 
   imageURI : String,
-  rank_txt : String,
+  type : String,
+  card_name:String,
+  card_number:String,
+  card_cvv:String,
+  card_exp_year:String,
+  card_exp_month:String,
+  createdBy : String,
   createdAt:{type:Date,default:Date.now}
 
 });

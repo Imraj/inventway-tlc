@@ -324,8 +324,34 @@ router.post("/update_qualification",function(req,res,next){
 
 });
 
+router.post("/pay_and_order_rank",function(req,res,next){
+
+  var rank_type = req.body.rank.type;
+  var rank_image = req.body.rank.image;
+  var createdBy = req.body.createdBy;
+  var payment_card_name = req.body.rank.card_name;
+  var payment_card_number = req.body.rank.card_number;
+  var payment_card_cvv = req.body.rank.card_cvv;
+  var payment_exp_month = req.body.rank.card_exp_month;
+  var payment_exp_year = req.body.rank.card_exp_year;
+
+  var rank = new Rank({
+    type:rank_type,
+    imageURI : rank_image,
+    createdBy : createdBy,
+    card_name:payment_card_name,
+    card_number:payment_card_number,
+    card_cvv : payment_card_cvv,
+    card_exp_year : payment_exp_year,
+    card_exp_month : payment_exp_month
+  });
+
+  rank.save(function(err,rank){
+      if(err)return next(err);
+
+      return res.status('200').json({success:true});
+  });
 
 
-
-
+});
 module.exports = router;

@@ -375,16 +375,22 @@ apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","
 
 }]);
 
-apptlc.controller("BaseRankCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BaseRankCtrl",["$scope","$state","$rootScope","QuaFactory","flash",function($scope,$state,$rootScope,QuaFactory,flash){
 
   $scope.ranks = ["In cab rank","Anonymous/Nickname badge","Plate ranks(front and back)","Front Rank Plate Holder",
                   "Back Rank Plate Holder","Incab holder & Limiter","All of the above"
                   ];
 
-    $scope.rank = {type:""}
+    $scope.rank = {type:"",image:"",card_name:"",card_number:"",card_cvv:"",card_exp_year:"",card_exp_month:""};
 
     $scope.payAndOrderRank = function(){
-
+        QuaFactory.payAndOrderRank($scope.rank)
+                 .success(function(data,status){
+                    flash("Transaction successfully completed ");
+                 })
+                 .error(function(err,code){
+                    flash("Error occured ! Please try again");
+                 });
     }
 
 }]);
@@ -791,10 +797,14 @@ apptlc.factory("InboxFactory",function($http,$rootScope){
 apptlc.factory("QuaFactory",function($http,$rootScope){
 
   var qua = {};
+  var createdBy = $rootScope._currentUserDetails._id;
 
   qua.updateQualification = function(qualif){
-    var createdBy = $rootScope._currentUserDetails._id;
     return $http.post("/update_qualification",{"qua":qualif,"createdBy":createdBy});
+  };
+
+  qua.payAndOrderRank = function(rank){
+    return $http.post("/pay_and_order_rank",{"rank":rank,"createdBy":createdBy});
   }
 
   return qua;
