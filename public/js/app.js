@@ -389,7 +389,7 @@ apptlc.controller("BaseRankCtrl",["$scope","$state","$rootScope",function($scope
 
 }]);
 
-apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope","QuaFactory",function($scope,$state,$rootScope,QuaFactory){
+apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope","QuaFactory","flash",function($scope,$state,$rootScope,QuaFactory,flash){
 
   $scope.vehicles = ["Yellow Cab","Gypsy & Radio","App Uber & Others","Green Cab","SUV",
                            "Dial7 & Others","Black Car","Limousine","Commuter Van"];
