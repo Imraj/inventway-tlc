@@ -525,5 +525,16 @@ router.post("/upload_htvideo",function(req,res,next){
 
 });
 
+router.post("/get_garages",function(req,res,next){
+
+  Garage:find({},function(err,garages){
+
+    if(err)return next(err);
+
+    return res.status('200').json({success:true,garages:garages});
+
+  });
+
+});
 
 module.exports = router;
