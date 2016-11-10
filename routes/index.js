@@ -301,16 +301,18 @@ router.post('/message',function(req,res,next){
 
 router.post("/update_qualification",function(req,res,next){
 
-  var vtype = req.body.qua.vehicle;
-  var qualif = req.body.qua.qualif;
+  var driver_type = req.body.qua.vehicle;
+  var driver_community = req.body.qua.qualif;
   var createdBy = req.body.createdBy;
+
+  console.log(JSON.stringify(req.body),null,4);
 
   console.log(JSON.stringify(req.body.qua),null,4);
 
   var user = user.findById(createdBy);
 
-  user.driver_type = vtype;
-  user.driver_community = qualif;
+  user.driver_type = driver_type;
+  user.driver_community = driver_community;
 
   user.save(function(err,us){
 
