@@ -217,6 +217,30 @@ apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope","QuaFactory",
 
 }]);
 
+apptlc.controller("BaseContractCtrl",["$scope","$state","$rootScope","GarageFactory""flash",
+                              function($scope,$state,$rootScope,GarageFactory,flash){
+
+  GarageFactory.getAllGarages()
+              .success(function(data,status){
+                 $scope.garages = data.garages;
+              })
+              .error(function(err,data){
+                  console.log(err + " | " + data);
+              });
+
+    $scope.signContract = function(){
+       GarageFactory.signContract()
+                    .success(function(data,status){
+                        flash("Contract succesfully signed");
+                    })
+                    .error(function(err,code){
+                        flash("Error occured while signing contract");
+                    })
+    }
+
+}]);
+
+
 apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
   $scope.group = {application:""}
@@ -329,6 +353,7 @@ apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope",function($sco
 apptlc.controller("BaseCODCtrl",["$scope","$state","$rootScope","QuaFactory","flash",function($scope,$state,$rootScope,QuaFactory,flash){
 
   $scope.CODExperience = "";
+  $scope.codriving_howworks_url = ""
 
   $scope.saveAndExitCOD = function(){
       QuaFactory.saveAndExitCOD($scope.CODExperience)
@@ -885,9 +910,52 @@ apptlc.factory("QuaFactory",function($http,$rootScope){
 
 apptlc.factory("ElectionFactory",function($http,$rootScope){
 
+  var election = {};
+  var createdBy = $rootScope._currentUserDetails._id;
+
+  election.applyForElection = function(data){
+      return $http.post("/apply_election",{"data":data,"createdBy":createdBy});
+  };
+
+  election.submitVote = function(data){
+     return $http.post("/submit_vote",{"data":data,"createdBy":createdBy});
+  };
+
+  return election;
+
 });
 
 apptlc.factory("GroupFactory",function($http,$rootScope){
+
+  var group = {};
+
+  group.nominateGroup = function(data){
+    return $http.post("/nominate_group",{"data":data,"createdBy":createdBy});
+  };
+
+  group.sendMessage = function(data){
+    return $http.post("/send_group_message",{"data":data,"createdBy":createdBy});
+  };
+
+  group.getMessages = function(group){
+      return $http.post("/get_group_messages",{"group":group});
+  };
+
+  return group;
+
+});
+
+apptlc.factory("GarageFactory",function($http,$rootScope){
+
+    var createdBy = $rootScope._currentUserDetails._id;
+
+    var g = {};
+
+    g.getAllGarages = function(){
+      return $http.post("get_all_garages");
+    }
+
+    return g;
 
 });
 
@@ -1073,10 +1141,21 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         }]
       })
 
+      .state("base.codriving_howworks",{
+        templateUrl:"templates/base/codriving_howworks.html",
+        url:"/codriving_howworks",
+        controller:"BaseCODCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
       .state("base.contract",{
         templateUrl:"templates/base/contract.html",
         url:"/contract",
-        controller:"BaseCtrl",
+        controller:"BaseContractCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1087,7 +1166,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.election",{
         templateUrl:"templates/base/election.html",
         url:"/election",
-        controller:"BaseCtrl",
+        controller:"BaseElectionCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
