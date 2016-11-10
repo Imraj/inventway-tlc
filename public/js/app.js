@@ -125,6 +125,12 @@ apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$st
 
 }]);
 
+apptlc.controller("BaseBuildHCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+  $scope.eventSources = [];
+
+}]);
+
 apptlc.controller("UnionCtrl",["$scope","$state","$rootScope","UnionFactory",function($scope,$state,$rootScope,UnionFactory){
 
   $scope.event = {};
@@ -1141,7 +1147,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.build_history",{
         templateUrl:"templates/base/build_history.html",
         url:"/build_history",
-        controller:"BaseCtrl",
+        controller:"BaseBuildHCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
