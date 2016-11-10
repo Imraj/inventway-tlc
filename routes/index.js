@@ -436,11 +436,94 @@ router.post("/get_user_tickets",function(req,res,next){
 
     if(err)return next(err);
 
-    return res.status('200').json({success:true});
+    return res.status('200').json({success:true,tickets:ticket});
 
   });
 
 
 });
+
+router.post("/get_credit_card",function(req,res,next){
+
+  var userId = req.body.user;
+
+  Creditcard:find({createdBy:userId},function(err,card){
+
+    if(err)return next(err);
+
+    return res.status('200').json({success:true,card:card});
+
+  });
+
+});
+
+router.post("/get_payment_history",function(req,res,next){
+
+  var userId = req.body.user;
+
+  PayHistory:find({createdBy:userId},function(err,pay_history){
+
+    if(err)return next(err);
+
+    return res.status('200').json({success:true,payhistory:pay_history});
+
+  });
+
+});
+
+router.post("/create_group",function(req,res,next){
+
+  var groupName = req.body.group.name;
+  var groupDescription = req.body.group.description;
+  var userId = req.body.user;
+
+  var group = new Group({
+    name:groupName,
+    description:groupDescription,
+    createdBy:userId
+  });
+
+  group.save(function(err,group){
+
+    if(err)return next(err);
+
+    return res.status('200').json({success:true});
+
+  });
+
+});
+
+
+router.post("/get_groups",function(req,res,next){
+
+  Group.find({},function(err,groups){
+
+      if(err)return next(err);
+
+      return res.status('200').json({success:true,groups:groups});
+
+  });
+
+});
+
+router.post("/upload_htvideo",function(req,res,next){
+
+  var htv = new HTVideo({
+
+    videoURI:req.body.videoURI,
+    createdBy:req.body.createdBy
+
+  });
+
+  htv.save(function(err,h){
+
+    if(err)return next(err);
+
+    return res.status('200').json({success:true});
+
+  });
+
+});
+
 
 module.exports = router;

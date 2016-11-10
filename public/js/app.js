@@ -190,7 +190,8 @@ apptlc.controller("BaseInboxMsgCtrl",["$scope","$state","$rootScope","$statePara
 
 }]);
 
-apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope","QuaFactory","flash",
+                    function($scope,$state,$rootScope,QuaFactory,flash){
 
   $scope.uploadHVideo = function(){
     filepickerService.pick({
@@ -201,8 +202,18 @@ apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope",function($sco
       },function(Blob){
             console.log(JSON.stringify(Blob));
             $scope.hvideo = Blob.url;
+            QuaFactory.uploadHTVideo($scope.hvideo)
+                      .success(function(data,status){
+                          if(data.success){
+                            flash("Video upload successful");
+                          }
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while trying to upload video")
+                      });
     });
   }
+
 
 }]);
 
@@ -233,6 +244,13 @@ apptlc.controller("BasePaymentCtrl",["$scope","$state","$rootScope",function($sc
 }]);
 
 apptlc.controller("BaseElectionCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+
+
+  $scope.showElectionApply = false;
+
+  $scope.showElectionApplyBtnClick = function(){
+      $scope.showElectionApply = !$scope.showElectionApply;
+  }
 
   $scope.applyForElection = function(){
 
@@ -855,9 +873,21 @@ apptlc.factory("QuaFactory",function($http,$rootScope){
 
   qua.getUserTickets = function(user){
     return $http.post("/get_user_tickets",{"user":createdBy});
+  };
+
+  qua.uploadHTVideo = function(video){
+    return $http.post("/upload_htvideo",{"video":video,"createdBy":createdBy});
   }
 
   return qua;
+
+});
+
+apptlc.factory("ElectionFactory",function($http,$rootScope){
+
+});
+
+apptlc.factory("GroupFactory",function($http,$rootScope){
 
 });
 

@@ -1,16 +1,14 @@
 var mongoose = require('mongoose');
 
-var GroupSchema = mongoose.Schema({
+var HTVideoSchema = mongoose.Schema({
 
-  groupName:String,
-  groupDescription:String,
-  approved:{type:Boolean,default:false},
+  videoURI:String,
   createdBy : String,
   createdAt:{type:Date,default:Date.now}
 
 });
 
-GroupSchema.pre("save",function(next){
+HTVideoSchema.pre("save",function(next){
 
   now = new Date();
   if(!this.createdAt){
@@ -21,4 +19,4 @@ GroupSchema.pre("save",function(next){
 
 });
 
-mongoose.model("Group",GroupSchema);
+mongoose.model("HTVideo",HTVideoSchema);
