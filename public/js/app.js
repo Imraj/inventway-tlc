@@ -193,7 +193,7 @@ apptlc.controller("BaseInboxMsgCtrl",["$scope","$state","$rootScope","$statePara
 apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope","QuaFactory","flash",
                     function($scope,$state,$rootScope,QuaFactory,flash){
 
-  $scope.uploadHVideo = function(){
+  $scope.selectHVideo = function(){
     filepickerService.pick({
         mimetype: 'image/*',
         language: 'en',
@@ -202,16 +202,20 @@ apptlc.controller("BaseHVideoCtrl",["$scope","$state","$rootScope","QuaFactory",
       },function(Blob){
             console.log(JSON.stringify(Blob));
             $scope.hvideo = Blob.url;
-            QuaFactory.uploadHTVideo($scope.hvideo)
-                      .success(function(data,status){
-                          if(data.success){
-                            flash("Video upload successful");
-                          }
-                      })
-                      .error(function(err,code){
-                          flash("Error occured while trying to upload video")
-                      });
+
     });
+  }
+
+  $scope.uploadHVideo = function(){
+    QuaFactory.uploadHTVideo($scope.hvideo)
+              .success(function(data,status){
+                  if(data.success){
+                    flash("Video upload successful");
+                  }
+              })
+              .error(function(err,code){
+                  flash("Error occured while trying to upload video")
+              });
   }
 
 
@@ -241,13 +245,22 @@ apptlc.controller("BaseContractCtrl",["$scope","$state","$rootScope","GarageFact
 }]);
 
 
-apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope","GroupFactory",
+            function($scope,$state,$rootScope,GroupFactory){
 
   $scope.group = {application:""}
 
   $scope.sendGroupApplication = function(){
 
-  }
+  };
+
+  GroupFactory.getAllGroups()
+              .success(function(data,status){
+                  $scope.groups = data.groups;
+              })
+              .error(function(err,code){
+
+              });
 
 }]);
 
@@ -280,15 +293,23 @@ apptlc.controller("BaseElectionCtrl",["$scope","$state","$rootScope",function($s
 
   }
 
+  $scope.choice = "";
   $scope.sendYourVote = function(){
-
+      ElectionFactory.submitVote($scope.choice)
+                  .success(function(data,status){
+                    flash("You've successfully cast your vote");
+                  })
+                  .error(function(err,code){
+                      flash("Error occured ! Please try again later");
+                  });
   }
 
 
 }]);
 
 
-apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope","flash",
+  function($scope,$state,$rootScope,flash){
 
   $scope.ticket = {description:"",image:"",video:"",ticket_image:""};
 
@@ -332,10 +353,10 @@ apptlc.controller("BaseTicketCtrl",["$scope","$state","$rootScope",function($sco
 
     QuaFactory.submitTicket($scope.ticket)
              .success(function(data,status){
-
+               flash("Ticket successfully submitted");
              })
              .error(function(err,code){
-
+               flash("Error occured while trying to submit ticket");
              });
 
   }
