@@ -128,6 +128,7 @@ apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$st
 apptlc.controller("BaseBuildHCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
   $scope.eventSources = [];
+  $scope.myDays = [];
 
   $scope.alertEventOnClick = function(){
     console.log("alertEventOnClick");
@@ -139,6 +140,12 @@ apptlc.controller("BaseBuildHCtrl",["$scope","$state","$rootScope",function($sco
 
   $scope.alertOnResize = function(){
     console.log("alertOnResize");
+  }
+
+  $scope.addWorkDay = function(){
+    $scope.myDays.push({
+      day:""
+    });
   }
 
   $scope.uiConfig = {

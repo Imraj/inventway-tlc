@@ -386,7 +386,8 @@ router.post("/activate_cod",function(req,res,next){
 
   var cod = new COD({
     article : article,
-    createdBy : createdBy
+    createdBy : createdBy,
+    activated : true
   });
 
   cod.save(function(err,cod){

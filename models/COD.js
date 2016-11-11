@@ -4,8 +4,8 @@ var CODSchema = mongoose.Schema({
 
   article:String,
   createdBy : String,
-  createdAt:{type:Date,default:Date.now}
-
+  createdAt:{type:Date,default:Date.now},
+  activated:{type:Boolean,default:false}
 });
 
 CODSchema.pre("save",function(next){
