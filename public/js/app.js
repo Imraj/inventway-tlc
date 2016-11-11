@@ -129,6 +129,18 @@ apptlc.controller("BaseBuildHCtrl",["$scope","$state","$rootScope",function($sco
 
   $scope.eventSources = [];
 
+  $scope.alertEventOnClick = function(){
+    console.log("alertEventOnClick");
+  }
+
+  $scope.alertOnDrop = function(){
+    console.log("alertOnDrop");
+  }
+
+  $scope.alertOnResize = function(){
+    console.log("alertOnResize");
+  }
+
   $scope.uiConfig = {
       calendar:{
         height: 450,
