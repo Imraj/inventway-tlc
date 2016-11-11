@@ -289,10 +289,10 @@ apptlc.controller("BaseContractCtrl",["$scope","$state","$rootScope","GarageFact
 apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope","GroupFactory","flash",
             function($scope,$state,$rootScope,GroupFactory,flash){
 
-  $scope.group = {application:""}
+  $scope.group = {application:"",name:""}
 
-  $scope.nominateGroup = function(){
-      GroupFactory.sendGroupApplication($scope.group)
+  $scope.sendGroupApplication = function(){
+      GroupFactory.nominateGroup($scope.group)
                  .success(function(data,status){
                     flash("Application successfully sent");
                  })

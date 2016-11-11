@@ -474,9 +474,9 @@ router.post("/get_payment_history",function(req,res,next){
 
 router.post("/create_group",function(req,res,next){
 
-  var groupName = req.body.group.name;
-  var groupDescription = req.body.group.description;
-  var userId = req.body.user;
+  var groupName = req.body.data.name;
+  var groupDescription = req.body.data.application;
+  var userId = req.body.createdBy;
 
   var group = new Group({
     name:groupName,
@@ -566,7 +566,7 @@ router.post("/get_group_messages",function(req,res,next){
         if(err)return next(err);
 
         return res.status('200').json({success:true,"messages":messages});
-        
+
     });
 
 });
