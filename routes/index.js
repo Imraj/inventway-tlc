@@ -542,6 +542,32 @@ router.post("/send_chat_message",function(req,res,next){
 
    var user = req.body.createdAt;
    var groupId = req.body.data.group;
+   var message = req.body.data.text;
+
+   var chat = new Chat({
+      group:groupId,
+      message:message,
+      createdBy : user
+   });
+
+   chat.save(function(err,c){
+     if(err)return next(err);
+     res.status('200').json({success:true});
+   });
+
+});
+
+router.post("/get_group_messages",function(req,res,next){
+
+    var group = req.body.group;
+
+    Chat:find({group:group},function(err,messages){
+
+        if(err)return next(err);
+
+        return res.status('200').json({success:true,"messages":messages});
+        
+    });
 
 });
 

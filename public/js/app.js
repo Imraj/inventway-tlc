@@ -326,9 +326,10 @@ apptlc.controller("BaseChatCtrl",["$scope","$state","$stateParams","$rootScope",
                     });
     }
 
-    GroupFactory.getMessage(groupId)
+    GroupFactory.getMessages(groupId)
                 .success(function(data,status){
                     console.log(data + " | " + status);
+                    $scope.chat_messages = data.messages;
                 })
                 .error(function(err,code){
                     console.log(err + " | " + code);
@@ -1027,7 +1028,7 @@ apptlc.factory("GroupFactory",function($http,$rootScope){
   };
 
   group.sendMessage = function(data){
-    return $http.post("/send_group_message",{"data":data,"createdBy":createdBy});
+    return $http.post("/send_chat_message",{"data":data,"createdBy":createdBy});
   };
 
   group.getMessages = function(group){
