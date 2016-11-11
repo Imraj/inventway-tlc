@@ -196,7 +196,7 @@ apptlc.controller("BaseInboxCtrl",["$scope","$state","$rootScope","InboxFactory"
 
 }]);
 
-apptlc.controller("BaseInboxMsgCtrl",["$scope","$state","$rootScope","$stateParams","InboxFactory","AdFactory"
+apptlc.controller("BaseInboxMsgCtrl",["$scope","$state","$rootScope","$stateParams","InboxFactory","AdFactory",
                                                           function($scope,$state,$rootScope,$stateParams,InboxFactory,AdFactory){
 
   $scope.replyMsg = false;
