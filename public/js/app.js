@@ -125,6 +125,19 @@ apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$st
 
 }]);
 
+apptlc.controller("BaseStudentCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+{
+
+    $scope.processCreditCardPayment = function(pack){
+        console.log("the p cc is " + pack);
+    }
+
+    $scope.payPalPayment = function(pack){
+        console.log("the p pp is " + pack);
+    }
+
+}]);
+
 
 apptlc.controller("BaseBuildHCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
@@ -1050,6 +1063,19 @@ apptlc.factory("GarageFactory",function($http,$rootScope){
     }
 
     return g;
+
+});
+
+apptlc.factory("StudentFactory",function($http,$rootScope){
+
+  var createdBy = $rootScope._currentUserDetails._id;
+  var stu = {};
+
+  stu.processCreditCard = function(pack){
+      return $http.post("/process_credit_card",{"package":pack,"createdBy":createdBy});
+  }
+
+  return stu;
 
 });
 
