@@ -1,0 +1,26 @@
+<div class="container" style="margin-left:2em;">
+
+  <div class="row" style="font-size:1.5em;">
+
+      <div ng-repeat="cm in chat_msg">
+          {{cm.message}} | <span style="font-size:0.5em;">{{cm.createdAt}}</span>
+      </div>
+
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <textarea class="form-control col-md-12 col-sm-12" ng-model="chat.text" rows="10">
+        </textarea>
+      </div>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary" ng-click="sendChatMsg()">Send</button>
+    </div>
+  </div>
+
+
+</div>
