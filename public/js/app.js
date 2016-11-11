@@ -125,6 +125,7 @@ apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$st
 
 }]);
 
+
 apptlc.controller("BaseBuildHCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
   $scope.eventSources = [];
@@ -285,13 +286,19 @@ apptlc.controller("BaseContractCtrl",["$scope","$state","$rootScope","GarageFact
 }]);
 
 
-apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope","GroupFactory",
-            function($scope,$state,$rootScope,GroupFactory){
+apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope","GroupFactory","flash",
+            function($scope,$state,$rootScope,GroupFactory,flash){
 
   $scope.group = {application:""}
 
   $scope.sendGroupApplication = function(){
-
+      GroupFactory.sendGroupApplication($scope.group)
+                 .success(function(data,status){
+                    flash("Application successfully sent");
+                 })
+                 .error(function(err,code){
+                    flash("Error occured while sending application");
+                 });
   };
 
   GroupFactory.getAllGroups()
@@ -299,8 +306,12 @@ apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope","GroupFactory"
                   $scope.groups = data.groups;
               })
               .error(function(err,code){
-
+                 console.log(err + " | " + code);
               });
+
+}]);
+
+apptlc.controller("BaseChatCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
 }]);
 
@@ -1271,7 +1282,18 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.join_group",{
         templateUrl:"templates/base/join_group.html",
         url:"/join_group",
-        controller:"BaseCtrl",
+        controller:"BaseGroupCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
+      .state("base.group",{
+        templateUrl:"templates/base/group.html",
+        url:"/group/:gId",
+        controller:"BaseChatCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
