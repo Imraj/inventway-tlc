@@ -1459,6 +1459,17 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
         }]
       })
 
+      .state("base.city_package",{
+        templateUrl:"templates/base/city/city_package.html",
+        url:"/city_package",
+        controller:"BaseStudentCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(!AuthFactory.isLoggedIn()){
+              $state.go("login");
+            }
+        }]
+      })
+
       .state("base.city_downtown",{
         templateUrl:"templates/base/city/city_downtown.html",
         url:"/city_downtown",
