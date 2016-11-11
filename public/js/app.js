@@ -291,7 +291,7 @@ apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope","GroupFactory"
 
   $scope.group = {application:""}
 
-  $scope.sendGroupApplication = function(){
+  $scope.nominateGroup = function(){
       GroupFactory.sendGroupApplication($scope.group)
                  .success(function(data,status){
                     flash("Application successfully sent");
