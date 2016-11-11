@@ -311,7 +311,28 @@ apptlc.controller("BaseGroupCtrl",["$scope","$state","$rootScope","GroupFactory"
 
 }]);
 
-apptlc.controller("BaseChatCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BaseChatCtrl",["$scope","$state","$stateParams","$rootScope","GroupFactory",
+                              function($scope,$state,$stateParams,$rootScope,GroupFactory){
+
+    var groupId = $stateParams.gId;
+    $scope.chat = { text : "",group: groupId};
+    $scope.sendChatMsg = function(){
+        GroupFactory.sendMessage($scope.chat)
+                    .success(function(data,status){
+                        console.log(data + " | " + status);
+                    })
+                    .error(function(err,code){
+                        console.log(err + " | " + code);
+                    });
+    }
+
+    GroupFactory.getMessage(groupId)
+                .success(function(data,status){
+                    console.log(data + " | " + status);
+                })
+                .error(function(err,code){
+                    console.log(err + " | " + code);
+                });
 
 }]);
 
