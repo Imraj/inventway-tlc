@@ -541,7 +541,7 @@ router.post("/get_garages",function(req,res,next){
 router.post("/send_chat_message",function(req,res,next){
 
    var user = req.body.createdAt;
-   var groupId = req.body.
+   var groupId = req.body.data.group;
 
 });
 
