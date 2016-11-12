@@ -133,7 +133,8 @@ apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","Student
     $scope.card = {
        amount:price,
        type:"",
-       name:"",
+       firstname:"",
+       lastname:"",
        type:"",
        number:"",
        month:"",
@@ -172,7 +173,8 @@ apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","Student
     $scope.card = {
        amount:price,
        type:"",
-       name:"",
+       firstname:"",
+       lastname:"",
        type:"",
        number:"",
        month:"",
@@ -212,7 +214,8 @@ apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","Stude
     $scope.card = {
        amount:price,
        type:"",
-       name:"",
+       firstname:"",
+       lastname:"",
        type:"",
        number:"",
        month:"",
@@ -252,7 +255,8 @@ apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","Stude
     $scope.card = {
        amount:price,
        type:"",
-       name:"",
+       firstname:"",
+       lastname:"",
        type:"",
        number:"",
        month:"",
@@ -292,7 +296,8 @@ apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","Studen
     $scope.card = {
        amount:price,
        type:"",
-       name:"",
+       firstname:"",
+       lastname:"",
        type:"",
        number:"",
        month:"",
@@ -332,7 +337,8 @@ apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","Stude
     $scope.card = {
        amount:price,
        type:"",
-       name:"",
+       firstname:"",
+       lastname:"",
        type:"",
        number:"",
        month:"",
@@ -372,7 +378,8 @@ apptlc.controller("BaseStuTurnTicketCtrl",["$scope","$state","$rootScope","Stude
    $scope.card = {
       amount:price,
       type:"",
-      name:"",
+      firstname:"",
+      lastname:"",
       type:"",
       number:"",
       month:"",
@@ -412,11 +419,12 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
     $scope.card = {
        amount:price,
        type:"",
-       name:"",
+       firstname:"",
+       lastname:"",
        type:"",
        number:"",
-       month:"",
-       year:"",
+       exp_month:"",
+       exp_year:"",
        cvv:""
     }
 
@@ -455,7 +463,8 @@ apptlc.controller("BaseAllPackageCtrl",["$scope","$state","$rootScope","StudentF
    $scope.card = {
       amount:price,
       type:"",
-      name:"",
+      firstname:"",
+      lastname:"",
       type:"",
       number:"",
       month:"",
@@ -1418,8 +1427,8 @@ apptlc.factory("StudentFactory",function($http,$rootScope){
   var createdBy = $rootScope._currentUserDetails._id;
   var stu = {};
 
-  stu.processCreditCard = function(pack,data){
-      return $http.post("/process_credit_card",{"package":pack,"createdBy":createdBy,"data":data});
+  stu.processCreditCard = function(pack,card){
+      return $http.post("/process_credit_card",{"package":pack,"createdBy":createdBy,"card":card});
   };
 
   stu.processPaypal = function(pack,price){

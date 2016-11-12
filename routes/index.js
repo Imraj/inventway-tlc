@@ -591,11 +591,11 @@ router.post("/process_credit_card",function(req,res,next){
    var createdBy = req.body.createdBy;
 
     var card_data = {
-      "number": req.body.card.card_number,
-      "type": "mastercard",
-      "expire_month": Number(req.body.card.card_month),//12
-      "expire_year": Number(req.body.card.card_year),//2018
-      "cvv2": Number(req.body.card.card_cvv),
+      "number": req.body.card.number,
+      "type": req.body.card.type,
+      "expire_month": Number(req.body.card.exp_month),//12
+      "expire_year": Number(req.body.card.exp_year),//2018
+      "cvv2": Number(req.body.card.cvv),
       "first_name": req.body.card.firstname,
       "last_name": req.body.card.lastname
     };
