@@ -106,7 +106,7 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory","fla
       AuthFactory.loginUser($scope.email,$scope.password)
             .error(function(err){
 
-                $scope.showErrFlash = true;
+                $scope.show_err_flash = true;
                 flash("An error occured! Please Try again");
 
             }).then(function(){
