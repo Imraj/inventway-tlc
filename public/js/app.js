@@ -183,7 +183,7 @@ apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","Student
     }
 
     $scope.processCreditCardPayment = function(pack){
-        StudentFactory.processCreditCard(pack,,$scope.card)
+        StudentFactory.processCreditCard(pack,$scope.card)
                       .success(function(data,status){
                           flash("Payment successfully proccessed");
                       })
