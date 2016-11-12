@@ -652,12 +652,13 @@ router.post("/process_credit_card",function(req,res,next){
 router.post("/process_paypal",function(req,res,next){
 
     var createdBy = req.body.createdBy;
-    var type = req.body.type;
-    var productId = req.body.productId;
+    var type = req.body.package;
+
+    if(type == "")
+    var amount = "";
 
     req.session.createdBy = createdBy;
     req.session.productType = type;
-    req.session.productId = productId;
 
     var amount_data = {
       "total":"100",
@@ -710,5 +711,46 @@ router.post("/process_paypal",function(req,res,next){
     });
 
 });
+
+router.get("/execute_card",function(req,res,next){
+
+    console.log( req.session.productType + " | " + req.session.createdBy);
+
+    var paymentId = req.session.paymentId;
+    var payerId = req.param("PayerID");
+    console.log("payerId : " + payerId);
+
+    var details = {"payer_id":payerId};
+    paypal.payment.execute(paymentId,details,paypal_config,function(error,payment){
+      console.log("exec payment : " + JSON.stringify(payment,null,4));
+      if(error){
+        //return res.send("error : " + error);
+        return next(error);
+      }
+      else{
+
+        //console.log("completed execution paypal *aaa");
+        //res.status('200').json({success:true});
+        var payment_info = new Payment({
+            createdBy : req.session.createdBy,
+            productType : req.session.productType,
+            transactionDetails : payment
+        });
+        payment_info.save(function(err,payment){
+            if(err)return next(err);
+            //return res.status('200').json({success:true});
+            return res.send("exec payment : " + JSON.stringify(payment,null,4));
+        });
+      }
+
+    });
+
+    //return res.send("in execute_card : " + paymentId + " | " + payerId);
+});
+
+router.get("/cancel_card",function(req,res,next){
+    return res.send("The payment got cancelled");
+});
+
 
 module.exports = router;
