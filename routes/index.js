@@ -11,6 +11,9 @@ var Advert = mongoose.model("Advert");
 var Event = mongoose.model("Event");
 var Message = mongoose.model("Message");
 var Blog = mongoose.model("Blog");
+var HTVideo = mongoose.model("HTVideo");
+var Group = mongoose.model("Group");
+var Chat  = mongoose.model("Chat");
 
 var passport = require('passport');
 

@@ -23,6 +23,9 @@ require('./config/passport');
 require('./models/Event');
 require('./models/Message');
 require('./models/Blog');
+require('./models/group');
+require('./models/Chat');
+require('./models/HTVideo');
 
 
 var routes = require('./routes/index');
