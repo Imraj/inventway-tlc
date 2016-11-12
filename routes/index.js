@@ -592,7 +592,7 @@ router.post("/process_credit_card",function(req,res,next){
 
     var card_data = {
       "number": req.body.card.number,
-      "type": req.body.card.type,
+      "type": req.body.card.ctype,
       "expire_month": Number(req.body.card.exp_month),//12
       "expire_year": Number(req.body.card.exp_year),//2018
       "cvv2": Number(req.body.card.cvv),

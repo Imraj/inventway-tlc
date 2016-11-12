@@ -418,10 +418,9 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
 
     $scope.card = {
        amount:price,
-       type:"",
+       ctype:"",
        firstname:"",
        lastname:"",
-       type:"",
        number:"",
        exp_month:"",
        exp_year:"",
