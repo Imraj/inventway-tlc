@@ -14,7 +14,7 @@ var UserSchema = mongoose.Schema({
   salt:String,
   createdAt:{type:Date,default:Date.now},
   accountType:{type:String,default:"user"},
-  image:{type:String,default:"images/profile.jpg"}
+  image:{type:String,default:"/images/profile.jpg"}
 
 });
 
