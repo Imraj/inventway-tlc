@@ -95,7 +95,7 @@ apptlc.controller("HomeCtrl",["$scope","$state","$rootScope","AuthFactory","file
 
 }]);
 
-apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",function($scope,$state,$rootScope,AuthFactory){
+apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory","flash",function($scope,$state,$rootScope,AuthFactory,flash){
 
     $scope.email = "";
     $scope.password = "";
@@ -104,9 +104,9 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",func
       console.log(JSON.stringify($scope.loginData,null,4));
       AuthFactory.loginUser($scope.email,$scope.password)
             .error(function(err){
-                console.log("err login msg  : " +  $scope.email + " | " + $scope.password );
+                flash("An error occured! Please Try again");
             }).then(function(){
-                console.log("login going to base.overive");
+                
                 $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
                 $rootScope._currentUser = AuthFactory.currentUser();
                 $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
