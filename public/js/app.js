@@ -117,6 +117,16 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory",func
             });
     }
 
+    $scope.resetPassword = function(){
+       AuthFactory.resetPassword($scope.reset.email)
+                  .success(function(data,status){
+                      console.log(data + " | " + status);
+                  })
+                  .error(function(err,code){
+                        console.log(err + " | " + code);
+                  });
+    }
+
 }]);
 
 apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
@@ -1920,6 +1930,17 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("login",{
         templateUrl:"templates/user/login.html",
         url:"/login",
+        controller:"LoginCtrl",
+        onEnter : ["$state","AuthFactory",function($state,AuthFactory){
+            if(AuthFactory.isLoggedIn()){
+              $state.go("base.overview");
+            }
+        }]
+      })
+
+      .state("forgot_password",{
+        templateUrl:"templates/user/forgot_password.html",
+        url:"/forgot_password",
         controller:"LoginCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(AuthFactory.isLoggedIn()){
