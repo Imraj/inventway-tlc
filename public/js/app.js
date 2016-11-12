@@ -873,6 +873,9 @@ apptlc.controller("BaseAcctCtrl",["$scope","$state","$rootScope",function($scope
 apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","filepickerService","flash",
                 function($scope,$state,$rootScope,BlogFactory,filepickerService,flash){
 
+  $scope.show_ok_flash = false;
+  $scope.show_err_flash = false;
+
   $scope.blog={title:"",text:"",image:""}
 
   $scope.saveAndExitBlog = function()
@@ -885,12 +888,14 @@ apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","
 
                 if(data.success)
                 {
+                  $scope.show_ok_flash = true;
                   flash('Article successfully shared!');
                 }
              })
              .error(function(err,code)
              {
                console.log(err + " | " + code);
+               $scope.show_err_flash = true;
                flash('An error occured! Please try again');
              });
   }
@@ -1064,6 +1069,9 @@ apptlc.controller("BaseViewBlogCtrl",["$scope","$state","$rootScope","BlogFactor
 apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerService","AdFactory",
             function($scope,$state,$rootScope,filepickerService,AdFactory){
 
+    $scope.show_err_flash = false;
+    $scope.show_ok_flash = false;
+
     $scope.ads = {
         type:"",
         image:"",
@@ -1134,12 +1142,15 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
                   console.log(JSON.stringify(data,null,4));
                   if(data.success == true)
                   {
+                    $scope.show_ok_flash = true;
                     flash('Ads successfully saved!');
                   }
                })
                .error(function(err,code)
                {
                  console.log(err + " | " + code);
+                 $scope.show_err_flash = true;
+
                  flash('Error occured while saving ads!');
                });
     }
