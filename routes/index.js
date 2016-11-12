@@ -654,8 +654,8 @@ router.post("/process_paypal",function(req,res,next){
     var createdBy = req.body.createdBy;
     var type = req.body.package;
 
-    if(type == "")
-    var amount = "";
+    //if(type == "")
+    //var amount = "";
 
     req.session.createdBy = createdBy;
     req.session.productType = type;
