@@ -125,7 +125,8 @@ apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$st
 
 }]);
 
-apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
+                function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
 {
 
@@ -164,7 +165,8 @@ apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","Student
 
 }]);
 
-apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
+              function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
 {
 
@@ -203,7 +205,8 @@ apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","Student
 
 }]);
 
-apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
+                function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
 {
 
@@ -242,7 +245,8 @@ apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","Stude
 
 }]);
 
-apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
+              function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
 {
 
@@ -281,7 +285,8 @@ apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","Stude
 
 }]);
 
-apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
+        function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
 {
 
@@ -320,7 +325,8 @@ apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","Studen
 
 }]);
 
-apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
+        function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
 {
 
@@ -359,7 +365,8 @@ apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","Stude
 
 }]);
 
-apptlc.controller("BaseStuTurnTicketCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseStuTurnTicketCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
+                function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
 {
 
@@ -398,7 +405,8 @@ apptlc.controller("BaseStuTurnTicketCtrl",["$scope","$state","$rootScope","Stude
 
 }]);
 
-apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
+                    function($scope,$state,$rootScope,StudentFactory,flash,$window)
  {
 
     $scope.card = {
@@ -438,7 +446,8 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
 
 }]);
 
-apptlc.controller("BaseAllPackageCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseAllPackageCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
+            function($scope,$state,$rootScope,StudentFactory,flash,$window)
  {
 
     $scope.card = {
