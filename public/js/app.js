@@ -1410,11 +1410,11 @@ apptlc.factory("StudentFactory",function($http,$rootScope){
 
   stu.processCreditCard = function(pack){
       return $http.post("/process_credit_card",{"package":pack,"createdBy":createdBy});
-  }
+  };
 
   stu.processPayPal = function(pack,data){
-      return $http.post("/process_paypal",{"package":pack,"createdBy",createdBy,"data":data});
-  }
+      return $http.post("/process_paypal",{"package":pack,"createdBy":createdBy,"data":data});
+  };
 
   return stu;
 
