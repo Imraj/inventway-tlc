@@ -720,7 +720,7 @@ router.post("/process_paypal",function(req,res,next){
 
 router.get("/execute_card",function(req,res,next){
 
-    console.log(" execute_card : "  + req.session.productType + " | " + req.session.createdBy + " | " + price);
+    console.log(" execute_card : "  + req.session.productType + " | " + req.session.createdBy + " | " + req.session.price);
 
     var paymentId = req.session.paymentId;
     var payerId = req.param("PayerID");
