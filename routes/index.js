@@ -586,8 +586,8 @@ router.post("/process_credit_card",function(req,res,next){
    console.log("in process_tutor_card starting...");
    console.log(JSON.stringify(req.body.card,null,4));
 
-   var type = req.body.type;
-   var productId = req.body.productId;
+   var product = req.body.package;
+
    var createdBy = req.body.createdBy;
 
     var card_data = {
@@ -631,13 +631,12 @@ router.post("/process_credit_card",function(req,res,next){
           else
           {
             console.log("payment response : " + JSON.stringify(payment,null,4));
-            var payment_info = new Payment({
+            var purchase = new Purchase({
                 createdBy : createdBy,
-                productId : productId,
-                productType : productType,
+                product : product,
                 transactionDetails : payment
             });
-            payment_info.save(function(err,payment){
+            purchase.save(function(err,payment){
                 if(err)return next(err);
                 return res.status('200').json({success:true});
             });
@@ -739,7 +738,19 @@ router.get("/execute_card",function(req,res,next){
       else{
 
         console.log("completed execution paypal *aaa");
-        res.status('200').json({success:true});
+        var purchase = new Purchase({
+           createdBy : req.session.createdBy,
+           product : req.session.productType,
+           transactionDetails : payment
+       });
+
+       purchase.save(function(err,payment){
+           if(err)return next(err);
+           //return res.status('200').json({success:true});
+           return res.send("exec payment : " + JSON.stringify(payment,null,4));
+       });
+
+      res.status('200').json({success:true});
 
       }
 

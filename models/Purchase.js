@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 var PurchaseSchema = mongoose.Schema({
 
-    price : String,
     product : String,
+    transactionDetails:[],
     createdBy:String,
     createdAt:{type:Date,default:Date.now}
 
