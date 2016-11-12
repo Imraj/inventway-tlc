@@ -99,14 +99,18 @@ apptlc.controller("LoginCtrl",["$scope","$state","$rootScope","AuthFactory","fla
 
     $scope.email = "";
     $scope.password = "";
+    $scope.showFlash = false;
 
     $scope.loginUser = function(){
       console.log(JSON.stringify($scope.loginData,null,4));
       AuthFactory.loginUser($scope.email,$scope.password)
             .error(function(err){
+
+                $scope.showFlash = true;
                 flash("An error occured! Please Try again");
+
             }).then(function(){
-                
+
                 $rootScope._isAuthenticated = AuthFactory.isLoggedIn();
                 $rootScope._currentUser = AuthFactory.currentUser();
                 $rootScope._currentUserDetails = AuthFactory.currentUserDetails();
