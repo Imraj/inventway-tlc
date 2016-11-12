@@ -35,9 +35,9 @@ var users = require('./routes/users');
 
 
 var app = express();
-mongodb://<user>:<password>@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627
+//mongodb://<user>:<password>@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627
 mongoose.connect("mongodb://mhadiab:mhadiab85@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627");
-//mongodb://<user>:<password>@app-tlc-318.mongo.dbs.appsdeck.eu:30245/app-tlc-318
+
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'ejs');
@@ -48,6 +48,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({ secret: 'abcdefgh1234qwerty', cookie: { maxAge: 60000 }})
 //app.use(session({store:new MongoStore({mongooseConnection : mongoose.connection}),secret:"abcdefgh1234qwerty"}));
 app.use(passport.initialize());
 app.use(passport.session());
