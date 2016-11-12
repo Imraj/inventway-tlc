@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 var PurchaseSchema = mongoose.Schema({
 
-    
+    price : String,
+    product : String,
     createdBy:String,
     createdAt:{type:Date,default:Date.now}
 

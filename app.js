@@ -23,7 +23,7 @@ require('./config/passport');
 require('./models/Event');
 require('./models/Message');
 require('./models/Blog');
-require('./models/group');
+require('./models/Group');
 require('./models/Chat');
 require('./models/HTVideo');
 require('./models/Purchase');
@@ -35,8 +35,8 @@ var users = require('./routes/users');
 
 
 var app = express();
-
-mongoose.connect("mongodb://mhadiab:mhadiab85@app-tlc-318.mongo.dbs.appsdeck.eu:30245/app-tlc-318");
+mongodb://<user>:<password>@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627
+mongoose.connect("mongodb://mhadiab:mhadiab85@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627");
 //mongodb://<user>:<password>@app-tlc-318.mongo.dbs.appsdeck.eu:30245/app-tlc-318
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
