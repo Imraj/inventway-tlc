@@ -134,11 +134,11 @@ apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","Student
        amount:price,
        type:"",
        name:"",
-       card_type:"",
-       card_number:"",
-       card_month:"",
-       card_year:"",
-       card_cvv:""
+       type:"",
+       number:"",
+       month:"",
+       year:"",
+       cvv:""
     }
 
     $scope.processCreditCardPayment = function(pack){
@@ -173,11 +173,11 @@ apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","Student
        amount:price,
        type:"",
        name:"",
-       card_type:"",
-       card_number:"",
-       card_month:"",
-       card_year:"",
-       card_cvv:""
+       type:"",
+       number:"",
+       month:"",
+       year:"",
+       cvv:""
     }
 
     $scope.processCreditCardPayment = function(pack){
@@ -210,14 +210,14 @@ apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","Stude
 
     var price = "9.99";
     $scope.card = {
-       amount:"9.99",
+       amount:price,
        type:"",
        name:"",
-       card_type:"",
-       card_number:"",
-       card_month:"",
-       card_year:"",
-       card_cvv:""
+       type:"",
+       number:"",
+       month:"",
+       year:"",
+       cvv:""
     }
 
     $scope.processCreditCardPayment = function(pack){
@@ -293,11 +293,11 @@ apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","Studen
        amount:price,
        type:"",
        name:"",
-       card_type:"",
-       card_number:"",
-       card_month:"",
-       card_year:"",
-       card_cvv:""
+       type:"",
+       number:"",
+       month:"",
+       year:"",
+       cvv:""
     }
 
     $scope.processCreditCardPayment = function(pack){
@@ -333,11 +333,11 @@ apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","Stude
        amount:price,
        type:"",
        name:"",
-       card_type:"",
-       card_number:"",
-       card_month:"",
-       card_year:"",
-       card_cvv:""
+       type:"",
+       number:"",
+       month:"",
+       year:"",
+       cvv:""
     }
 
     $scope.processCreditCardPayment = function(pack){
@@ -369,16 +369,16 @@ apptlc.controller("BaseStuTurnTicketCtrl",["$scope","$state","$rootScope","Stude
  {
 
    var price = "0.99";
-    $scope.card = {
-       amount:price,
-       type:"",
-       name:"",
-       card_type:"",
-       card_number:"",
-       card_month:"",
-       card_year:"",
-       card_cvv:""
-    }
+   $scope.card = {
+      amount:price,
+      type:"",
+      name:"",
+      type:"",
+      number:"",
+      month:"",
+      year:"",
+      cvv:""
+   }
 
     $scope.processCreditCardPayment = function(pack){
         StudentFactory.processCreditCard(pack,$scope.card)
@@ -413,15 +413,16 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
        amount:price,
        type:"",
        name:"",
-       card_type:"",
-       card_number:"",
-       card_month:"",
-       card_year:"",
-       card_cvv:""
+       type:"",
+       number:"",
+       month:"",
+       year:"",
+       cvv:""
     }
 
     $scope.processCreditCardPayment = function(pack){
         console.log("pack is " + pack);
+        console.log(JSON.stringify($scope.card),null,4);
         StudentFactory.processCreditCard(pack,$scope.card)
                       .success(function(data,status){
                           flash("Payment successfully proccessed");
@@ -451,16 +452,16 @@ apptlc.controller("BaseAllPackageCtrl",["$scope","$state","$rootScope","StudentF
 
    var price = "99.99";
 
-    $scope.card = {
-       amount:price,
-       type:"",
-       name:"",
-       card_type:"",
-       card_number:"",
-       card_month:"",
-       card_year:"",
-       card_cvv:""
-    }
+   $scope.card = {
+      amount:price,
+      type:"",
+      name:"",
+      type:"",
+      number:"",
+      month:"",
+      year:"",
+      cvv:""
+   }
 
     $scope.processCreditCardPayment = function(pack){
         StudentFactory.processCreditCard(pack,$scope.card)
