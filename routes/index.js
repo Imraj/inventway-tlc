@@ -675,8 +675,8 @@ router.post("/process_paypal",function(req,res,next){
         "payment_method":"paypal"
        },
        "redirect_urls":{
-          "return_url":"http://mhadi85.scalingo.io/execute_card",
-          "cancel_url":"http://mhadi85.scalingo.io/cancel_card"
+          "return_url":"http://app-tlc.scalingo.io/execute_card",
+          "cancel_url":"http://app-tlc.scalingo.io/cancel_card"
        },
       "transactions":[{
         "amount":amount_data,
