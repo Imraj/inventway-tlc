@@ -132,7 +132,7 @@ apptlc.controller("BaseStudentCtrl",["$scope","$state","$rootScope","StudentFact
         console.log("the p cc is " + pack);
     }
 
-    $scope.payPalPayment = function(pack){
+    $scope.payWithPaypal = function(pack){
         console.log("the p pp is " + pack);
     }
 
