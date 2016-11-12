@@ -719,7 +719,7 @@ router.post("/process_paypal",function(req,res,next){
 });
 
 router.get("/execute_card",function(req,res,next){
-    console.log(JSON.strinfigy(req.session),null,4);
+    console.log(JSON.stringify(req.session),null,4);
     console.log(" execute_card : "  + req.session.productType + " | " + req.session.createdBy + " | " + req.session.price);
 
     var paymentId = req.session.paymentId;
