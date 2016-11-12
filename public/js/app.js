@@ -131,7 +131,7 @@ apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","Student
 
     $scope.card = {
        amount:"39.99",
-       type:"master",
+       type:"",
        firstname:"",
        lastname:"",
        card_type:"",
@@ -209,7 +209,7 @@ apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","Stude
 
     $scope.card = {
        amount:"9.99",
-       type:"master",
+       type:"",
        firstname:"",
        lastname:"",
        card_type:"",
@@ -248,7 +248,7 @@ apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","Stude
 
     $scope.card = {
        amount:"29.99",
-       type:"master",
+       type:"",
        firstname:"",
        lastname:"",
        card_type:"",
@@ -287,7 +287,7 @@ apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","Studen
 
     $scope.card = {
        amount:"0.99",
-       type:"master",
+       type:"",
        firstname:"",
        lastname:"",
        card_type:"",
@@ -326,7 +326,7 @@ apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","Stude
 
     $scope.card = {
        amount:"0",
-       type:"master",
+       type:"",
        firstname:"",
        lastname:"",
        card_type:"",
@@ -365,7 +365,7 @@ apptlc.controller("BaseStuTurnTicketCtrl",["$scope","$state","$rootScope","Stude
 
     $scope.card = {
        amount:"0.99",
-       type:"master",
+       type:"",
        firstname:"",
        lastname:"",
        card_type:"",
@@ -404,7 +404,7 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
 
     $scope.card = {
        amount:"0.99",
-       type:"master",
+       type:"",
        firstname:"",
        lastname:"",
        card_type:"",
@@ -443,7 +443,7 @@ apptlc.controller("BaseAllPackageCtrl",["$scope","$state","$rootScope","StudentF
 
     $scope.card = {
        amount:"99.99",
-       type:"master",
+       type:"",
        firstname:"",
        lastname:"",
        card_type:"",
@@ -1891,7 +1891,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_all_package",{
         templateUrl:"templates/base/city/city_all_package.html",
         url:"/city_all_package",
-        controller:"BaseAllPackageCtrl",
+        controller:"BaseStuCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
