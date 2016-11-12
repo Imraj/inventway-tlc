@@ -253,11 +253,11 @@ apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","Stude
        amount:price,
        type:"",
        name:"",
-       card_type:"",
-       card_number:"",
-       card_month:"",
-       card_year:"",
-       card_cvv:""
+       type:"",
+       number:"",
+       month:"",
+       year:"",
+       cvv:""
     }
 
     $scope.processCreditCardPayment = function(pack){
