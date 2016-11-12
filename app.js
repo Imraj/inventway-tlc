@@ -47,13 +47,15 @@ mongoose.connect("mongodb://mhadiab:mhadiab85@app-tlc-4627.mongo.dbs.appsdeck.eu
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(session({ secret: 'abcdefgh1234qwerty', cookie: { maxAge: 60000 }}));
+app.use(cors());
+app.use(session({ resave: true ,secret: '12345_SECRET' , saveUninitialized: true}));
+
 //app.use(session({store:new MongoStore({mongooseConnection : mongoose.connection}),secret:"abcdefgh1234qwerty"}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.all('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/templates/index.html')); //load the angular index page.
