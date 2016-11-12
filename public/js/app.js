@@ -125,19 +125,356 @@ apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$st
 
 }]);
 
-apptlc.controller("BaseStudentCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+
 {
 
+    $scope.card = {
+       amount:"39.99",
+       type:"master",
+       firstname:"",
+       lastname:"",
+       card_type:"",
+       card_number:"",
+       card_month:"",
+       card_year:"",
+       card_cvv:""
+    }
+
     $scope.processCreditCardPayment = function(pack){
-        console.log("the p cc is " + pack);
+        StudentFactory.processCreditCard(pack)
+                      .success(function(data,status){
+                          flash("Payment successfully proccessed");
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while processing payment");
+                      });
     }
 
     $scope.payWithPaypal = function(pack){
-        console.log("the p pp is " + pack);
+      StudentFactory.processPaypal(pack,$scope.card)
+                       .success(function(data,status){
+                           console.log(status + " | " + data);
+                           $window.open(data,width="20px",height="20px");
+                       })
+                       .error(function(err,code){
+                           console.log("err : " + err + " | " + code);
+                       });
     }
 
 }]);
 
+apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+
+{
+
+    $scope.card = {
+       amount:"39.99",
+       type:"",
+       firstname:"",
+       lastname:"",
+       card_type:"",
+       card_number:"",
+       card_month:"",
+       card_year:"",
+       card_cvv:""
+    }
+
+    $scope.processCreditCardPayment = function(pack){
+        StudentFactory.processCreditCard(pack)
+                      .success(function(data,status){
+                          flash("Payment successfully proccessed");
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while processing payment");
+                      });
+    }
+
+    $scope.payWithPaypal = function(pack){
+      StudentFactory.processPaypal(pack,$scope.card)
+                       .success(function(data,status){
+                           console.log(status + " | " + data);
+                           $window.open(data,width="20px",height="20px");
+                       })
+                       .error(function(err,code){
+                           console.log("err : " + err + " | " + code);
+                       });
+    }
+
+}]);
+
+apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+
+{
+
+    $scope.card = {
+       amount:"9.99",
+       type:"master",
+       firstname:"",
+       lastname:"",
+       card_type:"",
+       card_number:"",
+       card_month:"",
+       card_year:"",
+       card_cvv:""
+    }
+
+    $scope.processCreditCardPayment = function(pack){
+        StudentFactory.processCreditCard(pack)
+                      .success(function(data,status){
+                          flash("Payment successfully proccessed");
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while processing payment");
+                      });
+    }
+
+    $scope.payWithPaypal = function(pack){
+      StudentFactory.processPaypal(pack,$scope.card)
+                       .success(function(data,status){
+                           console.log(status + " | " + data);
+                           $window.open(data,width="20px",height="20px");
+                       })
+                       .error(function(err,code){
+                           console.log("err : " + err + " | " + code);
+                       });
+    }
+
+}]);
+
+apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+
+{
+
+    $scope.card = {
+       amount:"29.99",
+       type:"master",
+       firstname:"",
+       lastname:"",
+       card_type:"",
+       card_number:"",
+       card_month:"",
+       card_year:"",
+       card_cvv:""
+    }
+
+    $scope.processCreditCardPayment = function(pack){
+        StudentFactory.processCreditCard(pack)
+                      .success(function(data,status){
+                          flash("Payment successfully proccessed");
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while processing payment");
+                      });
+    }
+
+    $scope.payWithPaypal = function(pack){
+      StudentFactory.processPaypal(pack,$scope.card)
+                       .success(function(data,status){
+                           console.log(status + " | " + data);
+                           $window.open(data,width="20px",height="20px");
+                       })
+                       .error(function(err,code){
+                           console.log("err : " + err + " | " + code);
+                       });
+    }
+
+}]);
+
+apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+
+{
+
+    $scope.card = {
+       amount:"0.99",
+       type:"master",
+       firstname:"",
+       lastname:"",
+       card_type:"",
+       card_number:"",
+       card_month:"",
+       card_year:"",
+       card_cvv:""
+    }
+
+    $scope.processCreditCardPayment = function(pack){
+        StudentFactory.processCreditCard(pack)
+                      .success(function(data,status){
+                          flash("Payment successfully proccessed");
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while processing payment");
+                      });
+    }
+
+    $scope.payWithPaypal = function(pack){
+      StudentFactory.processPaypal(pack,$scope.card)
+                       .success(function(data,status){
+                           console.log(status + " | " + data);
+                           $window.open(data,width="20px",height="20px");
+                       })
+                       .error(function(err,code){
+                           console.log("err : " + err + " | " + code);
+                       });
+    }
+
+}]);
+
+apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+
+{
+
+    $scope.card = {
+       amount:"0",
+       type:"master",
+       firstname:"",
+       lastname:"",
+       card_type:"",
+       card_number:"",
+       card_month:"",
+       card_year:"",
+       card_cvv:""
+    }
+
+    $scope.processCreditCardPayment = function(pack){
+        StudentFactory.processCreditCard(pack)
+                      .success(function(data,status){
+                          flash("Payment successfully proccessed");
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while processing payment");
+                      });
+    }
+
+    $scope.payWithPaypal = function(pack){
+      StudentFactory.processPaypal(pack,$scope.card)
+                       .success(function(data,status){
+                           console.log(status + " | " + data);
+                           $window.open(data,width="20px",height="20px");
+                       })
+                       .error(function(err,code){
+                           console.log("err : " + err + " | " + code);
+                       });
+    }
+
+}]);
+
+apptlc.controller("BaseStuTurnTicketCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+
+{
+
+    $scope.card = {
+       amount:"0.99",
+       type:"master",
+       firstname:"",
+       lastname:"",
+       card_type:"",
+       card_number:"",
+       card_month:"",
+       card_year:"",
+       card_cvv:""
+    }
+
+    $scope.processCreditCardPayment = function(pack){
+        StudentFactory.processCreditCard(pack)
+                      .success(function(data,status){
+                          flash("Payment successfully proccessed");
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while processing payment");
+                      });
+    }
+
+    $scope.payWithPaypal = function(pack){
+      StudentFactory.processPaypal(pack,$scope.card)
+                       .success(function(data,status){
+                           console.log(status + " | " + data);
+                           $window.open(data,width="20px",height="20px");
+                       })
+                       .error(function(err,code){
+                           console.log("err : " + err + " | " + code);
+                       });
+    }
+
+}]);
+
+apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+
+{
+
+    $scope.card = {
+       amount:"0.99",
+       type:"master",
+       firstname:"",
+       lastname:"",
+       card_type:"",
+       card_number:"",
+       card_month:"",
+       card_year:"",
+       card_cvv:""
+    }
+
+    $scope.processCreditCardPayment = function(pack){
+        StudentFactory.processCreditCard(pack)
+                      .success(function(data,status){
+                          flash("Payment successfully proccessed");
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while processing payment");
+                      });
+    }
+
+    $scope.payWithPaypal = function(pack){
+      StudentFactory.processPaypal(pack,$scope.card)
+                       .success(function(data,status){
+                           console.log(status + " | " + data);
+                           $window.open(data,width="20px",height="20px");
+                       })
+                       .error(function(err,code){
+                           console.log("err : " + err + " | " + code);
+                       });
+    }
+
+}]);
+
+apptlc.controller("BaseAllPackageCtrl",["$scope","$state","$rootScope","StudentFactory","flash",function($scope,$state,$rootScope,StudentFactory,flash)
+
+{
+
+    $scope.card = {
+       amount:"99.99",
+       type:"master",
+       firstname:"",
+       lastname:"",
+       card_type:"",
+       card_number:"",
+       card_month:"",
+       card_year:"",
+       card_cvv:""
+    }
+
+    $scope.processCreditCardPayment = function(pack){
+        StudentFactory.processCreditCard(pack)
+                      .success(function(data,status){
+                          flash("Payment successfully proccessed");
+                      })
+                      .error(function(err,code){
+                          flash("Error occured while processing payment");
+                      });
+    }
+
+    $scope.payWithPaypal = function(pack){
+      StudentFactory.processPaypal(pack,$scope.card)
+                       .success(function(data,status){
+                           console.log(status + " | " + data);
+                           $window.open(data,width="20px",height="20px");
+                       })
+                       .error(function(err,code){
+                           console.log("err : " + err + " | " + code);
+                       });
+    }
+
+}]);
 
 apptlc.controller("BaseBuildHCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
 
@@ -1075,6 +1412,10 @@ apptlc.factory("StudentFactory",function($http,$rootScope){
       return $http.post("/process_credit_card",{"package":pack,"createdBy":createdBy});
   }
 
+  stu.processPayPal = function(pack,data){
+      return $http.post("/process_paypal",{"package":pack,"createdBy",createdBy,"data":data});
+  }
+
   return stu;
 
 });
@@ -1462,7 +1803,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_package",{
         templateUrl:"templates/base/city/city_package.html",
         url:"/city_package",
-        controller:"BaseStudentCtrl",
+        controller:"BaseCityPackageCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1473,7 +1814,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_downtown",{
         templateUrl:"templates/base/city/city_downtown.html",
         url:"/city_downtown",
-        controller:"BaseStudentCtrl",
+        controller:"BaseStuDowntownCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1484,7 +1825,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_regulation",{
         templateUrl:"templates/base/city/city_regulation.html",
         url:"/city_regulation",
-        controller:"BaseStudentCtrl",
+        controller:"BaseStuRegulationCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1495,7 +1836,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_money_spots",{
         templateUrl:"templates/base/city/city_money_spots.html",
         url:"/city_money_spots",
-        controller:"BaseStudentCtrl",
+        controller:"BaseStuMoneySpotsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1506,7 +1847,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_rest_spots",{
         templateUrl:"templates/base/city/city_rest_spots.html",
         url:"/city_rest_spots",
-        controller:"BaseStudentCtrl",
+        controller:"BaseStuRestSpotsCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1517,7 +1858,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_camera_list",{
         templateUrl:"templates/base/city/city_camera_list.html",
         url:"/city_camera_list",
-        controller:"BaseStudentCtrl",
+        controller:"BaseStuCameraListCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1528,7 +1869,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_turn_ticket",{
         templateUrl:"templates/base/city/city_turn_ticket.html",
         url:"/city_turn_ticket",
-        controller:"BaseStudentCtrl",
+        controller:"BaseStuTurnTicketCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1539,7 +1880,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_airport_ticket",{
         templateUrl:"templates/base/city/city_airport_ticket.html",
         url:"/city_airport_ticket",
-        controller:"BaseStudentCtrl",
+        controller:"BaseStuAirportTicketCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");
@@ -1550,7 +1891,7 @@ apptlc.config([ "$stateProvider","$urlRouterProvider",
       .state("base.city_all_package",{
         templateUrl:"templates/base/city/city_all_package.html",
         url:"/city_all_package",
-        controller:"BaseStudentCtrl",
+        controller:"BaseAllPackageCtrl",
         onEnter : ["$state","AuthFactory",function($state,AuthFactory){
             if(!AuthFactory.isLoggedIn()){
               $state.go("login");

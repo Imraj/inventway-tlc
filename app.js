@@ -26,6 +26,7 @@ require('./models/Blog');
 require('./models/group');
 require('./models/Chat');
 require('./models/HTVideo');
+require('./models/Purchase');
 
 
 var routes = require('./routes/index');
