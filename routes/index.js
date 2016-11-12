@@ -723,6 +723,8 @@ router.get("/execute_card",function(req,res,next){
     console.log(" execute_card : "  + req.session.productType + " | " + req.session.createdBy + " | " + req.session.price);
 
     var paymentId = req.session.paymentId;
+    console.log("execute_card paymentId : " + paymentId;);
+
     var payerId = req.param("PayerID");
     console.log("payerId : " + payerId);
 
