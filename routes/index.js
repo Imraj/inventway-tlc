@@ -651,20 +651,22 @@ router.post("/process_credit_card",function(req,res,next){
 
 router.post("/process_paypal",function(req,res,next){
 
-   console.log(JSON.stringify(req.body),null,4);
+   //console.log(JSON.stringify(req.body),null,4);
 
     var createdBy = req.body.createdBy;
     var type = req.body.package;
+    var price = req.body.price;
 
-    console.log("createdBy : " + createdBy + " | " + type);
+    console.log("createdBy : " + createdBy + " | " + type + " | " + price);
     //if(type == "")
     //var amount = "";
 
     req.session.createdBy = createdBy;
     req.session.productType = type;
+    req.session.price = price;
 
     var amount_data = {
-      "total":"100",
+      "total":price,
       "currency":"USD"
     }
 
@@ -684,11 +686,12 @@ router.post("/process_paypal",function(req,res,next){
       }]
     }
 
-    console.log("payment json b4 : " + JSON.stringify(payment,null,4));
+    //console.log("payment json b4 : " + JSON.stringify(payment,null,4));
 
     paypal.payment.create(payment,paypal_config,function(error,payment)
     {
-          console.log("payment json returned : " + JSON.stringify(payment,null,4));
+          //console.log("payment json returned : " + JSON.stringify(payment,null,4));
+
           if(error){
             console.log("error : " + error);
             return next(error);
@@ -717,7 +720,7 @@ router.post("/process_paypal",function(req,res,next){
 
 router.get("/execute_card",function(req,res,next){
 
-    console.log( req.session.productType + " | " + req.session.createdBy);
+    console.log(" execute_card : "  + req.session.productType + " | " + req.session.createdBy + " | " + price);
 
     var paymentId = req.session.paymentId;
     var payerId = req.param("PayerID");
@@ -725,25 +728,16 @@ router.get("/execute_card",function(req,res,next){
 
     var details = {"payer_id":payerId};
     paypal.payment.execute(paymentId,details,paypal_config,function(error,payment){
-      console.log("exec payment : " + JSON.stringify(payment,null,4));
+      //console.log("exec payment : " + JSON.stringify(payment,null,4));
       if(error){
         //return res.send("error : " + error);
         return next(error);
       }
       else{
 
-        //console.log("completed execution paypal *aaa");
-        //res.status('200').json({success:true});
-        var payment_info = new Payment({
-            createdBy : req.session.createdBy,
-            productType : req.session.productType,
-            transactionDetails : payment
-        });
-        payment_info.save(function(err,payment){
-            if(err)return next(err);
-            //return res.status('200').json({success:true});
-            return res.send("exec payment : " + JSON.stringify(payment,null,4));
-        });
+        console.log("completed execution paypal *aaa");
+        res.status('200').json({success:true});
+
       }
 
     });

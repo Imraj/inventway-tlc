@@ -156,7 +156,7 @@ apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","Student
       StudentFactory.processPaypal(pack,$scope.card)
                        .success(function(data,status){
                            console.log(status + " | " + data);
-                           $window.open(data,width="20px",height="20px");
+                           $window.open(data,width="200",height="200");
                        })
                        .error(function(err,code){
                            console.log("err : " + err + " | " + code);
@@ -168,10 +168,10 @@ apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","Student
 apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
               function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
-{
-
+  {
+    var price = "39.99";
     $scope.card = {
-       amount:"39.99",
+       amount:price,
        type:"",
        firstname:"",
        lastname:"",
@@ -183,7 +183,7 @@ apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","Student
     }
 
     $scope.processCreditCardPayment = function(pack){
-        StudentFactory.processCreditCard(pack)
+        StudentFactory.processCreditCard(pack,,$scope.card)
                       .success(function(data,status){
                           flash("Payment successfully proccessed");
                       })
@@ -193,7 +193,7 @@ apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","Student
     }
 
     $scope.payWithPaypal = function(pack){
-      StudentFactory.processPaypal(pack,$scope.card)
+      StudentFactory.processPaypal(pack,price)
                        .success(function(data,status){
                            console.log(status + " | " + data);
                            $window.open(data,width="20px",height="20px");
@@ -208,7 +208,7 @@ apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","Student
 apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
                 function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
-{
+  {
 
     $scope.card = {
        amount:"9.99",
@@ -248,7 +248,7 @@ apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","Stude
 apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
               function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
-{
+ {
 
     $scope.card = {
        amount:"29.99",
@@ -288,7 +288,7 @@ apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","Stude
 apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
         function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
-{
+ {
 
     $scope.card = {
        amount:"0.99",
@@ -328,7 +328,7 @@ apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","Studen
 apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
         function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
-{
+ {
 
     $scope.card = {
        amount:"0",
@@ -368,7 +368,7 @@ apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","Stude
 apptlc.controller("BaseStuTurnTicketCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
                 function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
-{
+ {
 
     $scope.card = {
        amount:"0.99",
@@ -409,8 +409,10 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
                     function($scope,$state,$rootScope,StudentFactory,flash,$window)
  {
 
+    var price = "0.99";
+
     $scope.card = {
-       amount:"0.99",
+       amount:price,
        type:"",
        firstname:"",
        lastname:"",
@@ -434,7 +436,7 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
 
     $scope.payWithPaypal = function(pack){
       console.log("pack is " + pack);
-      StudentFactory.processPaypal(pack)
+      StudentFactory.processPaypal(pack,price)
                        .success(function(data,status){
                            console.log(status + " | " + data);
                            $window.open(data,width="20px",height="20px");
@@ -1421,8 +1423,8 @@ apptlc.factory("StudentFactory",function($http,$rootScope){
       return $http.post("/process_credit_card",{"package":pack,"createdBy":createdBy,"data":data});
   };
 
-  stu.processPaypal = function(pack){
-      return $http.post("/process_paypal",{"package":pack,"createdBy":createdBy});
+  stu.processPaypal = function(pack,price){
+      return $http.post("/process_paypal",{"package":pack,"createdBy":createdBy,"price":price});
   };
 
   return stu;
