@@ -15,6 +15,7 @@ var HTVideo = mongoose.model("HTVideo");
 var Group = mongoose.model("Group");
 var Chat  = mongoose.model("Chat");
 
+var session = require('express-session');
 var passport = require('passport');
 
 
