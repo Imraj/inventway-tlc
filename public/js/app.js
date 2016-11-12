@@ -133,8 +133,7 @@ apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","Student
     $scope.card = {
        amount:price,
        type:"",
-       firstname:"",
-       lastname:"",
+       name:"",
        card_type:"",
        card_number:"",
        card_month:"",
@@ -173,8 +172,7 @@ apptlc.controller("BaseStuDowntownCtrl",["$scope","$state","$rootScope","Student
     $scope.card = {
        amount:price,
        type:"",
-       firstname:"",
-       lastname:"",
+       name:"",
        card_type:"",
        card_number:"",
        card_month:"",
@@ -214,8 +212,7 @@ apptlc.controller("BaseStuRegulationCtrl",["$scope","$state","$rootScope","Stude
     $scope.card = {
        amount:"9.99",
        type:"",
-       firstname:"",
-       lastname:"",
+       name:"",
        card_type:"",
        card_number:"",
        card_month:"",
@@ -255,8 +252,7 @@ apptlc.controller("BaseStuMoneySpotsCtrl",["$scope","$state","$rootScope","Stude
     $scope.card = {
        amount:price,
        type:"",
-       firstname:"",
-       lastname:"",
+       name:"",
        card_type:"",
        card_number:"",
        card_month:"",
@@ -296,8 +292,7 @@ apptlc.controller("BaseStuRestSpotsCtrl",["$scope","$state","$rootScope","Studen
     $scope.card = {
        amount:price,
        type:"",
-       firstname:"",
-       lastname:"",
+       name:"",
        card_type:"",
        card_number:"",
        card_month:"",
@@ -337,8 +332,7 @@ apptlc.controller("BaseStuCameraListCtrl",["$scope","$state","$rootScope","Stude
     $scope.card = {
        amount:price,
        type:"",
-       firstname:"",
-       lastname:"",
+       name:"",
        card_type:"",
        card_number:"",
        card_month:"",
@@ -378,8 +372,7 @@ apptlc.controller("BaseStuTurnTicketCtrl",["$scope","$state","$rootScope","Stude
     $scope.card = {
        amount:price,
        type:"",
-       firstname:"",
-       lastname:"",
+       name:"",
        card_type:"",
        card_number:"",
        card_month:"",
@@ -419,8 +412,7 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
     $scope.card = {
        amount:price,
        type:"",
-       firstname:"",
-       lastname:"",
+       name:"",
        card_type:"",
        card_number:"",
        card_month:"",
@@ -462,8 +454,7 @@ apptlc.controller("BaseAllPackageCtrl",["$scope","$state","$rootScope","StudentF
     $scope.card = {
        amount:price,
        type:"",
-       firstname:"",
-       lastname:"",
+       name:"",
        card_type:"",
        card_number:"",
        card_month:"",
