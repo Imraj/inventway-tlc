@@ -1412,7 +1412,7 @@ apptlc.factory("StudentFactory",function($http,$rootScope){
       return $http.post("/process_credit_card",{"package":pack,"createdBy":createdBy});
   };
 
-  stu.processPayPal = function(pack,data){
+  stu.processPaypal = function(pack,data){
       return $http.post("/process_paypal",{"package":pack,"createdBy":createdBy,"data":data});
   };
 
