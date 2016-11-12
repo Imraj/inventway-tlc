@@ -574,4 +574,141 @@ router.post("/get_group_messages",function(req,res,next){
 
 });
 
+var paypal = require('paypal-rest-sdk');
+var paypal_config = {
+    "host" : "api.sandbox.paypal.com",
+    "port" : "",
+    'client_id': 'ARLCssPTbHSfD--unv8QrrzApA_0bWp8WPbNxDAdV5OG5VyY8fLusOi2-Mt-7AhbWjrVFDOTXafjQuGS', //ARLCssPTbHSfD--unv8QrrzApA_0bWp8WPbNxDAdV5OG5VyY8fLusOi2-Mt-7AhbWjrVFDOTXafjQuGS
+    'client_secret': 'EFrDiTimOBWnbBxh2CcHSaFyBtP8UDvV4E8zYsk6eRlI2AR5ChW3h9FEz0ot-XmvDGPq_KCjfa-XLA8M' //EFrDiTimOBWnbBxh2CcHSaFyBtP8UDvV4E8zYsk6eRlI2AR5ChW3h9FEz0ot-XmvDGPq_KCjfa-XLA8M
+}
+router.post("/process_credit_card",function(req,res,next){
+   console.log("in process_tutor_card starting...");
+   console.log(JSON.stringify(req.body.card,null,4));
+
+   var type = req.body.type;
+   var productId = req.body.productId;
+   var createdBy = req.body.createdBy;
+
+    var card_data = {
+      "number": req.body.card.card_number,
+      "type": "mastercard",
+      "expire_month": Number(req.body.card.card_month),//12
+      "expire_year": Number(req.body.card.card_year),//2018
+      "cvv2": Number(req.body.card.card_cvv),
+      "first_name": req.body.card.firstname,
+      "last_name": req.body.card.lastname
+    };
+
+    var amount_data = {
+      "total":req.body.card.amount,
+      "currency":"USD"
+    }
+
+    var payment_json = {
+      "intent":"sale",
+      "payer":{
+        "payment_method":"credit_card",
+        "funding_instruments":[{
+          "credit_card":card_data
+        }]
+      },
+      "transactions":[{
+        "amount":amount_data,
+        "description":"a test payment"
+      }]
+    }
+
+    console.log("Sent payment is : " + JSON.stringify(payment_json,null,4));
+    paypal.payment.create(payment_json,paypal_config,function(error,payment)
+    {
+          console.log("function payment is : " + payment);
+          if(error)
+          {
+            console.log("I don't know what this is : " + error);
+            return next(error);
+          }
+          else
+          {
+            console.log("payment response : " + JSON.stringify(payment,null,4));
+            var payment_info = new Payment({
+                createdBy : createdBy,
+                productId : productId,
+                productType : productType,
+                transactionDetails : payment
+            });
+            payment_info.save(function(err,payment){
+                if(err)return next(err);
+                return res.status('200').json({success:true});
+            });
+
+
+
+          }
+    });
+
+});
+
+
+router.post("/process_paypal",function(req,res,next){
+
+    var createdBy = req.body.createdBy;
+    var type = req.body.type;
+    var productId = req.body.productId;
+
+    req.session.createdBy = createdBy;
+    req.session.productType = type;
+    req.session.productId = productId;
+
+    var amount_data = {
+      "total":"100",
+      "currency":"USD"
+    }
+
+    var payment = {
+      "intent":"sale",
+      "payer":
+       {
+        "payment_method":"paypal"
+       },
+       "redirect_urls":{
+          "return_url":"http://mhadi85.scalingo.io/execute_card",
+          "cancel_url":"http://mhadi85.scalingo.io/cancel_card"
+       },
+      "transactions":[{
+        "amount":amount_data,
+        "description":"a test payment"
+      }]
+    }
+
+    console.log("payment json b4 : " + JSON.stringify(payment,null,4));
+
+    paypal.payment.create(payment,paypal_config,function(error,payment)
+    {
+          console.log("payment json returned : " + JSON.stringify(payment,null,4));
+          if(error){
+            console.log("error : " + error);
+            return next(error);
+          }
+          else{
+                 console.log("payment.id : " + payment.id);
+                 req.session.paymentId = payment.id;
+                 var redirectUrl;
+
+                 for(var i=0; i < payment.links.length; i++)
+                 {
+                   var link = payment.links[i];
+                   if (link.method === 'REDIRECT')
+                   {
+                     redirectUrl = link.href;
+                     console.log("redirectUrl : " + redirectUrl);
+                   }
+                 }
+                 console.log("redirecting now to : " + redirectUrl);
+                 return res.send(redirectUrl);
+
+          }
+    });
+
+});
+
 module.exports = router;
