@@ -415,7 +415,7 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
 
     $scope.processCreditCardPayment = function(pack){
         console.log("pack is " + pack);
-        StudentFactory.processCreditCard(pack)
+        StudentFactory.processCreditCard(pack,$scope.card)
                       .success(function(data,status){
                           flash("Payment successfully proccessed");
                       })
@@ -426,7 +426,7 @@ apptlc.controller("BaseStuAirportTicketCtrl",["$scope","$state","$rootScope","St
 
     $scope.payWithPaypal = function(pack){
       console.log("pack is " + pack);
-      StudentFactory.processPaypal(pack,$scope.card)
+      StudentFactory.processPaypal(pack)
                        .success(function(data,status){
                            console.log(status + " | " + data);
                            $window.open(data,width="20px",height="20px");
@@ -454,7 +454,7 @@ apptlc.controller("BaseAllPackageCtrl",["$scope","$state","$rootScope","StudentF
     }
 
     $scope.processCreditCardPayment = function(pack){
-        StudentFactory.processCreditCard(pack)
+        StudentFactory.processCreditCard(pack,$scope.card)
                       .success(function(data,status){
                           flash("Payment successfully proccessed");
                       })
@@ -464,7 +464,7 @@ apptlc.controller("BaseAllPackageCtrl",["$scope","$state","$rootScope","StudentF
     }
 
     $scope.payWithPaypal = function(pack){
-      StudentFactory.processPaypal(pack,$scope.card)
+      StudentFactory.processPaypal(pack)
                        .success(function(data,status){
                            console.log(status + " | " + data);
                            $window.open(data,width="20px",height="20px");
@@ -1408,12 +1408,12 @@ apptlc.factory("StudentFactory",function($http,$rootScope){
   var createdBy = $rootScope._currentUserDetails._id;
   var stu = {};
 
-  stu.processCreditCard = function(pack){
-      return $http.post("/process_credit_card",{"package":pack,"createdBy":createdBy});
+  stu.processCreditCard = function(pack,data){
+      return $http.post("/process_credit_card",{"package":pack,"createdBy":createdBy,"data":data});
   };
 
-  stu.processPaypal = function(pack,data){
-      return $http.post("/process_paypal",{"package":pack,"createdBy":createdBy,"data":data});
+  stu.processPaypal = function(pack){
+      return $http.post("/process_paypal",{"package":pack,"createdBy":createdBy});
   };
 
   return stu;
