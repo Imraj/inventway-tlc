@@ -128,7 +128,7 @@ apptlc.controller("BaseCtrl",["$scope","$state","$rootScope",function($scope,$st
 apptlc.controller("BaseCityPackageCtrl",["$scope","$state","$rootScope","StudentFactory","flash","$window",
                 function($scope,$state,$rootScope,StudentFactory,flash,$window)
 
-{
+ {
     var price = "39.99";
     $scope.card = {
        amount:price,
