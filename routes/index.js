@@ -651,9 +651,12 @@ router.post("/process_credit_card",function(req,res,next){
 
 router.post("/process_paypal",function(req,res,next){
 
+   console.log(JSON.stringify(req.body),null,4);
+
     var createdBy = req.body.createdBy;
     var type = req.body.package;
 
+    console.log("createdBy : " + createdBy + " | " + type);
     //if(type == "")
     //var amount = "";
 
