@@ -37,8 +37,8 @@ var users = require('./routes/users');
 
 var app = express();
 //mongodb://<user>:<password>@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627
-//mongoose.connect("mongodb://mhadiab:mhadiab85@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627");
-mongoose.connect("mongodb://mhadiab:mhadiab85@localhost/app-tlc-4627");
+mongoose.connect("mongodb://mhadiab:mhadiab85@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627");
+//mongoose.connect("mongodb://mhadiab:mhadiab85@localhost/app-tlc-4627");
 //var Mongoose = require('mongoose');
 //var db = Mongoose.createConnection('mongodb://USER:PASSWORD@localhost/DATABASE');
 
