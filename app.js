@@ -31,7 +31,7 @@ require('./models/PayHistory');
 
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+//var users = require('./routes/users');
 
 
 
@@ -67,7 +67,7 @@ app.all('/', function (req, res) {
 
 app.use('/', routes);
 
-app.use('/users', users);
+//app.use('/users', users);
 
 
 /*
