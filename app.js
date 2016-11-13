@@ -27,6 +27,7 @@ require('./models/Group');
 require('./models/Chat');
 require('./models/HTVideo');
 require('./models/Purchase');
+require('./models/PayHistory');
 
 
 var routes = require('./routes/index');
