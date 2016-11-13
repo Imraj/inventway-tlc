@@ -719,10 +719,11 @@ apptlc.controller("BaseChatCtrl",["$scope","$state","$stateParams","$rootScope",
 
 }]);
 
-apptlc.controller("BasePaymentCtrl",["$scope","$state","$rootScope",function($scope,$state,$rootScope){
+apptlc.controller("BasePaymentCtrl",["$scope","$state","$rootScope","QuaFactory",function($scope,$state,$rootScope,QuaFactory){
 
   $scope.card = {
-    name:"",
+    firstname:"",
+    lastname:"",
     number:"",
     exp_month:"",
     exp_year:"",
@@ -732,6 +733,17 @@ apptlc.controller("BasePaymentCtrl",["$scope","$state","$rootScope",function($sc
   $scope.updateCard = function(){
 
   }
+
+  QuaFactory.getPaymentHistory()
+            .success(function(data,status){
+                if(data.success){
+                  $scope.payhistory = data.payhistory;
+                }
+            })
+            .error(function(err,code){
+              
+            });
+
 
 }]);
 
@@ -1080,21 +1092,27 @@ apptlc.controller("BaseAdsCtrl",["$scope","$state","$rootScope","filepickerServi
         car_year:""
     };
 
+    var price = "4.99";
+
     $scope.card = {
-        name:"",
+        amount:price,
+        firstname:"",
+        lastname:"",
+        ctype:"",
         number:"",
         cvv:"",
         exp_month:"",
         exp_year:"",
     };
 
-  $scope.payWithCreditCard = false;
-  $scope.payWithCreditCardClick = function(){
-      $scope.payWithCreditCard = !$scope.payWithCreditCard;
-  }
-
   $scope.payWithPaypal =function(){
-
+    AdFactory.payWithPaypal("advert",price,$scope.ads)
+             .success(function(data,status){
+                console.log(data + " | " + status);
+             })
+             .error(function(err,code){
+                console.log(err + " | " + code);
+             });
   }
 
   $scope.driver_ads_only = ["Need a cab","You have a cab","Need a night-shift driver","You are a night-shift driver",
@@ -1317,6 +1335,10 @@ apptlc.factory("AdFactory",function($http,$rootScope){
     return $http.post("/reply_message",{"msg":msg,"createdBy":createdBy,"msgParentId":msgParentId});
   }
 
+  ads.payWithPaypal = function(type,price,data){
+     return $http.post("/process_paypal",{"createdBy":createdBy,"package":type,"price":price,"data":data})
+  }
+
   return ads;
 
 });
@@ -1389,6 +1411,10 @@ apptlc.factory("QuaFactory",function($http,$rootScope){
 
   qua.uploadHTVideo = function(video){
     return $http.post("/upload_htvideo",{"video":video,"createdBy":createdBy});
+  }
+
+  qua.getPaymentHistory = function(){
+    return $http.post("/payment_history",{"createdBy":createdBy});
   }
 
   return qua;

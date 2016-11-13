@@ -15,6 +15,7 @@ var HTVideo = mongoose.model("HTVideo");
 var Group = mongoose.model("Group");
 var Chat  = mongoose.model("Chat");
 var Purchase = mongoose.model("Purchase");
+var PayHistory = mongoose.model("PayHistory");
 
 var session = require('express-session');
 var passport = require('passport');
@@ -463,9 +464,9 @@ router.post("/get_credit_card",function(req,res,next){
 
 });
 
-router.post("/get_payment_history",function(req,res,next){
+router.post("/payment_history",function(req,res,next){
 
-  var userId = req.body.user;
+  var userId = req.body.createdBy;
 
   PayHistory:find({createdBy:userId},function(err,pay_history){
 
@@ -584,11 +585,11 @@ var paypal_config = {
     'client_secret': 'EFrDiTimOBWnbBxh2CcHSaFyBtP8UDvV4E8zYsk6eRlI2AR5ChW3h9FEz0ot-XmvDGPq_KCjfa-XLA8M' //EFrDiTimOBWnbBxh2CcHSaFyBtP8UDvV4E8zYsk6eRlI2AR5ChW3h9FEz0ot-XmvDGPq_KCjfa-XLA8M
 }
 router.post("/process_credit_card",function(req,res,next){
-   console.log("in process_tutor_card starting...");
+
    console.log(JSON.stringify(req.body.card,null,4));
 
    var product = req.body.package;
-
+   var price = req.body.card.amount;
    var createdBy = req.body.createdBy;
 
     var card_data = {
@@ -637,11 +638,21 @@ router.post("/process_credit_card",function(req,res,next){
                 product : product,
                 transactionDetails : payment
             });
+
+            var payhistory = new PayHistory({
+                transactionType:product,
+                createdBy : createdBy,
+                transactionAmount : price
+            });
+
             purchase.save(function(err,payment){
                 if(err)return next(err);
                 return res.status('200').json({success:true});
             });
 
+            payhistory.save(function(err,payh){
+                if(err)return next(err);
+            });
 
 
           }
@@ -745,10 +756,20 @@ router.get("/execute_card",function(req,res,next){
            transactionDetails : payment
        });
 
+       var payhistory = new PayHistory({
+           transactionType:req.session.productType,
+           createdBy : req.session.createdBy,
+           transactionAmount : req.session.price
+       });
+
        purchase.save(function(err,payment){
            if(err)return next(err);
            //return res.status('200').json({success:true});
            return res.send("exec payment : " + JSON.stringify(payment,null,4));
+       });
+
+       payhistory.save(function(err,payh){
+            if(err)return next(err);
        });
 
       res.status('200').json({success:true});
