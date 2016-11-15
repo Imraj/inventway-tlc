@@ -37,10 +37,9 @@ var routes = require('./routes/index');
 
 var app = express();
 //mongodb://<user>:<password>@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627
-//mongoose.connect("mongodb://mhadiab:mhadiab85@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627");
-//mongoose.connect("mongodb://mhadiab:mhadiab85@localhost/app-tlc-4627");
-//var Mongoose = require('mongoose');
-//var db = Mongoose.createConnection('mongodb://USER:PASSWORD@localhost/DATABASE');
+mongoose.connect("mongodb://nyc2017:Newyork@190@ec2-54-153-24-197.us-west-1.compute.amazonaws.com:27017/dummyDB");
+
+
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
