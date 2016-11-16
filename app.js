@@ -36,8 +36,10 @@ var routes = require('./routes/index');
 
 
 var app = express();
+mongoose.connect("mongodb://nyc2017:Newyork190@ec2-54-183-149-25.us-west-1.compute.amazonaws.com:27017/dummyDB");
+
 //mongodb://<user>:<password>@app-tlc-4627.mongo.dbs.appsdeck.eu:30039/app-tlc-4627
-mongoose.connect("mongodb://nyc2017:Newyork@190@ec2-54-153-24-197.us-west-1.compute.amazonaws.com:27017/dummyDB");
+//*mongoose.connect("mongodb://nyc2017:Newyork@190@ec2-54-153-24-197.us-west-1.compute.amazonaws.com:27017/dummyDB");
 
 
 
