@@ -933,11 +933,13 @@ apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","
 
                if(data.success)
                {
+                 $scope.show_ok_flash = true;
                  flash('Article successfully shared!');
                }
              })
              .error(function(err,code){
                 console.log(err + " | " + code);
+                $scope.show_err_flash = true;
                 flash('An error occured! Please try again');
              });
   }
@@ -946,6 +948,9 @@ apptlc.controller("BaseBlogCtrl",["$scope","$state","$rootScope","BlogFactory","
 }]);
 
 apptlc.controller("BaseRankCtrl",["$scope","$state","$rootScope","QuaFactory","flash",function($scope,$state,$rootScope,QuaFactory,flash){
+
+  $scope.show_err_flash = false;
+  $scope.show_ok_flash = false;
 
   $scope.ranks = ["In cab rank","Anonymous/Nickname badge","Plate ranks(front and back)","Front Rank Plate Holder",
                   "Back Rank Plate Holder","Incab holder & Limiter","All of the above"
@@ -956,9 +961,11 @@ apptlc.controller("BaseRankCtrl",["$scope","$state","$rootScope","QuaFactory","f
     $scope.payAndOrderRank = function(){
         QuaFactory.payAndOrderRank($scope.rank)
                  .success(function(data,status){
+                    $scope.show_ok_flash = true;
                     flash("Transaction successfully completed ");
                  })
                  .error(function(err,code){
+                    $scope.show_err_flash = true;
                     flash("Error occured ! Please try again");
                  });
     }
