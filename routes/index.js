@@ -122,8 +122,8 @@ router.post("/submit_ad",function(req,res,next){
 
   var advert = new Advert({
       type:req.body.ad.type,
-      car_model:req.body.ad.model,
-      car_year:req.body.ad.year,
+      car_model:req.body.ad.car_model,
+      car_year:req.body.ad.car_year,
       description:req.body.ad.description,
       image:req.body.ad.image,
       createdBy:req.body.createdBy,
