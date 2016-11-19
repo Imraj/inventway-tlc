@@ -967,6 +967,9 @@ apptlc.controller("BaseRankCtrl",["$scope","$state","$rootScope","QuaFactory","f
 
 apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope","QuaFactory","flash",function($scope,$state,$rootScope,QuaFactory,flash){
 
+  $scope.show_err_flash = false;
+  $scope.show_ok_flash = false;
+
   $scope.vehicles = ["Yellow Cab","Gypsy & Radio","App Uber & Others","Green Cab","SUV",
                            "Dial7 & Others","Black Car","Limousine","Commuter Van"];
 
@@ -978,11 +981,15 @@ apptlc.controller("BaseQuaCtrl",["$scope","$state","$rootScope","QuaFactory","fl
 
   $scope.updateQualification = function()
   {
+      console.log("Hello world 01");
       QuaFactory.updateQualification($scope.qualif)
                 .success(function(data,status){
+                   console.log("Hello world 02  : "  + JSON.stringify($scope.qualif,null,4) );
+                   $scope.show_ok_flash = true;
                    flash("Qualification updated successfully ! ");
                 })
                 .error(function(err,code){
+                  $scope.show_err_flash = true;
                   flash("Error occured while updating qualifications ! ");
                 });
   }
@@ -1386,8 +1393,10 @@ apptlc.factory("QuaFactory",function($http,$rootScope){
 
   var qua = {};
   var createdBy = $rootScope._currentUserDetails._id;
-
+ console.log("Hello world 2");
   qua.updateQualification = function(qualif){
+
+    console.log("createdby is : " + createdBy);
     return $http.post("/update_qualification",{"qua":qualif,"createdBy":createdBy});
   };
 
