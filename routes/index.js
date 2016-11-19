@@ -311,21 +311,15 @@ router.post("/update_qualification",function(req,res,next){
   var driver_community = req.body.qua.qualif;
   var createdBy = req.body.createdBy;
 
-  console.log(JSON.stringify(req.body),null,4);
+  console.log(JSON.stringify(req.body));
 
-  console.log(JSON.stringify(req.body.qua),null,4);
+  console.log(JSON.stringify(req.body.qua));
 
   var user = User.findById(createdBy);
-
-  user.driver_type = driver_type;
-  user.driver_community = driver_community;
-
-  user.exec(function(err,us){
-
+  User.findOneAndUpdate({"_id":createdBy},{"driver_type":driver_type,"driver_community":driver_community},function(err,user){
     if(err)return next(err);
 
     res.status('200').json({success:true});
-
   });
 
 });
