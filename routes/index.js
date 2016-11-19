@@ -316,7 +316,7 @@ router.post("/update_qualification",function(req,res,next){
   console.log(JSON.stringify(req.body.qua));
 
   var user = User.findById(createdBy);
-  User.findOneAndUpdate({"_id":createdBy},{"driver_type":driver_type,"driver_community":driver_community},function(err,user){
+  User.findByIdAndUpdate(createdBy,{"driver_type":driver_type,"driver_community":driver_community},function(err,user){
     if(err)return next(err);
 
     res.status('200').json({success:true});
